@@ -1,6 +1,145 @@
 /*@charset "ISO-8859-1";*/
 
-* {
-	margin:0px;
-	padding:0px;
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+/* .color1 { #affbff };
+.color2 { #d2fdfe };
+.color3 { #fefac2 };
+.color4 { #febf97 };
+.color5 { #fe6960 }; */
+
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    min-height: 150vh;
+}
+
+
+/* Estilos de portada */
+
+.container-head {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fe6960;
+}
+
+.portada {
+    width: 99%;
+    height: 55vh;
+}
+
+.portada img {
+    width: 100%;
+    height: 100%;
+}
+
+.container-head h1 {
+    font-size: 3em;
+    margin: 1%;
+    color: #fefac2;
+}
+
+.container-head .cursiva {
+    font-style: italic;
+    color: #febf97;
+}
+
+/* Estilos para el menu ===================================================================== */
+
+.container-menu {
+    display: flex;
+    justify-content: center;
+    height: 8vh;
+    background-color: #fe6960;
+}
+
+.container-menu nav {
+    min-width: 100%;
+}
+
+.container-menu .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.container-menu .menu li {
+    display:inline;
+    padding: 1%;
+}
+
+.container-menu .menu li a {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #d2fdfe;
+}
+
+.container-menu .menu li a:hover{
+    cursor: pointer;
+    color: #febf97;
+}
+
+
+
+
+
+/* estilos de index.html Sectons================================================================================ */
+.container {
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4%;
+    background-color: #d2fdfe;
+}
+
+.container h3 {
+    font-size: 1.9em;
+    padding-bottom: 2%;
+}
+
+.container p {
+    text-align: center;
+    line-height: 30px;
+    font-size: 1.1em;
+}
+
+.container .valores {
+    text-align: justify;
+}
+
+.valorPets {
+    background-color:#affbff ;
+}
+
+
+
+
+
+/* Estilos de aside ========================================================================================= */
+
+aside {
+    
+    text-align: center;
+    padding: 0.5%;
+    background-color: #fe6960;
+    color: white;
+}
+
+footer {
+    color: white;
+    
+    padding: 2%;
+    text-align: center;
+    font-weight: 500;
+    background-color: #fe6960;
 }
