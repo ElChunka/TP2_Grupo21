@@ -174,7 +174,14 @@ footer {
 .content-consejos1 li{
 	padding-bottom: 5px;
 	padding-top: 5px;
+	color: #4ddbff;
 	
+}
+
+.content-consejos1 p{
+	padding-bottom: 5px;
+	padding-top: 5px;
+	color: #80ccff;
 }
 
 .content-consejos2{
@@ -201,9 +208,16 @@ footer {
 	
 }
 
+.content-consejos2 p{
+	padding-bottom: 5px;
+	padding-left: 20px;
+	color: #bfff80;
+}
+
 .content-consejos2 li{
 	padding-bottom: 5px;
 	padding-left: 20px;
+	color: #e6e600;
 }
 
 
@@ -227,18 +241,31 @@ footer {
 	font-size: 40px;
 }
 
+.content-text-ayuda-h2{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 400px;
+}
+
 .texto-ayuda h2{
 	text-align: center;
-	padding: 20px;
 	font-family: fantasy;
 	font-size: 50px;
+	border: dashed;
+	border-width: 5px;
+	border-color: purple;
+	border-radius: 5px;
+	height: 150px;
+	width: 500px;
+	background-color: #80ffff;
 	
 }
 
 .texto-ayuda p{
 	padding: 10px;
-	font-style: inherit;
+	font-style: oblique;
 	font-family: serif;
-	
-	
+	font-size: large;
+	text-align: center;
+		
 }
