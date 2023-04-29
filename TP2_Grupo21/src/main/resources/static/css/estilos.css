@@ -269,3 +269,42 @@ footer {
 	text-align: center;
 		
 }
+
+/*----------  Estilos Productos ----------*/
+
+.TituloProductos{
+	font-size : 40px;
+	text-align: center;
+	margin-top: 15px;
+	font-style: italic;
+	font-family: sans-serif;
+}
+
+#imagenes {
+	display: block;
+	float: none;
+	margin: 100px;
+}
+
+#imagenes ul{
+	display: flex;
+	list-style: none;
+}
+
+#imagenes ul li{
+	margin-right: 100px;
+	background-color: #fe6960;
+	padding: 1%;
+}
+
+#imagenes figcaption{
+	font-size: 18px;
+	font-family: fantasy;
+	text-align: center;
+	margin-left: 10px;
+}
+
+.img{
+	width: 250px;
+	height: 250px;
+}
