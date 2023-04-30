@@ -393,5 +393,66 @@ footer {
     font-weight: 600;
 }
 
+/* Estilos de Contacto ========================================================================================= */
 
+.contacto-fondo{
+	background: #22EEE2;
+}
+.contacto-titul{
+    margin: 1% 100% 0% 0%;
+    font-family: cursive;
+    font-size: xxx-large;
+}
+.contacto-parrafo-redes{
+    margin: 0% 1.2% 0% 0.2%;
+    padding: 3%;
+  	background: #004080;
+	float: left;
+	font-size: xx-large;
+	border-style: solid;
+}
+.contacto-parrafo{
+	font-family: cursive;
+}
+.contacto-redes{
+	padding: 3%;
+	margin: 0% 0% 0% 20%;
+}
+.contacto-link{
+	font-family: cursive;
+	color: #EFF516;
+}
+.contacto-formulario{
+	margin: 0% 0% 0% 0%;
+    padding: 0% 1% 1.9% 2%;
+    background: #004080;
+	float: left;
+	display:inline;
+	font-size: xx-large;
+	border-style: double;
+}
 
+.contacto-legend{
+	font-family: cursive;
+	font-size: xxx-large;
+	color: #EFF516;
+}
+textarea {
+	resize: none;
+}
+.contacto-lbl{
+	margin-left: 20%;
+
+}
+.contacto-boton{
+	margin: 0% 0% 10% 0%;
+	display: flex;
+	justify-content: center;
+}
+.contacto-boton2{
+	font-size: 70%;
+	background: #EFF516;
+}
+.contacto-footer{
+	margin: 45% 0% 0% 0%;
+}
