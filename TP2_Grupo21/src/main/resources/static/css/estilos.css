@@ -404,7 +404,7 @@ footer {
 	background: #22EEE2;
 }
 .contacto-titul{
-    margin: 1% 100% 0% 0%;
+    margin: 1% 90% 5% 10%;
     font-family: cursive;
     font-size: xxx-large;
 }
@@ -464,4 +464,3 @@ textarea {
 .contacto-footer{
 	margin: 47% 0% 0% 0%;
 }
-
