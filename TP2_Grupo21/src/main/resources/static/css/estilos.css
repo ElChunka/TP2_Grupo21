@@ -444,6 +444,9 @@ textarea {
 	margin-left: 20%;
 
 }
+.contacto-letras{
+	font-size: x-large;
+}
 .contacto-boton{
 	margin: 0% 0% 10% 0%;
 	display: flex;
