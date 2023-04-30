@@ -293,6 +293,7 @@ footer {
 #imagenes ul{
 	display: flex;
 	list-style: none;
+	overflow: scroll;
 }
 
 #imagenes ul li{
