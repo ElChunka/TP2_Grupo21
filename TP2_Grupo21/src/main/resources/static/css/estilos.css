@@ -43,6 +43,10 @@ body {
 .container-head h1 {
     font-size: 3em;
     margin: 1%;
+}
+.container-head h1 a{
+	text-decoration: none;
+    display: inline-block;
     color: #fefac2;
 }
 
