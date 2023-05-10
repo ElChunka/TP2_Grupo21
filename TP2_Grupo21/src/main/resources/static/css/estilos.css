@@ -96,7 +96,7 @@ body {
 
 
 /* estilos de index.html Sectons================================================================================ */
-.container {
+.contenedor {
     margin: 1%;
     display: flex;
     flex-direction: column;
@@ -106,18 +106,18 @@ body {
     background-color: #d2fdfe;
 }
 
-.container h3 {
+.contenedor h3 {
     font-size: 1.9em;
     padding-bottom: 2%;
 }
 
-.container p {
+.contenedor p {
     text-align: center;
     line-height: 30px;
     font-size: 1.1em;
 }
 
-.container .valores {
+.contenedor .valores {
     text-align: justify;
 }
 
@@ -464,3 +464,154 @@ textarea {
 .contacto-footer{
 	margin: 47% 0% 0% 0%;
 }
+
+
+
+
+/* ----------------------Actualizacion de los Estilos de productos------------------------------ */
+
+.container-productos {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-producto {
+    margin-bottom: 2%;
+    
+    font-size: 1.8em;
+}
+
+.mostrar-productos {
+    background-color: #affbff;
+    display: flex;
+    padding: 2%;
+    justify-content: space-around;
+    flex-flow: row wrap;
+}
+
+
+
+.product-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    margin: 2%;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .product-card h2 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+  
+  .product-card .description {
+    margin-top: 10px;
+  }
+  
+  .product-card .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .product-card .buy-button {
+    background-color: #4CAF50;
+    border-radius: 10px;
+    width: 50%;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin-top: 10px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.product-card .buy-button:hover {
+    color: #affbff;
+    border-radius: 20px;
+    transition-duration: 0.5s;
+    
+}
+
+.product-card:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.sale span {
+    font-size: 0.8em;
+    font-weight: 100;
+}
+
+
+
+
+
+/* ----------------------------Estilo para la plantilla de nuevo_producto------------------------------------ */
+
+.container {
+    max-width: 400px;
+    margin: 5% auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 {
+    margin-bottom: 4%;
+}
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-group button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .form-group button:hover{
+    color: #000;
+  }
