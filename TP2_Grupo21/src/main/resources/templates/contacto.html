@@ -1,22 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" th:href="@{css/estilos.css}" />
     <title>Contactanos</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/estilos.css" />
-    <link rel="icon" rel="image/png" href="../static/img/R.png">
 </head>
 <body class="contacto-fondo">
-				<main>
-			<header>
-				<div class="container-head">
-					<h1><a href="index.html">SALUD <span class="cursiva">PETS</span></a></h1>
-						<div class="portada">
-							<img src="..\static\img\portada-act.jpg" alt="Compras seguras" title="Portada de SaludPets">
-						</div>
-				</div>
-					</header>
-				</main>
+		<main>
+			<header th:replace="/layouts/header :: header"></header>
+		</main>
 				<div class="container-menu">
 					<nav>
 						<ul class="menu">
@@ -30,8 +22,6 @@
 						</ul>
 					</nav>
 				</div>
- 
-    
     <div class="contacto-parrafo-redes">
     <section>
     <h1 class="contacto-titul"><b>Cont&aacute;ctenos</b></h1>
@@ -81,11 +71,6 @@
 	    </fieldset>
 	</form>
 	</div>
-
-    <footer class="contacto-footer">
-    	<p> 
-		 Copyright 2023 &#169 - Salud Pets - Diseñado por Grupo 21 SRL - Jujuy - Republica Argentina
-		</p>
-    </footer>
+    <footer th:replace="/layouts/footer :: footer"></footer>
 </body>
 </html>

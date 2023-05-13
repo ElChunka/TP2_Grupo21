@@ -1,45 +1,33 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="../static/css/estilos.css">
-	<link rel="icon" rel="image/png" href="../static/img/R.png">
+	<link rel="stylesheet" type="text/css" th:href="@{css/estilos.css}" />
 	<title>Productos</title>
 </head>
 <body>
 	<main>
-		<header>
-			<div class="container-head">
-				<h1><a href="index.html">SALUD <span class="cursiva">PETS</span></a></h1>
-				<div class="portada">
-					<img src="..\static\img\portada-act.jpg" alt="Productos con fondo amarillo" title="Portada de productos">
-				</div>
+		<header th:replace="/layouts/header :: header"></header>
+	</main>
+			<div class="container-menu">
+				<nav>
+					<ul class="menu">
+						<li><a href="index.html">Inicio</a></li>
+						<li><a href="productos.html">Productos</a></li>
+						<li><a href="consejos.html">Consejos de salud</a></li>
+						<li><a href="servicios.html">Servicio de paseos</a></li>
+						<li><a href="sucursales.html">Sucursales</a></li>
+						<li><a href="contacto.html">Contáctanos </a></li>
+						<li><a href="nuevo_producto.html">Add Producto</a></li>
+					</ul>
+				</nav>
 			</div>
-			</header>
-					</main>
-						<div class="container-menu">
-							<nav>
-								<ul class="menu">
-									<li><a href="index.html">Inicio</a></li>
-									<li><a href="productos.html">Productos</a></li>
-									<li><a href="consejos.html">Consejos de salud</a></li>
-									<li><a href="servicios.html">Servicio de paseos</a></li>
-									<li><a href="sucursales.html">Sucursales</a></li>
-									<li><a href="contacto.html">Contáctanos </a></li>
-									<li><a href="nuevo_producto.html">Add Producto</a></li>
-								</ul>
-							</nav>
-			</div>
-				
 	<div class="container-productos">
         <div class="titulo-producto">
             <h4>¡Te ofrecemos los mejores productos de calidad!</h4>
         </div>
-
-        <div class="mostrar-productos">
-            
-            
-            <div class="product-card">
+		<div class="mostrar-productos">
+			<div class="product-card">
                 <img src="..\static\img\cucha.jpg" alt="Imagen producto">
                 <h2>Correa para Perros</h2>
                 <p class="description">Categoria: Seguridad</p>
@@ -48,17 +36,8 @@
                 <p class="price sale"><span>15%</span> $78.00</p>
                 <button class="buy-button">Buy Now</button>
             </div> 
-            
-
-
-
         </div>
     </div>
-	
-	<footer>
-		    <p> 
-		    Copyright 2023 &#169 - Salud Pets - Diseñado por Grupo 21 SRL - Jujuy - Republica Argentina
-		    </p>
-	</footer>
+	<footer th:replace="/layouts/footer :: footer"></footer>
 </body>
 </html>
