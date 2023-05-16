@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" th:href="@{css/estilos.css}" />
+		<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
 		<title>SaludPets</title>
 	</head>
 	<body>
@@ -14,7 +14,7 @@
 						<ul class="menu">
 							<li><a href="index.html">Inicio</a></li>
 							<li><a href="productos.html">Productos</a></li>
-							<li><a href="consejos.html">Consejos de salud</a></li>
+							<li><a th:href="@{consejo/listado}">Consejos de salud</a></li>
 							<li><a href="servicios.html">Servicio de paseos</a></li>
 							<li><a href="sucursales.html">Sucursales</a></li>
 							<li><a href="contacto.html">Contáctanos </a></li>
