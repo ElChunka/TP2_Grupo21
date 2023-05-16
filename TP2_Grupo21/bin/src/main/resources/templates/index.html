@@ -1,43 +1,60 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
-	<meta charset="UTF-8">
-		<title>Salud Y Mascotas</title>
-			</head>
-				<body>
-				<main>
-					<header>
-					<h1>SALUD PETS</h1>
-					<img src="C:\Users\Lucas\git\TP2_Grupo21\TP2_Grupo21\src\main\resources\static\img\Catandog.jpg" alt="Cat And Dog" title="Gatito Y Perrito">
-					</header>
-				</main>
-				<nav>
-					<ul>
-						<li><a href="index.html">Inicio</a></li>
-						<li><a href="productos.html">Productos</a></li>
-						<li><a href="consejos.html">Consejos de salud</a></li>
-						<li><a href="PaseosyLocales.html">Servicio de paseos</a></li>
-						<li><a href="sucursales.html">Sucursales</a></li>
-						<li><a href="contacto.html">Contáctanos </a></li>
-					</ul>
-				</nav>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" th:href="@{css/estilos.css}" />
+		<title>SaludPets</title>
+	</head>
+	<body>
+	<main>
+		<header th:replace="/layouts/header :: header"></header>
+	</main>
+				<div class="container-menu">
+					<nav>
+						<ul class="menu">
+							<li><a href="index.html">Inicio</a></li>
+							<li><a href="productos.html">Productos</a></li>
+							<li><a href="consejos.html">Consejos de salud</a></li>
+							<li><a href="servicios.html">Servicio de paseos</a></li>
+							<li><a href="sucursales.html">Sucursales</a></li>
+							<li><a href="contacto.html">Contáctanos </a></li>
+							<li><a href="nuevo_producto.html">Add Producto</a></li>
+						</ul>
+					</nav>
+				</div>
 	<section>
 		<article>
-			<h3>Nuestra Misión</h3>
-			<p>Contribuimos a crear un mundo mejor.<br>
-				Ayudamos a amar y proteger a sus mascotas.<br>
-				Creamos equipos de trabajo solidarios, proactivos y capacitados.<br>
-				Invertimos e Innovamos para poder seguir mejorando y poder acercarnos cada día más.<br>
-				Priorizamos el aporte y la participación solidaria para crear una comunidad inclusiva y el cuidado del medio ambiente.</p>
+			<div class="contenedor">
+				<h3>Somos Salud <i>Pets</i></h3>
+				<p><b>Contribuimos a crear un mundo mejor.</b><br>
+					Ayudamos a amar y proteger a sus mascotas.<br>
+					<b>Creamos equipos de trabajo solidarios, proactivos y capacitados.</b><br>
+					Invertimos e Innovamos para poder seguir mejorando y poder acercarnos cada día más.<br>
+					<b>Priorizamos el aporte y la participación solidaria para crear una comunidad inclusiva y el cuidado del medio ambiente.</b>
+				</p>
+			</div>
 		</article>
 		<article>
-			<h3>Nuestros Valores</h3>
-			<p>
-			En Tienda de Mascotas creemos que para cumplir con nuestra misión, 
-			necesitamos tener un estilo propio de realizar negocios y eso se refleja en nuestros 
-			Valores Corporativos. Con servicio, cumplimiento, agilidad, calidez, compromiso e innovación.
-			</p>
+			<div class="contenedor valorPets">
+				<h3>Nuestros Valores</h3>
+				<p class="valores">
+					En Tienda de Mascotas creemos que para cumplir con nuestra misión, 
+					necesitamos tener un estilo propio de realizar negocios y eso se refleja en nuestros 
+					Valores Corporativos. Con servicio, cumplimiento, agilidad, calidez, compromiso e innovación.
+					Es la realización de nuestro trabajo acorde con las características de calidad, cantidad y oportunidad negociadas y anunciadas.
+					 En nuestra actividad, este valor se refleja de manera especial en el servicio al cliente.
+					 Refleja el amor, la vocación y el respeto a los demás. Es el afecto, la cordialidad y la amabilidad en el trato con nuestros compañeros, clientes, socios comerciales y demás interlocutores. Es el sello de la atención que nos gusta recibir y brindar al otro.
+				</p>
+			</div>
 		</article>
 	</section>
-</body>
+	
+	    <aside>
+		    <p> 
+		        Salud Pets ofrece los mejores articulos en calidad, proporcina mayor comodidad y bienestar para nustros amigos caninos. 
+		    </p>
+	    </aside>
+	    <footer th:replace="/layouts/footer :: footer"></footer>
+    </body>		
 </html>
+

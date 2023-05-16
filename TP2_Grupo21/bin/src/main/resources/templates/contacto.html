@@ -1,55 +1,76 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" th:href="@{css/estilos.css}" />
     <title>Contactanos</title>
 </head>
-<body>
-    <header><h1><b>Cont&aacute;ctenos</b></h1></header>
+<body class="contacto-fondo">
+		<main>
+			<header th:replace="/layouts/header :: header"></header>
+		</main>
+				<div class="container-menu">
+					<nav>
+						<ul class="menu">
+							<li><a href="index.html">Inicio</a></li>
+							<li><a href="productos.html">Productos</a></li>
+							<li><a href="consejos.html">Consejos de salud</a></li>
+							<li><a href="servicios.html">Servicio de paseos</a></li>
+							<li><a href="sucursales.html">Sucursales</a></li>
+							<li><a href="contacto.html">Contáctanos </a></li>
+							<li><a href="nuevo_producto.html">Add Producto</a></li>
+						</ul>
+					</nav>
+				</div>
+    <div class="contacto-parrafo-redes">
     <section>
+    <h1 class="contacto-titul"><b>Cont&aacute;ctenos</b></h1>
 	    <article>
-	    	<p>
+	    	<p class="contacto-parrafo">
 		    	3915 Av. General Belgrano, 388-4999999<br>
 				Lunes a viernes: 9:00 a.m. a 8:00 p.m.<br>
 				S&aacute;bado a domingo: 9:00 a.m. a 12:30 p.m.<br>
-				<a href="">contactos@mail.com.ar</a>
 			</p>
 	    </article>
     </section>
-    <nav>
+    <nav class="contacto-redes">
     	<ul>
-    	<li><a href="">Facebook</a></li>
-    	<li><a href="">Instagram</a></li>
-    	<li><a href="">Twitter</a></li>
+    	<li><a href="" class="contacto-link">contactos@mail.com.ar</a></li>
+    	<li><a href="" class="contacto-link">Facebook</a></li>
+    	<li><a href="" class="contacto-link">Instagram</a></li>
+    	<li><a href="" class="contacto-link">Twitter</a></li>
     	</ul>
     </nav>
+    </div>
+   
+   <div class="contacto-formulario">
    <form>
 	    <fieldset>
-	        <legend>Formulario</legend>
-	            <div>
+	        <legend class="contacto-legend">Formulario</legend>
+	            <div class="contacto-lbl">
 	                <label>Nombre: </label>
-	                <input type="text" id="nombre" value="" placeholder="Ingrese nombre"/>
+	                <input class="contacto-letras" type="text" id="nombre" value="" placeholder="Ingrese nombre"/>
 	            </div>
 	            <br>
-	            <div>
+	            <div class="contacto-lbl">
 	                <label>Email: </label>
-	                <input type="email" id="mail" value="" placeholder="Ingrese un email v&aacute;lido"/>
+	                <input class="contacto-letras" type="email" id="mail" value="" placeholder="Ingrese un email v&aacute;lido"/>
 	            </div>
 	            <br>
-	            <div>
+	            <div class="contacto-lbl">
 	                <label>Ciudad: </label>
-	                <input type="text" id="city" value="" placeholder="Ingrese su ciudad"/>
+	                <input class="contacto-letras" type="text" id="city" value="" placeholder="Ingrese su ciudad"/>
 	            </div>
 	            <br>
-	            <div>
+	            <div class="contacto-lbl">
 	                <label>Mensaje: </label>
-	                <textarea id="msm"></textarea>
+	                <textarea class="contacto-letras" id="msm" rows= "2" cols="20"></textarea>
 	            </div>
 	            <br/>
-	            <div><input type="submit" value="Enviar" id="enviar"/></div>
+	            <div class="contacto-boton"><input class="contacto-boton2" type="submit" value="Enviar" id="enviar"/></div>
 	    </fieldset>
 	</form>
-    <footer>
-    </footer>
+	</div>
+    <footer th:replace="/layouts/footer :: footer"></footer>
 </body>
 </html>

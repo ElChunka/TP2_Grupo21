@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" th:href="@{css/estilos.css}" />
+		<title>Servicios</title>
+	</head>
+<body>
+	<main>
+		<header>
+			<header th:replace="/layouts/header :: header"></header>
+		</header>
+				</main>
+				<div class="container-menu">
+					<nav>
+						<ul class="menu">
+							<li><a href="index.html">Inicio</a></li>
+							<li><a href="productos.html">Productos</a></li>
+							<li><a href="consejos.html">Consejos de salud</a></li>
+							<li><a href="servicios.html">Servicio de paseos</a></li>
+							<li><a href="sucursales.html">Sucursales</a></li>
+							<li><a href="contacto.html">Contáctanos </a></li>
+							<li><a href="nuevo_producto.html">Add Producto</a></li>
+						</ul>
+					</nav>
+				</div>
+
+	<div class="container-table">
+		<table class="tabla-paseo">
+        	<tr>
+            	<td colspan="7" class="titulo">Servicio de Paseo - Horarios:</td>
+        	</tr>
+
+        	<tr>
+            	<td class="columna-table"><b>Dia:</b></td>
+            	<td class="dia"><b>Lunes</b></td>
+            	<td class="dia"><b>Martes</b></td>
+            	<td class="dia"><b>Miércoles</b></td>
+            	<td class="dia"><b>Jueves</b></td>
+            	<td class="dia"><b>Viernes</b></td>
+            	<td class="dia"><b>Sábado</b></td>
+        	</tr>
+
+        	<tr>
+            	<td class="columna-table"><b>Hora:</b></td>
+            	<td class="horario">9 a 12 - 16 a 18</td>
+            	<td class="horario">9 a 12 - 16 a 18</td>
+            	<td class="horario">9 a 12 - 16 a 18</td>
+            	<td class="horario">9 a 12 - 16 a 18</td>
+            	<td class="horario">9 a 12 - 16 a 18</td>
+            	<td class="horario">10 a 12</td>
+        	</tr>
+
+
+        	<tr>
+            	<td class="columna-table"><b>Paseador:</b></td>
+            	<td class="paseador">Jose Colque</td>
+            	<td class="paseador">Teresa Moreno</td>
+            	<td class="paseador">Oscar Lima</td>
+            	<td class="paseador">Jose Colque</td>
+            	<td class="paseador">Oscar Lima</td>
+            	<td class="paseador">Teresa Moreno</td>
+        	</tr>
+
+    	</table>
+	</div>
+	
+	    <aside>
+		    <p> 
+		        Salud Pets ofrece los mejores articulos en calidad, proporcina mayor comodidad y bienestar para nustros amigos caninos. 
+		    </p>
+	    </aside>
+	    <footer th:replace="/layouts/footer :: footer"></footer>
+</body>
+</html>
