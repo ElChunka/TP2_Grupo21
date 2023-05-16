@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
+		<title>Consejos de Salud</title>
+	</head>
+	<body>
+		<main>
+			<header th:replace="/layouts/header :: header"></header>
+		</main>
+		<div class="container-menu">
+					<nav>
+						<ul class="menu">
+							<li><a href="index.html">Inicio</a></li>
+							<li><a href="productos.html">Productos</a></li>
+							<li><a href="consejos.html">Consejos de salud</a></li>
+							<li><a href="servicios.html">Servicio de paseos</a></li>
+							<li><a href="sucursales.html">Sucursales</a></li>
+							<li><a href="contacto.html">Contáctanos </a></li>
+							<li><a href="nuevo_producto.html">Add Producto</a></li>
+						</ul>
+					</nav>
+				</div>
+		<section>
+        <div class="container-posteo">
+            <div class="form-container">
+        <form th:action="${edicion}?@{/consejo/modificar}:@{/consejo/guardar}" th:object="${consejo}" method="post">
+          <div class="form-group">
+            <label for="titulo">Titulo</label>
+            <input type="text" id="titulo" name="titulo" th:field="*{titulo}" >
+          </div>
+    
+          <div class="form-group">
+            <label for="posts">Consejo de Salud</label>
+            <textarea id="content" name="content" th:field="*{posts}" ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="autor">Autor</label>
+            <input type="text" id="autor" name="autor" th:field="*{autor}" >
+          </div>
+    
+          <div class="form-group">
+            <button type="submit" th:text="${edicion}?'Editar':'Postear'"></button>
+          </div>
+        </form>
+      </div>
+        </div>
+    </section>
+		<footer th:replace="/layouts/footer :: footer"></footer>
+</body>
+</html>
