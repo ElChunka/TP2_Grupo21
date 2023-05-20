@@ -10,16 +10,7 @@
 					<header th:replace="/layouts/header :: header"></header>
 				</main>
 				<div class="container-menu">
-					<nav>
-						<ul class="menu">
-							<li><a href="index.html">Inicio</a></li>
-							<li><a href="productos.html">Productos</a></li>
-							<li><a href="consejos.html">Consejos de salud</a></li>
-							<li><a href="servicios.html">Servicio de paseos</a></li>
-							<li><a href="sucursales.html">Sucursales</a></li>
-							<li><a href="contacto.html">Contáctanos </a></li>
-						</ul>
-					</nav>
+					<nav th:replace="/layouts/navegation :: navegation"></nav>
 				</div>
 	<section>
 		<div class="container">
