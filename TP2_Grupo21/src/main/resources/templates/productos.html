@@ -18,26 +18,28 @@
 						<li><a href="servicios.html">Servicio de paseos</a></li>
 						<li><a href="sucursales.html">Sucursales</a></li>
 						<li><a href="contacto.html">Contáctanos </a></li>
-						<li><a href="nuevo_producto.html">Add Producto</a></li>
+						<li><a th:href="@{producto/listado}">Add Producto</a></li>
 					</ul>
 				</nav>
 			</div>
-	<div class="container-productos">
+<div class="container-productos">
         <div class="titulo-producto">
             <h4>¡Te ofrecemos los mejores productos de calidad!</h4>
         </div>
 		<div class="mostrar-productos">
-			<div class="product-card">
-                <img src="..\static\img\cucha.jpg" alt="Imagen producto">
-                <h2>Correa para Perros</h2>
-                <p class="description">Categoria: Seguridad</p>
-                <p class="description codigo">Código: 213562</p>
-                <p class="price"> <del>$99.99</del></p>
-                <p class="price sale"><span>15%</span> $78.00</p>
+			<div>
+                <img th:src="@{/img/cucha.jpg}"alt="Imagen producto">
+                <h2></h2>
+                <p class="description"></p>
+                <p class="description codigo"></p>
+                <p class="price"><del></del></p>
+                <p ></p>
+                <p class="price sale"></p>
                 <button class="buy-button">Buy Now</button>
             </div> 
         </div>
     </div>
+      
 	<footer th:replace="/layouts/footer :: footer"></footer>
 </body>
 </html>
