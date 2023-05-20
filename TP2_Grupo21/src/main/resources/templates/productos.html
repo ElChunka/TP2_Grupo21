@@ -10,18 +10,8 @@
 		<header th:replace="/layouts/header :: header"></header>
 	</main>
 			<div class="container-menu">
-				<nav>
-					<ul class="menu">
-						<li><a href="index.html">Inicio</a></li>
-						<li><a href="productos.html">Productos</a></li>
-						<li><a href="consejos.html">Consejos de salud</a></li>
-						<li><a href="servicios.html">Servicio de paseos</a></li>
-						<li><a href="sucursales.html">Sucursales</a></li>
-						<li><a href="contacto.html">Contáctanos </a></li>
-						<li><a href="nuevo_producto.html">Add Producto</a></li>
-					</ul>
-				</nav>
-			</div>
+					<nav th:replace="/layouts/navegation :: navegation"></nav>
+				</div>
 	<div class="container-productos">
         <div class="titulo-producto">
             <h4>¡Te ofrecemos los mejores productos de calidad!</h4>
