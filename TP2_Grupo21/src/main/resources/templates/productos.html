@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" th:href="@{css/estilos.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
 	<title>Productos</title>
 </head>
 <body>
@@ -10,8 +10,8 @@
 		<header th:replace="/layouts/header :: header"></header>
 	</main>
 			<div class="container-menu">
-				<nav th:replace="/layouts/nav :: nav"></nav>
-			</div>
+					<nav th:replace="/layouts/navegation :: navegation"></nav>
+				</div>
 	<div class="container-productos">
         <div class="titulo-producto">
             <h4>¡Te ofrecemos los mejores productos de calidad!</h4>

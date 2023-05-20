@@ -2,17 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" th:href="@{css/estilos.css}" />
+		<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
 		<title>Servicios</title>
 	</head>
 <body>
 	<main>
-		<header>
 			<header th:replace="/layouts/header :: header"></header>
-		</header>
 				</main>
 				<div class="container-menu">
-					<nav th:replace="/layouts/nav :: nav"></nav>
+					<nav th:replace="/layouts/navegation :: navegation"></nav>
 				</div>
 
 	<div class="container-table">
