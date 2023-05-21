@@ -3,15 +3,16 @@
 	<head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
+	<link rel="icon" type="image/png" th:href="@{/img/R.png}">
 	<title>Productos</title>
 </head>
 <body>
 	<main>
-		<header th:replace="/layouts/header :: header"></header>
+		<header th:replace="~{/layouts/header :: header}"></header>
 	</main>
 			<div class="container-menu">
 
-					<nav th:replace="/layouts/navegation :: navegation"></nav>
+					<nav th:replace="~{/layouts/navegation :: navegation}"></nav>
 				</div>   
 <div class="container-productos">
         <div class="titulo-producto">
@@ -32,6 +33,6 @@
         <button class="add-button" onclick="window.location.href = 'nuevo'">Agregar Producto</button>
     </div>
  
-	<footer th:replace="/layouts/footer :: footer"></footer>
+	<footer th:replace="~{/layouts/footer :: footer}"></footer>
 </body>
 </html>

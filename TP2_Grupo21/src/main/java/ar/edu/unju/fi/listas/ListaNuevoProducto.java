@@ -12,6 +12,7 @@ public class ListaNuevoProducto {
 		Productos.add(new Producto("Correa", "Vestimenta", 30, 1234, 2000, "correa.jpg"));
 		Productos.add(new Producto("Cucha", "Cuidado", 30, 4321, 2500, "cucha.jpg"));
 		Productos.add(new Producto("Pelota", "Juguete", 30, 2345, 1500, "juguetes.jpg"));
+		Productos.add(new Producto("Cepillo", "Cuidado", 30, 2503, 1000, "cepillo.jpg"));
 	}
 	public List<Producto> getProductos(){
 		return Productos;

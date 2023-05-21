@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
+	<link rel="icon" type="image/png" th:href="@{/img/R.png}">
     <title>Contactanos</title>
 </head>
 <body class="contacto-fondo">
 		<main>
-			<header th:replace="/layouts/header :: header"></header>
+			<header th:replace="~{/layouts/header :: header}"></header>
 		</main>
 				<div class="container-menu">
-					<nav th:replace="/layouts/navegation :: navegation"></nav>
+					<nav th:replace="~{/layouts/navegation :: navegation}"></nav>
 				</div>
 	<div class="contenedor-contacto">
     <div class="contacto-parrafo-redes">
@@ -63,6 +64,6 @@
 		</form>
 	</div>
 	</div>
-	<footer th:replace="/layouts/footer :: footer"></footer>	
+	<footer th:replace="~{/layouts/footer :: footer}"></footer>	
 </body>
 </html>
