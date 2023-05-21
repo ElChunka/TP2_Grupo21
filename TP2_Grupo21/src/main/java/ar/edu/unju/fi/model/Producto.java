@@ -2,10 +2,16 @@ package ar.edu.unju.fi.model;
 
 public class Producto {
 	
-	private String nombre, categoria;
+	private String nombre, categoria, img="R.png";
 	private int descuento, codigo;
 	private double precio;
 	
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	public String getNombre() {
 		return nombre;
 	}
@@ -39,13 +45,14 @@ public class Producto {
 	public Producto() {
 	}
 	
-	public Producto(String nombre, String categoria, int descuento, int codigo, double precio) {
+	public Producto(String nombre, String categoria, int descuento, int codigo, double precio, String img) {
 		super();
 		this.nombre = nombre;
 		this.categoria = categoria;
 		this.descuento = descuento;
 		this.codigo = codigo;
 		this.precio = precio;
+		this.img = img;
 	}
 	
 	public double calcularDescuento()

@@ -19,7 +19,7 @@
         </div>
 		<div class="mostrar-productos">
 			<div th:each="product: ${productos}"class="product-card">
-                <img th:src="@{/img/cucha.jpg}"alt="Imagen producto">
+                <img th:src="@{/img/}+${product.img}"alt="Imagen producto">
                 <h2 th:text="${product.nombre}"></h2>
                 <p th:text="${product.categoria}" class="description"></p>
                 <p th:text="${product.codigo}"class="description codigo"></p>
