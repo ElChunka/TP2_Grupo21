@@ -561,6 +561,17 @@ textarea {
     font-weight: 100;
 }
 
+.product-card .sale {
+	text-decoration:line-through;
+	font-size:0.9em;
+}
+
+.product-card .descontar {
+	font-size:1em;
+	color:#00FA6E;
+	padding:1%;
+	
+}
 
 
 
