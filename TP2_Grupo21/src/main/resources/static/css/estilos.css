@@ -465,6 +465,11 @@ textarea {
 	margin: 47% 0% 0% 0%;
 }
 
+.contenedor-contacto {
+	display: flex;
+	margin:5%;
+}
+
 
 
 
@@ -689,6 +694,7 @@ textarea {
     line-height: 145%;
     font-size: 1.1em;
     font-weight: lighter;
+    margin: 1%;
 }
 
 .container-consejos .autor {
