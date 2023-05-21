@@ -24,10 +24,10 @@
                 <h2 th:text="${product.nombre}"></h2>
                 <p th:text="${product.categoria}" class="description"></p>
                 <p th:text="${product.codigo}"class="description codigo"></p>
-                <p th:text="${product.precio}+' $'"class="price"><del></del></p>
-                <p th:text="${product.descuento}+' %'"></p>
-                <p th:text="${product.calcularDescuento()}+' $'"class="price sale"></p>
-                <button class="buy-button">Buy Now</button>
+                <p th:text="${product.descuento}==0?${product.precio}+' $':${product.calcularDescuento()}+' $'" class="price"></p>
+                <p th:text="${product.descuento}==0?'':${product.descuento}+' % de Descuento'" class='price descontar'></p>
+                <p th:text="${product.descuento}==0?'':${product.precio}+' $'" class="price sale"></p>
+                <button class="buy-button">Comprar</button>
             </div> 
         </div>
         <button class="add-button" onclick="window.location.href = 'nuevo'">Agregar Producto</button>
