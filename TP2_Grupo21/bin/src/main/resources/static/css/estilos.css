@@ -1,0 +1,617 @@
+/*@charset "ISO-8859-1";*/
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+/* .color1 { #affbff };
+.color2 { #d2fdfe };
+.color3 { #fefac2 };
+.color4 { #febf97 };
+.color5 { #fe6960 }; */
+
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+
+/* Estilos de portada */
+
+.container-head {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fe6960;
+}
+
+.portada {
+    width: 99%;
+    height: 55vh;
+}
+
+.portada img {
+    width: 100%;
+    height: 100%;
+}
+
+.container-head h1 {
+    font-size: 3em;
+    margin: 1%;
+}
+.container-head h1 a{
+	text-decoration: none;
+    display: inline-block;
+    color: #fefac2;
+}
+
+.container-head .cursiva {
+    font-style: italic;
+    color: #febf97;
+}
+
+/* Estilos para el menu ===================================================================== */
+
+.container-menu {
+    display: flex;
+    justify-content: center;
+    height: 8vh;
+    background-color: #fe6960;
+}
+
+.container-menu nav {
+    min-width: 100%;
+}
+
+.container-menu .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.container-menu .menu li {
+    display:inline;
+    padding: 1%;
+}
+
+.container-menu .menu li a {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #d2fdfe;
+}
+
+.container-menu .menu li a:hover{
+    cursor: pointer;
+    color: #febf97;
+}
+
+
+
+
+
+/* estilos de index.html Sectons================================================================================ */
+.contenedor {
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4%;
+    background-color: #d2fdfe;
+}
+
+.contenedor h3 {
+    font-size: 1.9em;
+    padding-bottom: 2%;
+}
+
+.contenedor p {
+    text-align: center;
+    line-height: 30px;
+    font-size: 1.1em;
+}
+
+.contenedor .valores {
+    text-align: justify;
+}
+
+.valorPets {
+    background-color:#affbff ;
+}
+
+
+
+
+
+/* Estilos de aside ========================================================================================= */
+
+aside {
+    
+    text-align: center;
+    padding: 0.5%;
+    background-color: #fe6960;
+    color: white;
+}
+
+footer {
+    color: white;
+    
+    padding: 2%;
+    text-align: center;
+    font-weight: 500;
+    background-color: #fe6960;
+}
+
+/* Estilos de Consejos ========================================================================================= */
+
+#contenedor-consejos{
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	
+}
+
+.content-consejos1{
+	background-color: #3333ff;
+	padding: 25px;
+	width: 50%;
+	
+}
+
+.content-consejos1 h2{
+	text-align: center;
+	padding-bottom: 10px;
+	
+}
+
+.content-consejos1 ol{
+	padding-left: 35px;
+	
+}
+
+.content-consejos1 li{
+	padding-bottom: 5px;
+	padding-top: 5px;
+	color: #4ddbff;
+	
+}
+
+.content-consejos1 p{
+	padding-bottom: 5px;
+	padding-top: 5px;
+	color: #80ccff;
+}
+
+.content-consejos2{
+	background-color: #ff3300;
+	padding: 25px;
+	width: 50%;
+	
+}
+
+.content-consejos2 h2{
+	text-align: center;
+	padding-bottom: 10px;
+	
+}
+
+.content-consejos2 ul{
+	padding-left: 35px;
+	
+}
+
+.content-consejos2 p{
+	padding-bottom: 5px;
+	padding-left: 20px;
+	
+}
+
+.content-consejos2 p{
+	padding-bottom: 5px;
+	padding-left: 20px;
+	color: #bfff80;
+}
+
+.content-consejos2 li{
+	padding-bottom: 5px;
+	padding-left: 20px;
+	color: #e6e600;
+}
+
+
+#titulo-consejos{
+	text-align: center;
+	padding: 10px;
+	margin: 0 10px;
+}
+
+#blue-name-consejos{
+	color: white;
+	font-style: italic;
+	font-family: sans-serif;
+	font-size: 35px;
+}
+
+#red-name-consejos{
+	color: white;
+	font-style: italic;
+	font-family: sans-serif;
+	font-size: 40px;
+}
+
+.content-text-ayuda-h2{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 400px;
+}
+
+.texto-ayuda h2{
+	text-align: center;
+	font-family: fantasy;
+	font-size: 50px;
+	border: dashed;
+	border-width: 5px;
+	border-color: purple;
+	border-radius: 5px;
+	height: 150px;
+	width: 500px;
+	background-color: #80ffff;
+	
+}
+
+.texto-ayuda p{
+	padding: 10px;
+	font-style: oblique;
+	font-family: serif;
+	font-size: large;
+	text-align: center;
+		
+}
+
+/*----------  Estilos Productos ----------*/
+
+.TituloProductos{
+	font-size : 40px;
+	text-align: center;
+	margin-top: 15px;
+	font-style: italic;
+	font-family: sans-serif;
+}
+
+#imagenes {
+	display: block;
+	float: none;
+	margin: 100px;
+}
+
+#imagenes ul{
+	display: flex;
+	list-style: none;
+	overflow: scroll;
+}
+
+#imagenes ul li{
+	margin-right: 100px;
+	background-color: #fe6960;
+	padding: 1%;
+}
+
+#imagenes figcaption{
+	font-size: 18px;
+	font-family: fantasy;
+	text-align: center;
+	margin-left: 10px;
+}
+
+.img{
+	width: 250px;
+	height: 250px;
+}
+
+
+/* Estilos de la tabla de paseos =========================================================== */
+.container-table {
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#affbff;
+}
+
+.tabla-paseo {
+    background-color: #fe6960;
+    width: 90%;
+    height: 25vh;
+    border: 3px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 5%;
+}
+
+.tabla-paseo tr td {
+    border-right: 1px solid black;
+}
+
+
+.tabla-paseo .titulo {
+    text-align: center;
+    border-bottom: 3px solid black;
+    font-weight: 500;
+}
+
+.tabla-paseo tr .columna-table {
+    border-right: 3px solid black;
+}
+
+
+.dia {
+    border-bottom: 1px solid black;
+}
+
+.horario, .paseador {
+    background-color: #d2fdfe;
+}
+
+
+
+/* Estilos de sucursales ====================================================================== */
+
+.container-sucursales {
+    display: flex;
+    flex-direction: column;
+    padding: 5% 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo {
+    font-size: 1.7em;
+    margin-bottom: 2%;
+}
+
+.container-direccion {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.sucursal {
+    width: 40%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sucursal p {
+    padding-bottom: 2%;
+}
+
+.descripcion-sucursal {
+    font-weight: 600;
+}
+
+/* Estilos de Contacto ========================================================================================= */
+
+.contacto-fondo{
+	background: #22EEE2;
+}
+.contacto-titul{
+    margin: 1% 90% 5% 10%;
+    font-family: cursive;
+    font-size: xxx-large;
+}
+.contacto-parrafo-redes{
+    margin: 0% 1.2% 0% 0.2%;
+    padding: 3%;
+  	background: #004080;
+	float: left;
+	font-size: xx-large;
+	border-style: solid;
+}
+.contacto-parrafo{
+	font-family: cursive;
+}
+.contacto-redes{
+	padding: 3%;
+	margin: 0% 0% 0% 20%;
+}
+.contacto-link{
+	font-family: cursive;
+	color: #EFF516;
+}
+.contacto-formulario{
+	margin: 0% 0% 0% 0%;
+    padding: 0% 1% 1.9% 2%;
+    background: #004080;
+	float: left;
+	display:inline;
+	font-size: xx-large;
+	border-style: double;
+}
+
+.contacto-legend{
+	font-family: cursive;
+	font-size: xxx-large;
+	color: #EFF516;
+}
+textarea {
+	resize: none;
+}
+.contacto-lbl{
+	margin-left: 20%;
+
+}
+.contacto-letras{
+	font-size: x-large;
+}
+.contacto-boton{
+	margin: 0% 0% 10% 0%;
+	display: flex;
+	justify-content: center;
+}
+.contacto-boton2{
+	font-size: 70%;
+	background: #EFF516;
+}
+.contacto-footer{
+	margin: 47% 0% 0% 0%;
+}
+
+
+
+
+/* ----------------------Actualizacion de los Estilos de productos------------------------------ */
+
+.container-productos {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-producto {
+    margin-bottom: 2%;
+    
+    font-size: 1.8em;
+}
+
+.mostrar-productos {
+    background-color: #affbff;
+    display: flex;
+    padding: 2%;
+    justify-content: space-around;
+    flex-flow: row wrap;
+}
+
+
+
+.product-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    margin: 2%;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .product-card h2 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+  
+  .product-card .description {
+    margin-top: 10px;
+  }
+  
+  .product-card .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .product-card .buy-button {
+    background-color: #4CAF50;
+    border-radius: 10px;
+    width: 50%;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin-top: 10px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.product-card .buy-button:hover {
+    color: #affbff;
+    border-radius: 20px;
+    transition-duration: 0.5s;
+    
+}
+
+.product-card:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.sale span {
+    font-size: 0.8em;
+    font-weight: 100;
+}
+
+
+
+
+
+/* ----------------------------Estilo para la plantilla de nuevo_producto------------------------------------ */
+
+.container {
+    max-width: 400px;
+    margin: 5% auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 {
+    margin-bottom: 4%;
+}
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-group button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .form-group button:hover{
+    color: #000;
+  }

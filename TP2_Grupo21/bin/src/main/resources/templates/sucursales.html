@@ -2,17 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 	<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
-		<link rel="icon" type="image/png" th:href="@{/img/R.png}">
+		<link rel="stylesheet" type="text/css" th:href="@{css/estilos.css}" />
 	<title>Sucursales</title>
 </head>
 <body>
 	<main>
-        <header th:replace="~{/layouts/header :: header}"></header>
+        <header th:replace="/layouts/header :: header"></header>
     </main>
     <div class="container-menu">
-		<nav th:replace="~{/layouts/navegation :: navegation}"></nav>
-	</div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="consejos.html">Consejos de salud</a></li>
+                <li><a href="servicios.html">Servicio de paseos</a></li>
+                <li><a href="sucursales.html">Sucursales</a></li>
+                <li><a href="contacto.html">Contáctanos </a></li>
+                <li><a href="nuevo_producto.html">Add Producto</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+
     <section>
         <div class="container-sucursales">
 
@@ -39,6 +51,6 @@
             Salud Pets ofrece los mejores articulos en calidad, proporcina mayor comodidad y bienestar para nustros amigos caninos. 
         </p>
     </aside>
-    <footer th:replace="~{/layouts/footer :: footer}"></footer>
+    <footer th:replace="/layouts/footer :: footer"></footer>
 </body>
 </html>
