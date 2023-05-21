@@ -12,30 +12,26 @@
 			<div class="container-menu">
 
 					<nav th:replace="/layouts/navegation :: navegation"></nav>
-				</div>
-	<div class="container-productos">
-
+				</div>   
+<div class="container-productos">
         <div class="titulo-producto">
             <h4>¡Te ofrecemos los mejores productos de calidad!</h4>
         </div>
 		<div class="mostrar-productos">
-			<div class="product-card">
+			<div th:each="product: ${productos}"class="product-card">
                 <img th:src="@{/img/cucha.jpg}"alt="Imagen producto">
-                <h2></h2>
-                <p class="description"></p>
-                <p class="description codigo"></p>
-                <p class="price"><del></del></p>
-                <p ></p>
-                <p class="price sale"></p>
-                <button class="buy-button">Comprar</button>
-            </div>
-            
+                <h2 th:text="${product.nombre}"></h2>
+                <p th:text="${product.categoria}" class="description"></p>
+                <p th:text="${product.codigo}"class="description codigo"></p>
+                <p th:text="${product.precio}+' $'"class="price"><del></del></p>
+                <p th:text="${product.descuento}+' %'"></p>
+                <p th:text="${product.calcularDescuento()}+' $'"class="price sale"></p>
+                <button class="buy-button">Buy Now</button>
+            </div> 
         </div>
-         <button class="add-button" onclick="window.location.href = 'nuevo'">Agregar Producto</button>
+        <button class="add-button" onclick="window.location.href = 'nuevo'">Agregar Producto</button>
     </div>
-    
-   
-      
+ 
 	<footer th:replace="/layouts/footer :: footer"></footer>
 </body>
 </html>
