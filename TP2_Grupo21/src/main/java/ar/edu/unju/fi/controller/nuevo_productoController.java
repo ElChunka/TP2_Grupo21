@@ -31,7 +31,7 @@ public class nuevo_productoController {
 	}
 	@PostMapping("/guardar")
 	public ModelAndView getGuardarNuevoProductoPage(@ModelAttribute("productos") Producto producto) {
-		ModelAndView modelView = new ModelAndView("productos");
+		ModelAndView modelView = new ModelAndView("redirect:/producto/listado");
 		listaProducto.getProductos().add(producto);
 		modelView.addObject("productos", listaProducto.getProductos());
 		System.out.println(listaProducto);
