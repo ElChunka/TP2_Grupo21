@@ -23,7 +23,7 @@
                 <img th:src="@{/img/}+${product.img}"alt="Imagen producto">
                 <h2 th:text="${product.nombre}"></h2>
                 <p th:text="${product.categoria}" class="description"></p>
-                <p th:text="${product.codigo}"class="description codigo"></p>
+                <p th:text="'#'+${product.codigo}"class="description codigo"></p>
                 <p th:text="${product.descuento}==0?${product.precio}+' $':${product.calcularDescuento()}+' $'" class="price"></p>
                 <p th:text="${product.descuento}==0?'':${product.descuento}+' % de Descuento'" class='price descontar'></p>
                 <p th:text="${product.descuento}==0?'':${product.precio}+' $'" class="price sale"></p>
