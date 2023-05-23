@@ -27,6 +27,10 @@
                 <p th:text="${product.descuento}==0?${product.precio}+' $':${product.calcularDescuento()}+' $'" class="price"></p>
                 <p th:text="${product.descuento}==0?'':${product.descuento}+' % de Descuento'" class='price descontar'></p>
                 <p th:text="${product.descuento}==0?'':${product.precio}+' $'" class="price sale"></p>
+                <div class="botones btn-producto">
+                     <a class="button edit-button" th:href="@{/producto/modificar/}+${product.codigo}">Editar</a>
+                     <a class="button delete-button" th:href="@{/producto/eliminar/}+${product.codigo}">Eliminar</a>
+                </div>
                 <button class="buy-button">Comprar</button>
             </div> 
         </div>
