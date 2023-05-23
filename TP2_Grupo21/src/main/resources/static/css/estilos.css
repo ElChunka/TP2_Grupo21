@@ -495,6 +495,7 @@ textarea {
     padding: 2%;
     justify-content: space-around;
     flex-flow: row wrap;
+    width:100%;
 }
 
 
@@ -571,6 +572,10 @@ textarea {
 	color:#00FA6E;
 	padding:1%;
 	
+}
+
+.btn-producto {
+	margin: 5% 0;
 }
 
 

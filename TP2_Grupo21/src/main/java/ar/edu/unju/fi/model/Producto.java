@@ -57,6 +57,10 @@ public class Producto {
 	
 	public double calcularDescuento()
 	{
-		return (precio - (precio * ((double)descuento/100)));
+		
+		double resta = (double) descuento/100*precio;
+		double precioFinal = precio - resta;
+		
+		return Math.round(precioFinal);
 	}
 }
