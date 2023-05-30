@@ -60,12 +60,18 @@ body {
 .container-menu {
     display: flex;
     justify-content: center;
-    height: 8vh;
+    height: auto;
     background-color: #fe6960;
+    height: auto;
+    padding: auto;
 }
 
 .container-menu nav {
     min-width: 100%;
+    padding-top: 0.15%;
+    padding-bottom: -0.15%;
+    margin-top: -0.5%;
+    margin-bottom: -1.25%;
 }
 
 .container-menu .menu {
@@ -84,14 +90,25 @@ body {
     text-decoration: none;
     font-size: 1.2em;
     color: #d2fdfe;
+    margin: auto;
+    padding: auto;
 }
 
 .container-menu .menu li a:hover{
     cursor: pointer;
     color: #febf97;
+    padding: auto;
+   	
 }
 
-
+.container-menu .menu div{
+	margin: 1.5%;
+	background-color: blue;
+	border-radius: 15px;
+	border-style: double;
+	border-color: white;
+	text-align: center;
+}
 
 
 
