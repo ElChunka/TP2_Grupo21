@@ -1,42 +1,70 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
-	<link rel="icon" type="image/png" th:href="@{/img/R.png}">
-	<title>Productos</title>
-</head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
+		<link rel="icon" type="image/png" th:href="@{/img/R.png}">
+		<title>Productos</title>
+	</head>
 <body>
-	<main>
-		<header th:replace="~{/layouts/header :: header}"></header>
-	</main>
-			<div class="container-menu">
+	<div class="container-fluid mb-3">
+		<!-- Layout del titulo y carrusel de imagenes -->
+			<div th:replace="~{/layouts/header :: header}"></div>
+        
 
-					<nav th:replace="~{/layouts/navegation :: navegation}"></nav>
-				</div>   
-<div class="container-productos">
-        <div class="titulo-producto">
-            <h4>¡Te ofrecemos los mejores productos de calidad!</h4>
-        </div>
-		<div class="mostrar-productos">
-			<div th:each="product: ${productos}"class="product-card">
-                <img th:src="@{/img/}+${product.img}"alt="Imagen producto">
-                <h2 th:text="${product.nombre}"></h2>
-                <p th:text="${product.categoria}" class="description"></p>
-                <p th:text="'#'+${product.codigo}"class="description codigo"></p>
-                <p th:text="${product.descuento}==0?${product.precio}+' $':${product.calcularDescuento()}+' $'" class="price"></p>
-                <p th:text="${product.descuento}==0?'':${product.descuento}+' % de Descuento'" class='price descontar'></p>
-                <p th:text="${product.descuento}==0?'':${product.precio}+' $'" class="price sale"></p>
-                <div class="botones btn-producto">
-                     <a class="button edit-button" th:href="@{/producto/modificar/}+${product.codigo}">Editar</a>
-                     <a class="button delete-button" th:href="@{/producto/eliminar/}+${product.codigo}">Eliminar</a>
-                </div>
-                <button class="buy-button">Comprar</button>
-            </div> 
-        </div>
-        <button class="add-button" onclick="window.location.href = 'nuevo'">Agregar Producto</button>
+
+		<!-- Layout del menu -->
+		  <div th:replace="~{/layouts/navegation :: navegation}"></div>
+		  
+		  <div class="row m-5">
+            <div class="col-12 text-center">
+                <h1>¡Los mejores productos de calidad!</h1>
+            </div>
+          </div>
+          
+          
+          <!-- Seccion que muestra los productos -->
+          <div class="row justify-content-center caja-productos">
+          
+          	<div th:each="product: ${productos}" class="col-md-6 col-xxl-3 col-lg-4 col-12">
+                <div class="container mt-3 mb-3 d-flex justify-content-center listado-prod">
+                    <div class="card product-card">
+                      <img th:src="@{/img/}+${product.img}" class="card-img-top" alt="Imagen del producto">
+                      <div class="card-body">
+                        <h5 th:text="${product.nombre}" class="card-title"></h5>
+                        <p th:text="'#'+${product.codigo}" class="card-text description codigo"></p>
+                        <p th:text="${product.categoria}" class="card-text description"></p>
+                        <p th:text="${product.descuento}==0?${product.precio}+' $':${product.calcularDescuento()}+' $'" class="card-text price"></p>
+                        <p th:text="${product.descuento}==0?'':${product.descuento}+' % de Descuento'" class="card-text price descontar"></p>
+                        <p th:text="${product.descuento}==0?'':${product.precio}+' $'"  class="card-text price sale"></p>
+                        <a th:href="@{/producto/modificar/}+${product.codigo}" class="btn btn-primary m-1">Editar</a>
+                        <a th:href="@{/producto/eliminar/}+${product.codigo}" class="btn btn-danger m-1">Eliminar</a>
+                        <a href="#" class="btn btn-success m-1">Comprar</a>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          
+          </div>
+          
+          <div class="row m-5 justify-content-center">
+            	<div class="col-12 text-center">
+              		<button class="btn btn-primary " onclick="window.location.href = 'nuevo'">Agregar Producto</button>
+            	</div>
+          </div>
+
+		
+
+
+		
     </div>
- 
-	<footer th:replace="~{/layouts/footer :: footer}"></footer>
+    
+    
+    <!-- Layout del footer -->
+    <div th:replace="~{/layouts/footer :: footer}"></div>
+    
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

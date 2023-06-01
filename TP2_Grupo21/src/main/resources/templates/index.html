@@ -3,52 +3,67 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 		<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
 		<link rel="icon" type="image/png" th:href="@{/img/R.png}">
 		<title>SaludPets</title>
 	</head>
 	<body>
-	<main>
-		<header th:replace="~{/layouts/header :: header}"></header>
-	</main>
-				<div class="container-menu">
-					<nav th:replace="~{/layouts/navegation :: navegation}"></nav>
-				</div>
-	<section>
-		<article>
-			<div class="contenedor">
-				<h3>Somos Salud <i>Pets</i></h3>
-				<p><b>Contribuimos a crear un mundo mejor.</b><br>
-					Ayudamos a amar y proteger a sus mascotas.<br>
-					<b>Creamos equipos de trabajo solidarios, proactivos y capacitados.</b><br>
-					Invertimos e Innovamos para poder seguir mejorando y poder acercarnos cada día más.<br>
-					<b>Priorizamos el aporte y la participación solidaria para crear una comunidad inclusiva y el cuidado del medio ambiente.</b>
-				</p>
-			</div>
-		</article>
-		<article>
-			<div class="contenedor valorPets">
-				<h3>Nuestros Valores</h3>
-				<p class="valores">
-					En Tienda de Mascotas creemos que para cumplir con nuestra misión, 
-					necesitamos tener un estilo propio de realizar negocios y eso se refleja en nuestros 
-					Valores Corporativos. Con servicio, cumplimiento, agilidad, calidez, compromiso e innovación.
-					Es la realización de nuestro trabajo acorde con las características de calidad, cantidad y oportunidad negociadas y anunciadas.
-					 En nuestra actividad, este valor se refleja de manera especial en el servicio al cliente.
-					 Refleja el amor, la vocación y el respeto a los demás. Es el afecto, la cordialidad y la amabilidad en el trato con nuestros compañeros, clientes, socios comerciales y demás interlocutores. Es el sello de la atención que nos gusta recibir y brindar al otro.
-				</p>
-			</div>
-		</article>
-	</section>
-		<aside>
-		    <p> 
-		        Salud Pets ofrece los mejores articulos en calidad, proporcina mayor comodidad y bienestar para nustros amigos caninos. 
-		    </p>
-	    </aside>
-	    <footer th:replace="~{/layouts/footer :: footer}"></footer>
-	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+				
+		
+		<div class="container-fluid mb-3">
+		<!-- Layout del titulo y carrusel de imagenes -->
+			<div th:replace="~{/layouts/header :: header}"></div>
+        
+
+
+		<!-- Layout del menu -->
+		  <div th:replace="~{/layouts/navegation :: navegation}">
+            
+      	  </div>
+
+		
+
+		<!-- textos descriptivos sobre la empresa -->
+		<div class="row">
+            <div class="col-md-12 col-lg-6 parrafo-index">
+                <div class="paragraph-container m-1">
+                    <article>
+                        <h3 class="text-center">Somos Salud <i>Pets</i></h3>
+                        <p class="text-center">
+                          <b>Contribuimos a crear un mundo mejor.</b><br>
+                          Ayudamos a amar y proteger a sus mascotas.<br>
+                          <b>Creamos equipos de trabajo solidarios, proactivos y capacitados.</b><br>
+                          Invertimos e Innovamos para poder seguir mejorando y poder acercarnos cada día más.<br>
+                          <b>Priorizamos el aporte y la participación solidaria para crear una comunidad inclusiva y el cuidado del medio ambiente.</b>
+                        </p>
+                    </article>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6 parrafo-index">
+                <div class="paragraph-container m-1">
+                    <article>
+                        <div class="valorPets">
+                          <h3 class="text-center">Nuestros Valores</h3>
+                          <p class="valores">
+                            En Tienda de Mascotas creemos que para cumplir con nuestra misión, necesitamos tener un estilo propio de realizar negocios y eso se refleja en nuestros Valores Corporativos. Con servicio, cumplimiento, agilidad, calidez, compromiso e innovación.
+                            Es la realización de nuestro trabajo acorde con las características de calidad, cantidad y oportunidad negociadas y anunciadas. En nuestra actividad, este valor se refleja de manera especial en el servicio al cliente.
+                            Refleja el amor, la vocación y el respeto a los demás. Es el afecto, la cordialidad y la amabilidad en el trato con nuestros compañeros, clientes, socios comerciales y demás interlocutores. Es el sello de la atención que nos gusta recibir y brindar al otro.
+                          </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Layout del footer -->
+    <div th:replace="~{/layouts/footer :: footer}"></div>
+
+	    
+	    
+	    
 	    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     </body>		
 </html>
