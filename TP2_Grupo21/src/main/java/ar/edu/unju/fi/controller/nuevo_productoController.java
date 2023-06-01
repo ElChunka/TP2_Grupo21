@@ -3,6 +3,7 @@ package ar.edu.unju.fi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.listas.ListaNuevoProducto;
 import ar.edu.unju.fi.model.Producto;
+import jakarta.validation.Valid;
 
 
 @Controller
@@ -40,8 +42,13 @@ public class nuevo_productoController {
 	
 	//Metodo que crea un nuevo objeto y redirige al formulario para un nuevo producto
 	@PostMapping("/guardar")
-	public ModelAndView getGuardarNuevoProductoPage(@ModelAttribute("productos") Producto producto) {
+	public ModelAndView getGuardarNuevoProductoPage(@Valid @ModelAttribute("productos") Producto producto, BindingResult result) {
 		ModelAndView modelView = new ModelAndView("redirect:/producto/listado");
+		if (result.hasErrors()) {
+			modelView.setViewName("nuevo_producto");
+			modelView.addObject("producto",producto);
+			return modelView;
+		}
 		listaProducto.getProductos().add(producto);
 		modelView.addObject("productos", listaProducto.getProductos());
 		System.out.println(listaProducto);
