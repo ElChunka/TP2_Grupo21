@@ -4,40 +4,48 @@
 			<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>Header</title>
-			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 			<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 		</head>
 	<body>
-		<div class="container-fluid">
-		<header th:fragment="header">
-			<div class="container-head">
-				<h1><a th:href="@{/index}">SALUD <span class="cursiva">PETS</span></a></h1>
-					<!-- SE IMPLEMENTA EL CARRUSEL DE LAS IMAGENES DEL HEADER PARA TODOS LOS HTML -->
-					<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-					  <div class="carousel-inner">
-					    <div class="carousel-item active">
-					      <img th:src="@{/img/portada-act-01.jpg}" class="d-block w-100" alt="Compras seguras" title="Portada de SaludPets">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/img/portada-act-02.jpg}" class="d-block w-100" alt="Compras seguras" title="Portada de SaludPets">
-					    </div>
-					    <div class="carousel-item">
-					      <img th:src="@{/img/portada-act-03.jpg}" class="d-block w-100" alt="Compras seguras" title="Portada de SaludPets">
-					    </div>
-					  </div>
-					  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					    <span class="visually-hidden">Previous</span>
-					  </button>
-					  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-					    <span class="visually-hidden">Next</span>
-					  </button>
-					</div>
-				</div>
-		</header>
+		<div th:fragment="header">
+		
+		<!-- Titulo de la pagina web -->
+		
+		<div class="row mb-0">
+            <div class="col-12 titulo">
+				<h1 class="nombre-empresa text-center"><a href="">SALUD <span class="cursiva">PETS</span></a></h1>
+            </div>
+        </div>
+		
+		<!-- Carrusel de Imagenes -->
+		
+        <div class="row carrusel">
+            <div class="col-12">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img th:src="@{/img/portada-act-01.jpg}" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img th:src="@{/img/portada-act-02.jpg}" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img th:src="@{/img/portada-act-03.jpg}" class="d-block w-100" alt="...">
+                      </div> 
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+		
 		</div>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	</body>
 </html>

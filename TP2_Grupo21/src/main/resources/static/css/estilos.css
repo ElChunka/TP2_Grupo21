@@ -10,285 +10,98 @@
 
 
 *{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
+   
     font-family: 'Ubuntu', sans-serif;
 }
 
-body {
-    min-height: 100vh;
+
+
+
+/*=============== Estilos de nombre de empresa con bootstrap  ======================== */
+
+.titulo {
+	background-color: #fe6960;
 }
 
-
-/* Estilos de portada */
-
-.container-head {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: #fe6960;
+.nombre-empresa {
+    font-size: 3.5em;
+    
 }
-
-.portada {
-    width: 99%;
-    height: 55vh;
-}
-
-.portada img {
-    width: 100%;
-    height: 100%;
-}
-
-.container-head h1 {
-    font-size: 3em;
-    margin: 1%;
-}
-.container-head h1 a{
-	text-decoration: none;
-    display: inline-block;
+.nombre-empresa a{
+	text-decoration: none !important;
     color: #fefac2;
 }
 
-.container-head .cursiva {
+.titulo .cursiva {
     font-style: italic;
     color: #febf97;
 }
 
-/* Estilos para el menu ===================================================================== */
 
-.container-menu {
-    display: flex;
-    justify-content: center;
-    height: auto;
+/*=============== Estilos de carrusel de imagenes con bootstrap ======================== */
+
+.carrusel {
     background-color: #fe6960;
-    height: auto;
-    padding: auto;
 }
 
-.container-menu nav {
-    min-width: 100%;
-    padding-top: 0.15%;
-    padding-bottom: -0.15%;
-    margin-top: -0.5%;
-    margin-bottom: -1.25%;
+/*==================================== Estilos para el menu con bootstrap ===================================================================== */
+
+.menu-content {
+    background-color: #fe6960;
+    text-align: center;
 }
 
-.container-menu .menu {
-    display: flex;
+.collapse {
     justify-content: center;
-    align-items: center;
-    height: 100%;
 }
 
-.container-menu .menu li {
-    display:inline;
-    padding: 1%;
-}
 
-.container-menu .menu li a {
+.navbar-dark .navbar-nav .nav-link {
     text-decoration: none;
     font-size: 1.2em;
     color: #d2fdfe;
-    margin: auto;
-    padding: auto;
 }
 
-.container-menu .menu li a:hover{
-    cursor: pointer;
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+	cursor: pointer;
     color: #febf97;
-    padding: auto;
-   	
-}
-
-.container-menu .menu div{
-	margin: 1.5%;
-	background-color: blue;
-	border-radius: 15px;
-	border-style: double;
-	border-color: white;
-	text-align: center;
 }
 
 
 
-/* estilos de index.html Sectons================================================================================ */
-.contenedor {
-    margin: 1%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 4%;
+
+
+/*========================= estilos de index.html con bootstrap================================================================================ */
+.paragraph-container {
+    padding: 5%;
     background-color: #d2fdfe;
 }
 
-.contenedor h3 {
+.paragraph-container h3 {
     font-size: 1.9em;
     padding-bottom: 2%;
 }
 
-.contenedor p {
+.paragraph-container p {
     text-align: center;
     line-height: 30px;
     font-size: 1.1em;
 }
 
-.contenedor .valores {
-    text-align: justify;
-}
-
-.valorPets {
-    background-color:#affbff ;
-}
 
 
 
 
 
-/* Estilos de aside ========================================================================================= */
+/*======================= Estilos de footer con Bootstrap ===================================*/
 
-aside {
-    
-    text-align: center;
-    padding: 0.5%;
-    background-color: #fe6960;
-    color: white;
-}
 
 footer {
     color: white;
-    
     padding: 2%;
     text-align: center;
     font-weight: 500;
     background-color: #fe6960;
-}
-
-/* Estilos de Consejos ========================================================================================= */
-
-#contenedor-consejos{
-	display: flex;
-	justify-content: center;
-	padding: 10px;
-	
-}
-
-.content-consejos1{
-	background-color: #3333ff;
-	padding: 25px;
-	width: 50%;
-	
-}
-
-.content-consejos1 h2{
-	text-align: center;
-	padding-bottom: 10px;
-	
-}
-
-.content-consejos1 ol{
-	padding-left: 35px;
-	
-}
-
-.content-consejos1 li{
-	padding-bottom: 5px;
-	padding-top: 5px;
-	color: #4ddbff;
-	
-}
-
-.content-consejos1 p{
-	padding-bottom: 5px;
-	padding-top: 5px;
-	color: #80ccff;
-}
-
-.content-consejos2{
-	background-color: #ff3300;
-	padding: 25px;
-	width: 50%;
-	
-}
-
-.content-consejos2 h2{
-	text-align: center;
-	padding-bottom: 10px;
-	
-}
-
-.content-consejos2 ul{
-	padding-left: 35px;
-	
-}
-
-.content-consejos2 p{
-	padding-bottom: 5px;
-	padding-left: 20px;
-	
-}
-
-.content-consejos2 p{
-	padding-bottom: 5px;
-	padding-left: 20px;
-	color: #bfff80;
-}
-
-.content-consejos2 li{
-	padding-bottom: 5px;
-	padding-left: 20px;
-	color: #e6e600;
-}
-
-
-#titulo-consejos{
-	text-align: center;
-	padding: 10px;
-	margin: 0 10px;
-}
-
-#blue-name-consejos{
-	color: white;
-	font-style: italic;
-	font-family: sans-serif;
-	font-size: 35px;
-}
-
-#red-name-consejos{
-	color: white;
-	font-style: italic;
-	font-family: sans-serif;
-	font-size: 40px;
-}
-
-.content-text-ayuda-h2{
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: 400px;
-}
-
-.texto-ayuda h2{
-	text-align: center;
-	font-family: fantasy;
-	font-size: 50px;
-	border: dashed;
-	border-width: 5px;
-	border-color: purple;
-	border-radius: 5px;
-	height: 150px;
-	width: 500px;
-	background-color: #80ffff;
-	
-}
-
-.texto-ayuda p{
-	padding: 10px;
-	font-style: oblique;
-	font-family: serif;
-	font-size: large;
-	text-align: center;
-		
 }
 
 /*----------  Estilos Productos ----------*/
@@ -332,7 +145,7 @@ footer {
 }
 
 
-/* Estilos de la tabla de paseos =========================================================== */
+/*============================================= Estilos de la tabla de paseos =========================================================== */
 .container-table {
    
     display: flex;
@@ -375,9 +188,12 @@ footer {
     background-color: #d2fdfe;
 }
 
+.paseos {
+	margin-bottom:10rem;
+}
 
 
-/* Estilos de sucursales ====================================================================== */
+/*================================================ Estilos de sucursales ====================================================================== */
 
 .container-sucursales {
     display: flex;
@@ -387,10 +203,7 @@ footer {
     justify-content: center;
 }
 
-.titulo {
-    font-size: 1.7em;
-    margin-bottom: 2%;
-}
+
 
 .container-direccion {
     display: flex;
@@ -490,84 +303,43 @@ textarea {
 
 
 
-/* ----------------------Actualizacion de los Estilos de productos------------------------------ */
+/* ----------------------Actualizacion de los Estilos de productos con Bootstrap------------------------------ */
 
-.container-productos {
-    display: flex;
-    flex-direction: column;
-    padding: 2%;
-    align-items: center;
-    justify-content: center;
-}
 
-.titulo-producto {
-    margin-bottom: 2%;
-    
-    font-size: 1.8em;
-}
-
-.mostrar-productos {
+.caja-productos {
     background-color: #affbff;
-    display: flex;
-    padding: 2%;
-    justify-content: space-around;
-    flex-flow: row wrap;
-    width:100%;
+    
 }
 
+.listado-prod {
+	background: none;
+}
 
 
 .product-card {
     width: 300px;
     border: 1px solid #ccc;
-    padding: 10px;
     text-align: center;
-    margin: 2%;
     background-color: #fff;
     border-radius: 10px;
   }
   
-  .product-card img {
-    width: 100%;
-    height: auto;
-  }
+ 
   
-  .product-card h2 {
+  .product-card h5 {
     font-size: 1.5rem;
-    margin-top: 10px;
   }
   
-  .product-card .description {
-    margin-top: 10px;
-  }
   
-  .product-card .price {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .product-card .buy-button {
-    background-color: #4CAF50;
-    border-radius: 10px;
-    width: 50%;
-    border: none;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    margin-top: 10px;
-    cursor: pointer;
-    transition-duration: 0.5s;
+.product-card .price {
+   font-size: 1.2rem;
+   font-weight: bold;
 }
-
+  
 .product-card .buy-button:hover {
     color: #affbff;
     border-radius: 20px;
     transition-duration: 0.5s;
-    
 }
 
 .product-card:hover {
@@ -586,16 +358,8 @@ textarea {
 
 .product-card .descontar {
 	font-size:1em;
-	color:#00FA6E;
-	padding:1%;
-	
+	color:#00FA6E;	
 }
-
-.btn-producto {
-	margin: 5% 0;
-}
-
-
 
 
 /* ----------------------------Estilo para la plantilla de nuevo_producto------------------------------------ */
@@ -656,65 +420,25 @@ textarea {
   
   
   
-  /* -----------------------------------Nuevo estilo de Consejos de salud---------------------------------------------- */
-.container-posteo {
-    display: flex;
-    padding: 2%;
-    flex-direction: column;
-    align-items: center;
-}
+  /* -----------------------------------Nuevo estilo de Consejos de salud con Bootstrap---------------------------------------------- */
 
-.container-posteo h3 {
-    font-size: 1.9em;
-    margin: 1%;
+.content-consejo h2 {
+    
+    margin-bottom: 1%;
 }
 
 
-.container-consejos {
-    display: flex;
-    flex-direction: column;
-    padding: 1%;
-    margin:1%;
+.content-consejo {
+    
     background-color: #affbff;
-    width:90%;
+    
 }
 
-.container-consejos .botones {
-   
-    margin: 1%;
-    display: flex;
-    justify-content: end;
+.consejos .btn {
+    margin-right: 1%;
 }
 
-.button {
-    display: inline-block;
-    padding: 6px 10px;
-    border-radius: 4px;
-    text-decoration: none;
-    border: none;
-    color: black;
-    cursor: pointer;
-    margin-left: 1%;
-  }
 
-  .edit-button {
-    background-color: #6efd73;
-  }
-
-  .delete-button {
-    background-color: #da6b63;
-  }
-
-  .add-button {
-    width: 30%;
-    padding: 0.5%;
-    border-radius: 5px;
-    border: none;
-    background-color: #3b58ff;
-    cursor: pointer;
-    font-size: 1em;
-    color: #fff;
-  }
 
 
 .container-consejos h4 {
@@ -722,7 +446,7 @@ textarea {
     margin-bottom: 0.5%;
 }
 
-.container-consejos .posteo {
+.content-consejo .texto {
     text-align: justify;
     line-height: 145%;
     font-size: 1.1em;
@@ -730,13 +454,11 @@ textarea {
     margin: 1%;
 }
 
-.container-consejos .autor {
+.content-consejo .autor {
     margin-top: 1%;
-}
-
-.container-consejos .autor span {
     font-weight: bold;
 }
+
 
 
 

@@ -1,44 +1,71 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
-	<meta charset="UTF-8">
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 		<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
 		<link rel="icon" type="image/png" th:href="@{/img/R.png}">
-	<title>Sucursales</title>
-</head>
+		<title>Sucursales</title>
+	</head>
 <body>
-	<main>
-        <header th:replace="~{/layouts/header :: header}"></header>
-    </main>
-    <div class="container-menu">
-		<nav th:replace="~{/layouts/navegation :: navegation}"></nav>
-	</div>
-    <section>
-        <div class="container-sucursales">
+		<div class="container-fluid mb-3">
+		<!-- Layout del titulo y carrusel de imagenes -->
+			<div th:replace="~{/layouts/header :: header}"></div>
+        
 
-            <div class="titulo"><h5>Conocé nuestras Sucursales</h5></div>
 
-            <div class="container-direccion">
-                <div class="sucursal">
-                    <p><span class="descripcion-sucursal">Local Principal</span>: Conoce nuestros servicios y productos de alta calidad</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1486.6371126866522!2d-65.30245102117831!3d-24.191125664468817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f45b12dddef%3A0x4d3f2c08c7f03b6c!2sBella%20Sofi%20Bijouterie!5e0!3m2!1ses-419!2sar!4v1681920384097!5m2!1ses-419!2sar" width="400" height="250" style="border: 1px solid black;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		<!-- Layout del menu -->
+		  <div th:replace="~{/layouts/navegation :: navegation}">
+            
+      	  </div>
+      	  
+      	  	<div class="row m-5">
+            	<div class="col-12 text-center">
+                	<h1>Conocé nuestros locales</h1>
+            	</div>
+        	</div>
+        	
+        	
+        	<!-- Seccion para las sucursales -->
+        	<section class="container-fluid">
+            <div class="container-fluid">
+              <div class="row justify-content-center">
+
+                <div class="col-md-6 text-center mb-5">
+                  <h2>Local Principal</h2>
+                  <p>Conoce todas nuestras ofertas y servicios.</p>
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d909.8609863720998!2d-65.2951207044197!3d-24.1912266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f76e5044caf%3A0xc33b1ec60794d81!2sBendita%20Eres%20Accesorios!5e0!3m2!1ses-419!2sar!4v1681920633063!5m2!1ses-419!2sar" class="embed-responsive-item" style="border: 1px solid black; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
                 </div>
 
-                <div class="sucursal">
-                    <p><span class="descripcion-sucursal">Local Patio</span>: Nuestro local para que visites el patio de juegos</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d909.8609863720998!2d-65.2951207044197!3d-24.1912266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f76e5044caf%3A0xc33b1ec60794d81!2sBendita%20Eres%20Accesorios!5e0!3m2!1ses-419!2sar!4v1681920633063!5m2!1ses-419!2sar" width="400" height="250" style="border: 1px solid black;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="col-md-6 text-center ">
+                  <h2>Local Patio</h2>
+                  <p>Conozca nuestro patio de juegos y guarderia para tu mascota.</p>
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d909.8609863720998!2d-65.2951207044197!3d-24.1912266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f76e5044caf%3A0xc33b1ec60794d81!2sBendita%20Eres%20Accesorios!5e0!3m2!1ses-419!2sar!4v1681920633063!5m2!1ses-419!2sar" class="embed-responsive-item" style="border: 1px solid black; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
                 </div>
+
+              </div>
             </div>
+        </section>
 
-        </div>
-    </section>
+		
 
 
-    <aside>
-        <p> 
-            Salud Pets ofrece los mejores articulos en calidad, proporcina mayor comodidad y bienestar para nustros amigos caninos. 
-        </p>
-    </aside>
-    <footer th:replace="~{/layouts/footer :: footer}"></footer>
+		
+    </div>
+    
+    
+    <!-- Layout del footer -->
+    <div th:replace="~{/layouts/footer :: footer}"></div>
+
+	    
+	    
+	    
+	    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

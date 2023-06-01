@@ -2,33 +2,64 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 		<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
 		<link rel="icon" type="image/png" th:href="@{/img/R.png}">
 		<title>Consejos de Salud</title>
 	</head>
-	<body>
-		<main>
-			<header th:replace="~{/layouts/header :: header}"></header>
-		</main>
-		<div class="container-menu">
-					<nav th:replace="~{/layouts/navegation :: navegation}"></nav>
-				</div>
-		<section>
-        <div class="container-posteo">
-            <h3>Consejos de salud para tu mascota</h3>
+<body>
+		<div class="container-fluid mb-3">
+		<!-- Layout del titulo y carrusel de imagenes -->
+			<div th:replace="~{/layouts/header :: header}"></div>
+        
 
-                <div th:each="consj: ${consejos}" class="container-consejos">
-                    <h4 th:text="${consj.titulo}"></h4>
-                    <p th:text="${consj.posts}" class="posteo"></p>
-                    <p class="autor">Autor: <span th:text="${consj.autor}"></span></p>
-                    <div class="botones">
-                        <a class="button edit-button" th:href="@{/consejo/modificar/}+${consj.titulo}">Editar</a>
-                        <a class="button delete-button" th:href="@{/consejo/eliminar/}+${consj.titulo}">Eliminar</a>
-                    </div>
-                </div>
-                <button class="add-button" onclick="window.location.href = 'nuevo'">Agregar Consejo</button>
+
+		<!-- Layout del menu -->
+		  <div th:replace="~{/layouts/navegation :: navegation}">
+            
+      	  </div>
+      	  
+      	  <div class="row m-5">
+            <div class="col-12 text-center">
+                <h1>Consejos para tu mascota</h1>
+            </div>
+         </div>
+
+			<!-- seccion que publica los consejos de salud -->
+			<section class="container-fluid">
+			<div class="container-fluid consejos">
+			  <div class="row mt-2 mb-2 consejos" >
+					<div th:each="consj: ${consejos}" class=" col-12 mb-5 p-4 content-consejo" >
+				  		<h2 th:text="${consj.titulo}" class="titulo-consejo"></h2>
+				  		<p th:text="${consj.posts}" class="texto"></p>
+				  		<p th:text="${consj.autor}" class="texto autor"></p>
+				  		<div class="d-flex justify-content-end">
+							<a th:href="@{/consejo/modificar/}+${consj.titulo}" class="btn btn-primary mr-2">Editar</a>
+							<a th:href="@{/consejo/eliminar/}+${consj.titulo}" class="btn btn-danger ">Eliminar</a>
+						</div>
+					</div>
+			  </div>
+			</div>
+		</section>
+
+		<div class="row m-5 justify-content-center">
+            <div class="col-12 text-center">
+              <button class="btn btn-primary" onclick="window.location.href = 'nuevo'">Agregar Producto</button>
+            </div>
         </div>
-    </section>
-		<footer th:replace="~{/layouts/footer :: footer}"></footer>		
+
+		
+        
+        
+        
+    </div>
+    
+    
+    <!-- Layout del footer -->
+    <div th:replace="~{/layouts/footer :: footer}"></div>
+		
+			
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

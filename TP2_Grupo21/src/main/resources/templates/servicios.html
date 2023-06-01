@@ -2,63 +2,84 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 		<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
 		<link rel="icon" type="image/png" th:href="@{/img/R.png}">
 		<title>Servicios</title>
 	</head>
 <body>
-	<main>
-			<header th:replace="~{/layouts/header :: header}"></header>
-				</main>
-				<div class="container-menu">
-					<nav th:replace="~{/layouts/navegation :: navegation}"></nav>
+	<div class="container-fluid mb-3">
+		<!-- Layout del titulo y carrusel de imagenes -->
+			<div th:replace="~{/layouts/header :: header}"></div>
+        
+
+
+		<!-- Layout del menu -->
+		  <div th:replace="~{/layouts/navegation :: navegation}">
+            
+      	  </div>
+
+		<!-- Tabla de horarios para los servicios de paseos -->
+			<section class="container-fluid mt-5 paseos">
+			<div class="container-fluid">
+			  <div class="row">
+				<div class="col-12">
+				  <h2 class="text-center">Tabla de Paseos</h2>
 				</div>
+				<div class="col-12">
+				  <div class="table-responsive">
+					<table class="table">
+					  <thead>
+						<tr>
+							<td class="col-md-1 bg-success tabla-paseos text-white"><b>Dia:</b></td>
+							<td class="col-md-1 bg-success text-white"><b>Lunes</b></td>
+							<td class="col-md-1 bg-success text-white"><b>Martes</b></td>
+							<td class="col-md-1 bg-success text-white"><b>Miércoles</b></td>
+							<td class="col-md-1 bg-success text-white"><b>Jueves</b></td>
+							<td class="col-md-1 bg-success text-white"><b>Viernes</b></td>
+							<td class="col-md-1 bg-success text-white"><b>Sábado</b></td>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+							<td class="col-md-1 bg-success tabla-paseos text-white"><b>Hora:</b></td>
+							<td class="col-md-1">9 a 12 - 16 a 18</td>
+							<td class="col-md-1">9 a 12 - 16 a 18</td>
+							<td class="col-md-1">9 a 12 - 16 a 18</td>
+							<td class="col-md-1">9 a 12 - 16 a 18</td>
+							<td class="col-md-1">9 a 12 - 16 a 18</td>
+							<td class="col-md-1">10 a 12</td>
+						</tr>
+						<tr>
+							<td class="col-md-1 bg-success tabla-paseos text-white"><b>Paseador:</b></td>
+							<td class="col-md-1">Jose Colque</td>
+							<td class="col-md-1">Teresa Moreno</td>
+							<td class="col-md-1">Oscar Lima</td>
+							<td class="col-md-1">Jose Colque</td>
+							<td class="col-md-1">Oscar Lima</td>
+							<td class="col-md-1">Teresa Moreno</td>
+						</tr>
+					  </tbody>
+					</table>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </section>
+			
+			
 
-	<div class="container-table">
-		<table class="tabla-paseo">
-        	<tr>
-            	<td colspan="7" class="titulo">Servicio de Paseo - Horarios:</td>
-        	</tr>
+		
+    </div>
+    
+    
+    <!-- Layout del footer -->
+    <div th:replace="~{/layouts/footer :: footer}"></div>
 
-        	<tr>
-            	<td class="columna-table"><b>Dia:</b></td>
-            	<td class="dia"><b>Lunes</b></td>
-            	<td class="dia"><b>Martes</b></td>
-            	<td class="dia"><b>Miércoles</b></td>
-            	<td class="dia"><b>Jueves</b></td>
-            	<td class="dia"><b>Viernes</b></td>
-            	<td class="dia"><b>Sábado</b></td>
-        	</tr>
-
-        	<tr>
-            	<td class="columna-table"><b>Hora:</b></td>
-            	<td class="horario">9 a 12 - 16 a 18</td>
-            	<td class="horario">9 a 12 - 16 a 18</td>
-            	<td class="horario">9 a 12 - 16 a 18</td>
-            	<td class="horario">9 a 12 - 16 a 18</td>
-            	<td class="horario">9 a 12 - 16 a 18</td>
-            	<td class="horario">10 a 12</td>
-        	</tr>
-
-
-        	<tr>
-            	<td class="columna-table"><b>Paseador:</b></td>
-            	<td class="paseador">Jose Colque</td>
-            	<td class="paseador">Teresa Moreno</td>
-            	<td class="paseador">Oscar Lima</td>
-            	<td class="paseador">Jose Colque</td>
-            	<td class="paseador">Oscar Lima</td>
-            	<td class="paseador">Teresa Moreno</td>
-        	</tr>
-
-    	</table>
-	</div>
-	
-	    <aside>
-		    <p> 
-		        Salud Pets ofrece los mejores articulos en calidad, proporcina mayor comodidad y bienestar para nustros amigos caninos. 
-		    </p>
-	    </aside>
-	    <footer th:replace="~{/layouts/footer :: footer}"></footer>
+	    
+	    
+	    
+	    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
