@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +18,11 @@ import ar.edu.unju.fi.model.Producto;
 @RequestMapping("/producto")
 public class nuevo_productoController {
 	
-	ListaNuevoProducto listaProducto = new ListaNuevoProducto();
+	@Autowired
+	private ListaNuevoProducto listaProducto;
 
+	@Autowired
+	private Producto producto;
 	
 	//Metodo para que la nueva lista obtenga productos existentes y nuevos, y mostrarlos en productos.html
 	@GetMapping("/listado")
@@ -30,7 +34,7 @@ public class nuevo_productoController {
 	//Metodo que crea un nuevo objeto y redirige al formulario para un nuevo producto
 	@GetMapping("/nuevo")
 	public String getNuevoProductoPage(Model model) {
-		model.addAttribute("producto", new Producto());
+		model.addAttribute("producto", producto);
 		return "nuevo_producto";
 	}
 	
