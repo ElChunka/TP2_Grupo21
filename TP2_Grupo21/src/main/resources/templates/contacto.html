@@ -2,16 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
 	<link rel="icon" type="image/png" th:href="@{/img/R.png}">
     <title>Contactanos</title>
 </head>
 <body class="contacto-fondo">
-		<main>
-			<header th:replace="~{/layouts/header :: header}"></header>
-		</main>
+
+		<div th:replace="~{/layouts/header :: header}"></div>
+		
 				<div class="container-menu">
-					<nav th:replace="~{/layouts/navegation :: navegation}"></nav>
+					<div th:replace="~{/layouts/navegation :: navegation}"></div>
 				</div>
 	<div class="contenedor-contacto">
     <div class="contacto-parrafo-redes">
@@ -64,6 +66,8 @@
 		</form>
 	</div>
 	</div>
-	<footer th:replace="~{/layouts/footer :: footer}"></footer>	
+	
+<div th:replace="~{/layouts/footer :: footer}"></div>
+	   <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
