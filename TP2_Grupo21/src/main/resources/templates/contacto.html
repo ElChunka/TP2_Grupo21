@@ -1,73 +1,115 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-<head>
-    <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
-	<link rel="icon" type="image/png" th:href="@{/img/R.png}">
-    <title>Contactanos</title>
-</head>
-<body class="contacto-fondo">
-
-		<div th:replace="~{/layouts/header :: header}"></div>
-		
-				<div class="container-menu">
-					<div th:replace="~{/layouts/navegation :: navegation}"></div>
-				</div>
-	<div class="contenedor-contacto">
-    <div class="contacto-parrafo-redes">
-    	<section>
-    		<h1 class="contacto-titul"><b>Cont&aacute;ctenos</b></h1>
-	    	<article>
-	    		<p class="contacto-parrafo">
-		    		3915 Av. General Belgrano, 388-4999999<br>
-					Lunes a viernes: 9:00 a.m. a 8:00 p.m.<br>
-					S&aacute;bado a domingo: 9:00 a.m. a 12:30 p.m.<br>
-				</p>
-	    	</article>
-    	</section>
-    	<nav class="contacto-redes">
-    		<ul>
-    			<li><a href="" class="contacto-link">contactos@mail.com.ar</a></li>
-    			<li><a href="" class="contacto-link">Facebook</a></li>
-    			<li><a href="" class="contacto-link">Instagram</a></li>
-    			<li><a href="" class="contacto-link">Twitter</a></li>
-    		</ul>
-    	</nav>
-    </div>
-   
-   <div class="contacto-formulario">
-   		<form>
-	    	<fieldset>
-	        	<legend class="contacto-legend">Formulario</legend>
-	            	<div class="contacto-lbl">
-	                	<label>Nombre: </label>
-	                	<input class="contacto-letras" type="text" id="nombre" value="" placeholder="Ingrese nombre"/>
-	            	</div>
-	            	<br>
-	            	<div class="contacto-lbl">
-	                	<label>Email: </label>
-	                	<input class="contacto-letras" type="email" id="mail" value="" placeholder="Ingrese un email v&aacute;lido"/>
-	            	</div>
-	            	<br>
-	            	<div class="contacto-lbl">
-	                	<label>Ciudad: </label>
-	                	<input class="contacto-letras" type="text" id="city" value="" placeholder="Ingrese su ciudad"/>
-	            	</div>
-	            	<br>
-	            	<div class="contacto-lbl">
-	                	<label>Mensaje: </label>
-	                	<textarea class="contacto-letras" id="msm" rows= "2" cols="20"></textarea>
-	            	</div>
-	            	<br/>
-	            	<div class="contacto-boton"><input class="contacto-boton2" type="submit" value="Enviar" id="enviar"/></div>
-	    	</fieldset>
-		</form>
-	</div>
-	</div>
+	<head>
+	    <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
+		<link rel="icon" type="image/png" th:href="@{/img/R.png}">
+	    <title>Contactanos</title>
+	</head>
+	<body class="contacto-fondo">
 	
-<div th:replace="~{/layouts/footer :: footer}"></div>
-	   <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-</body>
+		<div th:replace="~{/layouts/header :: header}"></div>
+			
+		<div class="container-menu">
+			<div th:replace="~{/layouts/navegation :: navegation}"></div>
+		</div>
+		
+		<div class="container-fluid mb-3">
+			<div class="row align-items-center contacto-parrafo-redes">
+		    	<div class="col-md-12 col-lg-3">
+			    	<section>
+			    		<h1 class="text-center contacto-titul">Cont&aacute;ctenos</h1>
+				    	<article>
+				    		<p class="contacto-parrafo text-center">
+					    		Direcci&oacute;n: 3915 Av. General Belgrano,<br>Tel: 388-4999999<br>
+					    		Horarios de atenci&oacute;n<br>
+								Lunes a Viernes: 9:00 a.m. a 8:00 p.m.<br>
+								Fin de Semana: 9:00 a.m. a 12:30 p.m.<br>
+							</p>
+				    	</article>
+			    	</section>
+		    	
+			    	<!-- <nav class="contacto-redes">
+			    	<ul>
+			    		<li><a href="" class="contacto-link">contactos@mail.com.ar</a></li>
+			    		<li><a href="" class="contacto-link">Facebook</a></li>
+			    		<li><a href="" class="contacto-link">Instagram</a></li>
+			    		<li><a href="" class="contacto-link">Twitter</a></li>
+			    	</ul>
+			    	</nav> -->
+	
+					<nav class="navbar">
+					  <div class="container-fluid">
+					    <a class="navbar-brand" href="#">
+					      <img th:src="@{https://cdn.techgyd.com/50-Best-Facebook-Logo-Icons-GIF-Transparent-PNG-Images-9.png}" alt="Facebook" width="30" height="30">
+					    </a>
+					    <a class="navbar-brand" href="#">
+					      <img th:src="@{https://clovereducacion.com/wp-content/uploads/instagram1.png}" alt="Instagram" width="30" height="30">
+					    </a>
+					    <a class="navbar-brand" href="#">
+					      <img th:src="@{https://th.bing.com/th/id/R.0b96193508a806746ea68f0e1c0c0694?rik=Fi4%2froOKPymHLg&riu=http%3a%2f%2ffc00.deviantart.net%2ffs71%2ff%2f2014%2f031%2fc%2fd%2ftwitter_logo_vector_by_oguzhanbahardesign-d74i1sd.png&ehk=lLaZa%2fIDkISChl24W9Ek2d5nRmjQLJR3vzsW%2bXG4Umw%3d&risl=&pid=ImgRaw&r=0}" alt="Twitter" width="30" height="25">
+					    </a>
+					    <a class="navbar-brand" href="#">
+					      <img th:src="@{https://th.bing.com/th/id/R.fa40a9b6b9987a57edf6b59f9b850f22?rik=tirhInQUBIG42w&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9i4%2fL4k%2f9i4L4kG4T.png&ehk=eXl%2b4k5UaK2gefYpATVR1WOzirN3lVHcQTM%2fVDmScSs%3d&risl=&pid=ImgRaw&r=0}" alt="Correo" width="30" height="30">
+					    </a>
+					  </div>
+					</nav>
+		    	</div>
+		    
+		
+		 <div class="col-md-12 col-lg-8 contacto-formulario">
+		   		<form>
+			    	<fieldset>
+			        	<legend class="contacto-legend">Formulario</legend>
+								<!-- <div class="contacto-lbl">
+			                	<label>Nombre: </label>
+			                	<input class="contacto-letras" type="text" id="nombre" value="" placeholder="Ingrese nombre"/>
+			            	</div> -->
+							<div class="input-group mb-3">
+							  <span class="input-group-text">Nombre: </span>
+							  <input type="text" aria-label="name" class="form-control" placeholder="Nombre">
+							</div>
+
+			            	<!--<div class="contacto-lbl">
+			                	<label>Email: </label>
+			                	<input class="contacto-letras" type="email" id="mail" value="" placeholder="Ingrese un email v&aacute;lido"/>
+			            	</div>  -->
+			            	<div class="input-group mb-3">
+			            	<span class="input-group-text">Email:</span>
+							  <input type="email" class="form-control" placeholder="Username@domain" aria-label="Username">
+							</div>
+			            	<!-- <div class="contacto-lbl">
+			                	<label>Ciudad: </label>
+			                	<input class="contacto-letras" type="text" id="city" value="" placeholder="Ingrese su ciudad"/>
+			            	</div> -->
+			            	<div class="input-group mb-3">
+							  <label class="input-group-text" for="inputGroupSelect01">Ciudad</label>
+							  <select class="form-select" id="inputGroupSelect01">
+							    <option selected>Indique su ciudad</option>
+							    <option value="1">Ciudad 1</option>
+							    <option value="2">Ciudad 2</option>
+							    <option value="3">Ciudad 3</option>
+							  </select>
+							</div>
+			            	
+			            	<!--<div class="contacto-lbl">
+			                	<label>Mensaje: </label>
+			                	<textarea class="contacto-letras" id="msm" rows= "2" cols="20"></textarea>
+			            	</div>  -->
+			            	<div class="input-group input-group-lg mb-3 ">
+							  <span class="input-group-text">Mensaje:</span>
+							  <textarea class="form-control" aria-label="Mensaje" placeholder="Ingrese texto"></textarea>
+							</div>
+			            	<div class="mb-3 contacto-boton"><input class="contacto-boton2" type="submit" value="Enviar" id="enviar"/></div>
+			    	</fieldset>
+				</form>
+			</div>
+	    	</div>
+		</div>
+		
+		<div th:replace="~{/layouts/footer :: footer}"></div>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	</body>
 </html>
