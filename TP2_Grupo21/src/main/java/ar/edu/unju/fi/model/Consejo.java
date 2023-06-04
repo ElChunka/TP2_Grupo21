@@ -10,7 +10,7 @@ public class Consejo {
 	@NotBlank(message="Debe ingresar un titulo")
 	private String titulo;
 	@NotBlank(message="Debe ingresar un consejo de salud")
-	@Size(min=30, max=500,message="Debe escribir un texto con entre 30 y 500 caracteres")
+	@Size(min=30, max=5000,message="Debe escribir un texto con entre 30 y 5000 caracteres")
 	private String posts;
 	@NotBlank(message="Debe ingresar un autor")
 	private String autor;

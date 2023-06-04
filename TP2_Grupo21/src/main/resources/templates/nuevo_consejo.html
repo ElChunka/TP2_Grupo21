@@ -20,8 +20,8 @@
         <form th:action="${edicion}?@{/consejo/modificar}:@{/consejo/guardar}" th:object="${consejo}" method="post">
           <div class="form-group">
             <label for="titulo">Titulo</label>
-            <input type="text" id="titulo" name="titulo" th:field="*{titulo}">
-            <p th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></p> 
+            <input type="text" id="titulo" name="titulo" th:field="*{titulo}" th:readonly="${edicion}">
+            <p class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></p> 
           </div>
     
           <div class="form-group">

@@ -45,7 +45,7 @@ public class ConsejosController {
 	
 	//Metodo que instancia al nuevo objeto creado anteriormente y lo guarda en la lista de Consejos. verifica que las condiciones se cumplan 
 	@PostMapping("/guardar")
-	public ModelAndView getGuardarNuevoConsejoPage(@Valid @ModelAttribute("consejos") Consejo consejo, BindingResult result) {
+	public ModelAndView getGuardarNuevoConsejoPage(@Valid @ModelAttribute("consejo") Consejo consejo, BindingResult result) {
 		ModelAndView modelView = new ModelAndView("consejos");
 		if(result.hasErrors()) { //Detección de un error en el formulario de alta
 			modelView.setViewName("nuevo_consejo"); // redireccinamiento al html nuevo_consejo
@@ -76,15 +76,21 @@ public class ConsejosController {
 	
 	//metodo que modifica uno o mas valores de los atributos del objeto que deseamos 
 	@PostMapping("/modificar")
-	public String modificarConsejo(@ModelAttribute("consejo")Consejo consejo) {
+	public String modificarConsejo(@Valid @ModelAttribute("consejo")Consejo consejo, BindingResult result, Model model) {
+		
+		if(result.hasErrors()) { //Detección de un error en el formulario de modificación
+			model.addAttribute("edicion", true);
+			return "nuevo_consejo";
+		}
+		
 		for(Consejo consj : listaConsejos.getConsejos()) {
 			if (consj.getTitulo().equals(consejo.getTitulo())) {
-				consj.setTitulo(consejo.getTitulo());
 				consj.setPosts(consejo.getPosts());
 				consj.setAutor(consejo.getAutor());
 			}
 		}
-		return "redirect:/consejo/listado";
+	
+	return "redirect:/consejo/listado";
 	}
 	
 	
