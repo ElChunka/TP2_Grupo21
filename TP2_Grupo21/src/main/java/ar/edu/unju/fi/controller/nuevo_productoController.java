@@ -42,15 +42,16 @@ public class nuevo_productoController {
 	
 	//Metodo que crea un nuevo objeto y redirige al formulario para un nuevo producto
 	@PostMapping("/guardar")
-	public ModelAndView getGuardarNuevoProductoPage(@Valid @ModelAttribute("productos") Producto producto, BindingResult result) {
+	public ModelAndView getGuardarNuevoProductoPage(@Valid @ModelAttribute("producto") Producto producto, BindingResult result) {
 		ModelAndView modelView = new ModelAndView("redirect:/producto/listado");
+		//Detecta un error en el formulario que crea un nuevo producto
 		if (result.hasErrors()) {
 			modelView.setViewName("nuevo_producto");
 			modelView.addObject("producto",producto);
 			return modelView;
 		}
 		listaProducto.getProductos().add(producto);
-		modelView.addObject("productos", listaProducto.getProductos());
+		modelView.addObject("producto", listaProducto.getProductos());
 		System.out.println(listaProducto);
 		return modelView;
 	}
@@ -58,11 +59,11 @@ public class nuevo_productoController {
 	
 	//Metodo para capturar el valor por parametro de la url y saber si existe en la lista o no, para su modificacion
 		@GetMapping("/modificar/{codigo}")
-		public String getModificarConsejoPage(Model model, @PathVariable(value="codigo")int codigo) {
+		public String getModificarProductoPage(Model model, @PathVariable(value="codigo")int codigo) {
 			Producto productoEncontrado = new Producto();
 			boolean edicion = true;
 			for (Producto prod : listaProducto.getProductos()) {
-				if(prod.getCodigo()==codigo) {
+				if(prod.getCodigo()==producto.getCodigo()) {
 					productoEncontrado = prod;
 					break;
 				}
@@ -75,7 +76,12 @@ public class nuevo_productoController {
 		
 		//metodo que modifica uno o mas valores de los atributos del objeto que deseamos 
 		@PostMapping("/modificar")
-		public String modificarConsejo(@ModelAttribute("producto")Producto producto) {
+		public String modificarProducto(@Valid @ModelAttribute("producto")Producto producto, BindingResult result,Model model ) {
+			// si tienen errores de validacion redirige al formulario
+			if (result.hasErrors()) {
+				model.addAttribute("edicion",true);
+				return "nuevo_producto";
+			}
 			for(Producto prod : listaProducto.getProductos()) {
 				if (prod.getCodigo()==prod.getCodigo()) {
 					prod.setNombre(prod.getNombre());
@@ -83,6 +89,7 @@ public class nuevo_productoController {
 					prod.setCategoria(prod.getCategoria());
 					prod.setPrecio(prod.getPrecio());
 					prod.setDescuento(prod.getDescuento());
+					break;
 				}
 			}
 			return "redirect:/producto/listado";
