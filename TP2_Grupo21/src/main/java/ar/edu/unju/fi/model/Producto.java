@@ -14,7 +14,7 @@ import jakarta.validation.constraints.Size;
 public class Producto {
 	
 	@NotBlank(message="No puede estar vacio")
-	@Pattern(regexp="[a-zA-Z]+", message="El nombre solo puede contener letras")
+	@Pattern(regexp="[a-zA-Z]+", message="El nombre solo admite una palabra")
 	@Size(min=5,max=30,message="El nombre del Producto debe tener entre 5 y 30 caracteres")
 	private String nombre;
 	@Size(min=4,max=30,message="La categoria del nuevo producto debe tener entre 4 y 3o caracteres")
