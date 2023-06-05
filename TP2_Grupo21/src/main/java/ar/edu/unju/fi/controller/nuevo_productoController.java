@@ -63,7 +63,7 @@ public class nuevo_productoController {
 			Producto productoEncontrado = new Producto();
 			boolean edicion = true;
 			for (Producto prod : listaProducto.getProductos()) {
-				if(prod.getCodigo()==producto.getCodigo()) {
+				if(prod.getCodigo()== codigo) {
 					productoEncontrado = prod;
 					break;
 				}
@@ -76,23 +76,23 @@ public class nuevo_productoController {
 		
 		//metodo que modifica uno o mas valores de los atributos del objeto que deseamos 
 		@PostMapping("/modificar")
-		public String modificarProducto(@Valid @ModelAttribute("producto")Producto producto, BindingResult result,Model model ) {
-			// si tienen errores de validacion redirige al formulario
-			if (result.hasErrors()) {
-				model.addAttribute("edicion",true);
-				return "nuevo_producto";
-			}
-			for(Producto prod : listaProducto.getProductos()) {
-				if (prod.getCodigo()==prod.getCodigo()) {
-					prod.setNombre(prod.getNombre());
-					prod.setCodigo(prod.getCodigo());
-					prod.setCategoria(prod.getCategoria());
-					prod.setPrecio(prod.getPrecio());
-					prod.setDescuento(prod.getDescuento());
-					break;
-				}
-			}
-			return "redirect:/producto/listado";
+		public String modificarProducto(@Valid @ModelAttribute("producto") Producto productoModificado, BindingResult result, Model model) {
+		    // Si tienen errores de validación redirige al formulario
+		    if (result.hasErrors()) {
+		        model.addAttribute("edicion", true);
+		        return "nuevo_producto";
+		    }
+		    for (Producto prod : listaProducto.getProductos()) {
+		        if (prod.getCodigo() == productoModificado.getCodigo()) {
+		            prod.setNombre(productoModificado.getNombre());
+		            prod.setCodigo(productoModificado.getCodigo());
+		            prod.setCategoria(productoModificado.getCategoria());
+		            prod.setPrecio(productoModificado.getPrecio());
+		            prod.setDescuento(productoModificado.getDescuento());
+		            break;
+		        }
+		    }
+		    return "redirect:/producto/listado";
 		}
 		
 		//metodo que captura el valor por parametro del objeto que vamos a eliminar

@@ -30,7 +30,7 @@
               </div>
               <div class="form-group">
                 <label for="precio">Codigo:</label>
-                <input type="number" id="codigo" name="codigo" th:field="*{codigo}">
+                <input type="number" id="codigo" name="codigo" th:field="*{codigo}" th:readonly="${edicion}">
                               <div class="text-danger"  th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
               </div>
               <div class="form-group">
