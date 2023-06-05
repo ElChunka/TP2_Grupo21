@@ -2,26 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 		<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
 		<link rel="icon" type="image/png" th:href="@{/img/R.png}">
 		<title>Nuevo Producto</title>
 	</head>
 	<body>
-				<main>
-					<header th:replace="~{/layouts/header :: header}"></header>
-				</main>
-				<div class="container-menu">
-          
-					<nav th:replace="~{/layouts/navegation :: navegation}"></nav>
+		<div class="container-fluid mb-3">
+		<!-- Layout del titulo y carrusel de imagenes -->
+			<div th:replace="~{/layouts/header :: header}"></div>
+        
 
-				</div>
+
+		<!-- Layout del menu -->
+		  <div th:replace="~{/layouts/navegation :: navegation}">
+            
+      	  </div>
 	<section>
 		<div class="container">
             <h1>Ingrese el producto</h1>
             <form th:action="${edicion}?@{/producto/modificar}:@{/producto/guardar}" th:object="${producto}" method="post">
               <div class="form-group">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" th:field="*{nombre}"step"any">
+                <input type="text" id="nombre" name="nombre" th:field="*{nombre}">
  	  					<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
               </div>
               <div class="form-group">
@@ -51,12 +55,9 @@
             </form>
           </div>
 	</section>
-	
-	    <aside>
-		    <p> 
-		        Salud Pets ofrece los mejores articulos en calidad, proporcina mayor comodidad y bienestar para nustros amigos caninos. 
-		    </p>
-	    </aside>
-	    <footer th:replace="~{/layouts/footer :: footer}"></footer>
+	</div>
+	    <!-- Layout del footer -->
+    <div th:replace="~{/layouts/footer :: footer}"></div>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     </body>		
 </html>
