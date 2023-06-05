@@ -10,11 +10,7 @@ public class NavegationController {
 	public String getPageIndex() {
 	return "index";
 }
-		
-	@GetMapping("/contacto")
-		public String getPageContacto() {
-		return "contacto";
-	}
+	
 	
 	@GetMapping("/sucursales")
 	public String getPageSucursales() {
