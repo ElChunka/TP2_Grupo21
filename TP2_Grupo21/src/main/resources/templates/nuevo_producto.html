@@ -21,27 +21,33 @@
             <form th:action="${edicion}?@{/producto/modificar}:@{/producto/guardar}" th:object="${producto}" method="post">
               <div class="form-group">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" th:field="*{nombre}" required pattern="^\S.*$">
+                <input type="text" id="nombre" name="nombre" th:field="*{nombre}"step"any">
+ 	  					<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
               </div>
               <div class="form-group">
                 <label for="precio">Codigo:</label>
-                <input type="text" id="codigo" name="codigo" th:field="*{codigo}" min="1" required pattern="^\S.*$">
+                <input type="number" id="codigo" name="codigo" th:field="*{codigo}">
+                              <div class="text-danger"  th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
               </div>
               <div class="form-group">
                 <label for="categ">Categoria:</label>
-                <input type="text" id="categoria" name="categoria" th:field="*{categoria}" required pattern="^\S.*$">
+                <input type="text" id="categoria" name="categoria" th:field="*{categoria}">
+                              <div class="text-danger" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
               </div>
               <div class="form-group">
                 <label for="precio">Precio:</label>
-                <input type="number" step="0.01" id="precio" name="precio" th:field="*{precio}" min="1" required pattern="^\S.*$">
+                <input type="number" id="precio" name="precio" th:field="*{precio}">
+                              <div class="text-danger" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></div>
               </div>
               <div class="form-group">
                 <label for="descuento">Descuento:</label>
-                <input type="number" id="descuento" name="descuento" min="0" max="50" th:field="*{descuento}" required pattern="^\S.*$">
+                <input type="number" id="descuento" name="descuento" th:field="*{descuento}">
+                              <div class="text-danger" th:if="${#fields.hasErrors('descuento')}" th:errors="*{descuento}"></div>
               </div>
               <div class="form-group">
               <input type="submit" class="button" th:value="${edicion}?'Editar':'Postear'">
               </div>
+              
             </form>
           </div>
 	</section>

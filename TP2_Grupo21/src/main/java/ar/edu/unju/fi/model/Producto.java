@@ -1,10 +1,34 @@
 package ar.edu.unju.fi.model;
 
+import org.springframework.stereotype.Component;
+
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
+
+@Component
 public class Producto {
 	
-	private String nombre, categoria, img="R.png";
-	private int descuento, codigo;
-	private double precio;
+	@NotBlank(message="No puede estar vacio")
+	@Pattern(regexp="[a-zA-Z]+", message="El nombre solo puede contener letras")
+	@Size(min=5,max=30,message="El nombre del Producto debe tener entre 5 y 30 caracteres")
+	private String nombre;
+	@Size(min=4,max=30,message="La categoria del nuevo producto debe tener entre 4 y 3o caracteres")
+	@NotBlank(message="No puede estar vacio")
+	private String categoria;
+	@NotEmpty(message="No puede estar vacio")
+	private String img="R.png";
+	@Min(value=1, message="Debe Definir un codigo para el producto")
+	@NotNull(message="Ingrese el codigo")
+	private int codigo;
+	@PositiveOrZero(message="Solo puede ingresar numeros")
+	private int descuento;
+	@PositiveOrZero(message="Solo puede ingresar numeros")
+	private double precio; 
 	
 	public String getImg() {
 		return img;
