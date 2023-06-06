@@ -29,32 +29,36 @@
         	
         	
         	<!-- Seccion para las sucursales -->
-        	<section class="container-fluid">
-            <div class="container-fluid">
-              <div class="row justify-content-center">
-
-                <div class="col-md-6 text-center mb-5">
-                  <h2>Local Principal</h2>
-                  <p>Conoce todas nuestras ofertas y servicios.</p>
-                  <div class="embed-responsive embed-responsive-16by9">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d909.8609863720998!2d-65.2951207044197!3d-24.1912266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f76e5044caf%3A0xc33b1ec60794d81!2sBendita%20Eres%20Accesorios!5e0!3m2!1ses-419!2sar!4v1681920633063!5m2!1ses-419!2sar" class="embed-responsive-item" style="border: 1px solid black; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                  </div>
-                </div>
-
-                <div class="col-md-6 text-center ">
-                  <h2>Local Patio</h2>
-                  <p>Conozca nuestro patio de juegos y guarderia para tu mascota.</p>
-                  <div class="embed-responsive embed-responsive-16by9">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d909.8609863720998!2d-65.2951207044197!3d-24.1912266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f76e5044caf%3A0xc33b1ec60794d81!2sBendita%20Eres%20Accesorios!5e0!3m2!1ses-419!2sar!4v1681920633063!5m2!1ses-419!2sar" class="embed-responsive-item" style="border: 1px solid black; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-        </section>
+        	<section class="container-fluid ">
+				<div class="container-fluid">
+					<div class="row mt-2 mb-2 justify-content-center">
+						<div th:each="sucursal : ${sucursales}" class="col-7 mb-5 p-4 sucursales">
+							<h2 th:text="${sucursal.nombre}" class="titulo-sucursal"></h2>
+							<p th:text="${sucursal.descripcion}" class="texto"></p>
+							<ul class="list-group">
+								<li class="list-group-item" th:text="'Dirección: ' + ${sucursal.direccion}"></li>
+								<li class="list-group-item" th:text="'Horario de apertura: ' + ${sucursal.horaAbrir}"></li>
+								<li class="list-group-item" th:text="'Horario de cierre: ' + ${sucursal.horaCerrar}"></li>
+								<li class="list-group-item" th:text="'Teléfono: ' + ${sucursal.telefono}"></li>
+								<li class="list-group-item" th:text="'Email: ' + ${sucursal.email}"></li>
+								<li class="list-group-item" th:text="'Sucursal N°: ' + ${sucursal.id}"></li>
+							</ul>
+							<div class="d-flex justify-content-end">
+								<a th:href="@{/sucursal/modificar/}+${sucursal.id}" class="btn btn-primary">Editar</a>
+								<a th:href="@{/sucursal/eliminar/}+${sucursal.id}" class="btn btn-danger">Eliminar</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
 		
-
+		
+		<div class="row m-5 justify-content-center">
+            <div class="col-12 text-center">
+              <button class="btn btn-primary" onclick="window.location.href = 'nuevo'">Agregar Sucursal</button>
+            </div>
+        </div>
 
 		
     </div>
