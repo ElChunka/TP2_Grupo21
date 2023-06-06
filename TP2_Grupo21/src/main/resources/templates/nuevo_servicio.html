@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+		<link rel="icon" type="image/png" th:href="@{/img/R.png}">
+		<title>Servicios de Paseo</title>
+	</head>
+	<body>
+		<div class="container-fluid mb-3">
+		<!-- Layout del titulo y carrusel de imagenes -->
+			<div th:replace="~{/layouts/header :: header}"></div>
+        
+
+
+		<!-- Layout del menu -->
+		  <div th:replace="~{/layouts/navegation :: navegation}">
+            
+      	  </div>
+      	  
+      	 <div class="container">
+        <h2 class="text-center mt-5">Crear Servicio</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <form th:action="${edicion}?@{/servicios/modificar}:@{/servicios/guardar}" th:object="${servicio}" method="post">
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" th:field="*{nombre}" class="form-control" >
+                        <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cupos">Id:</label>
+                        <input type="number" id="id" th:field="*{id}" class="form-control" th:readonly="${edicion}">
+                        <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="horaInicio">Hora de inicio:</label>
+                        <input type="time" id="horaInicio" th:field="*{horaInicio}" class="form-control" >
+                        <span th:if="${#fields.hasErrors('horaInicio')}" th:errors="*{horaInicio}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="horaFin">Hora de fin:</label>
+                        <input type="time" id="horaFin" th:field="*{horaFin}" class="form-control"  >
+                        <span th:if="${#fields.hasErrors('horaFin')}" th:errors="*{horaFin}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="dia">Día:</label>
+                        	<select id="dia" th:field="*{dia}" class="form-control" required>
+        						<option value="Lunes">Lunes</option>
+        						<option value="Martes">Martes</option>
+       							<option value="Miercoles">Miercoles</option>
+        						<option value="Jueves">Jueves</option>
+        						<option value="Viernes">Viernes</option>
+        						<option value="Sabado">Sabado</option>
+    						</select>
+                        <span th:if="${#fields.hasErrors('dia')}" th:errors="*{dia}" class="text-danger"></span>
+                    </div>
+                    <button type="submit" th:text="${edicion}?'Editar':'Postear'" class="btn btn-primary"></button>
+                </form>
+            </div>
+        </div>
+    </div> 
+      	  
+      	  
+      	 </div>
+		
+		<footer th:replace="~{/layouts/footer :: footer}"></footer>
+		
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
