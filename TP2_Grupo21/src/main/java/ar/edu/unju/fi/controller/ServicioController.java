@@ -13,19 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.fi.listas.ListaServicio;
 import ar.edu.unju.fi.model.Servicio;
+import ar.edu.unju.fi.service.IServicioService;
 import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/servicios")
 public class ServicioController {
-
-    @Autowired
-    private ListaServicio listaServicios;
-
-    @Autowired
-    private Servicio servicio;
+	@Autowired
+	private IServicioService servicioService;
     
     @ModelAttribute("diasSemana")
     public List<String> getDiasSemana() {
@@ -35,14 +31,14 @@ public class ServicioController {
  // Mostrar la lista de servicios
     @GetMapping("/listado")
     public String getListaServiciosPage(Model model) {
-        model.addAttribute("servicios", listaServicios.getServicios());
+        model.addAttribute("servicios", servicioService.getServicios());
         return "servicios";
     }
  // Mostrar formulario para nuevo servicio
     @GetMapping("/nuevo")
     public String getNuevoServicioPage(Model model) {
         boolean edicion = false;
-        model.addAttribute("servicio", servicio);
+        model.addAttribute("servicio", servicioService.getServicio());
         model.addAttribute("edicion", edicion);
         return "nuevo_servicio";
     }
@@ -56,30 +52,25 @@ public class ServicioController {
 			modelView.addObject("servicio", servicio); // devuelve el objeto consejo
 			return modelView;
 		}
-		listaServicios.getServicios().add(servicio);
+		servicioService.guardar(servicio);
+		servicioService.listar();
 		modelView.setViewName("redirect:/servicios/listado");
-		modelView.addObject("servicios", listaServicios.getServicios());
+		modelView.addObject("servicios", servicioService.getServicios());
 		return modelView;
 	}
 
  // Mostrar formulario para modificar servicio
     @GetMapping("/modificar/{id}")
-    public String getModificarServicioPage(Model model, @PathVariable(value = "id") Long id) {
-        Servicio servicioEncontrado = null;
+    public String getModificarServicioPage(Model model, @PathVariable(value = "id") int id) {
         boolean edicion = true;
-        for (Servicio serv : listaServicios.getServicios()) {
-            if (serv.getId() == id) {
-                servicioEncontrado = serv;
-                break;
-            }
+        if(servicioService.buscar(id)) {
+        	model.addAttribute("servicio", servicioService.recuperar(id));
+        	model.addAttribute("edicion", edicion);
+        	return "nuevo_servicio";
         }
-        if (servicioEncontrado == null) {
-            // Manejar el caso si no se encuentra el servicio
-            return "redirect:/servicios/listado";
+        else {
+        	return "redirect:/servicios/listado";
         }
-        model.addAttribute("servicio", servicioEncontrado);
-        model.addAttribute("edicion", edicion);
-        return "nuevo_servicio";
     }
 
  // Modificar servicio
@@ -92,28 +83,16 @@ public class ServicioController {
             return "nuevo_servicio";
         }
 
-        for (Servicio serv : listaServicios.getServicios()) {
-            if (serv.getId() == servicio.getId()) {
-                serv.setNombre(servicio.getNombre());
-                serv.setHoraInicio(servicio.getHoraInicio());
-                serv.setHoraFin(servicio.getHoraFin());
-                serv.setDia(servicio.getDia());
-                break;
-            }
-        }
+        servicioService.modificar(servicio);
+        servicioService.listar();
 
         return "redirect:/servicios/listado";
     }
 
  // Eliminar servicio
     @GetMapping("/eliminar/{id}")
-    public String eliminarServicio(@PathVariable(value = "id") Long id) {
-        for (Servicio serv : listaServicios.getServicios()) {
-            if (serv.getId() == id) {
-                listaServicios.getServicios().remove(serv);
-                break;
-            }
-        }
+    public String eliminarServicio(@PathVariable(value = "id") int id) {
+        servicioService.eliminar(servicioService.recuperar(id));
         return "redirect:/servicios/listado";
     }
 }

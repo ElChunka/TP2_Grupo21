@@ -82,4 +82,11 @@ public class Servicio {
     public void setDia(String dia) {
         this.dia = dia;
     }
+
+	@Override
+	public String toString() {
+		return "Servicio [nombre=" + nombre + ", id=" + id + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin
+				+ ", dia=" + dia + "]";
+	}
+    
 }
