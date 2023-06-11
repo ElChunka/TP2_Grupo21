@@ -48,7 +48,7 @@ public class ConsejosController {
 			modelView.addObject("consejo", consejo); // devuelve el objeto consejo
 			return modelView;
 		}
-		consejoService.guardar(consejo); //comentar
+		consejoService.guardar(consejo); // Guardar el nuevo consejo utilizando el servicio
 		modelView.addObject("consejos", consejoService.getConsejos());
 		return modelView;
 	}
@@ -57,7 +57,7 @@ public class ConsejosController {
 	@GetMapping("/modificar/{titulo}")
 	public String getModificarConsejoPage(Model model, @PathVariable(value="titulo")String titulo) {
 		boolean edicion = true;
-		model.addAttribute("consejo", consejoService.getBy(titulo)); //comentar
+		model.addAttribute("consejo", consejoService.getBy(titulo)); // Obtener el consejo por título y agregarlo al modelo
 		model.addAttribute("edicion", edicion);
 		return "nuevo_consejo";
 	}
@@ -72,7 +72,7 @@ public class ConsejosController {
 			return "nuevo_consejo";
 		}
 		
-		consejoService.modificar(consejo); //comentar
+		consejoService.modificar(consejo); // Modificar el consejo utilizando el servicio
 	
 	return "redirect:/consejo/listado";
 	}
