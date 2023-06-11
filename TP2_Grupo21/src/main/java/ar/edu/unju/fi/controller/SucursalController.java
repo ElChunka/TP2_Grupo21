@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.listas.ListaSucursal;
 import ar.edu.unju.fi.model.Sucursal;
+import ar.edu.unju.fi.service.ISucursalService;
 import jakarta.validation.Valid;
 
 @Controller
@@ -20,7 +21,7 @@ import jakarta.validation.Valid;
 public class SucursalController {
 	
 	@Autowired
-	private ListaSucursal listaSucursales;
+	private ISucursalService sucursalService;
 	
 	@Autowired
 	private Sucursal sucursal;
@@ -28,7 +29,7 @@ public class SucursalController {
 	//Metodo para que la nueva lista obtenga sucursales existentes y nuevas
 	@GetMapping("/listado")
 	public String getListaSucursalesPage(Model model) {
-		model.addAttribute("sucursales", listaSucursales.getSucursales());
+		model.addAttribute("sucursales", sucursalService.getSucursal());
 		return "sucursales";
 	}
 	
@@ -36,7 +37,7 @@ public class SucursalController {
 	@GetMapping("/nuevo")
 	public String getNuevaSucursalPage(Model model) {
 		boolean edicion = false;
-		model.addAttribute("sucursal", sucursal);
+		model.addAttribute("sucursal", sucursalService.getSucursal());
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";
 	}
@@ -50,23 +51,16 @@ public class SucursalController {
 			modelView.addObject("sucursal", sucursal);
 			return modelView;
 		}
-		listaSucursales.getSucursales().add(sucursal);
-		modelView.setViewName("redirect:/sucursal/listado");
-		modelView.addObject("sucursales", listaSucursales.getSucursales());
+		sucursalService.guardar(sucursal);
+		modelView.addObject("sucursales", sucursalService.getSucursales());
 		return modelView;
 	}
 	
 	//Metodo para capturar el valor por parametro de la url y saber si existe en la lista o no, para su modificacion
 	@GetMapping("/modificar/{id}")
 	public String getModificarSucursalPage(Model model, @PathVariable(value = "id") int id) {
-		Sucursal sucursalEncontrada = null;
+		Sucursal sucursalEncontrada = sucursalService.getBy(id);
 		boolean edicion = true;
-		for (Sucursal serv : listaSucursales.getSucursales()) {
-			if (serv.getId() == id) {
-				sucursalEncontrada = serv;
-				break;
-			}
-		}
 		model.addAttribute("sucursal", sucursalEncontrada);
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";
@@ -79,18 +73,7 @@ public class SucursalController {
 			model.addAttribute("edicion", true);
 			return "nueva_sucursal";
 		}
-		for (Sucursal serv : listaSucursales.getSucursales()) {
-			if (serv.getId() == sucursal.getId()) {
-				serv.setNombre(sucursal.getNombre());
-				serv.setDireccion(sucursal.getDireccion());
-				serv.setDescripcion(sucursal.getDescripcion());
-				serv.setHoraAbrir(sucursal.getHoraAbrir());
-				serv.setHoraCerrar(sucursal.getHoraCerrar());
-				serv.setTelefono(sucursal.getTelefono());
-				serv.setEmail(sucursal.getEmail());
-				break;
-			}
-		}
+		sucursalService.modificar(sucursal);
 		return "redirect:/sucursal/listado";
 	}
 	
@@ -98,12 +81,7 @@ public class SucursalController {
 	//metodo que captura el valor por parametro del objeto que vamos a eliminar
 	@GetMapping("/eliminar/{id}")
 	public String eliminarSucursal(@PathVariable(value = "id") int id) {
-		for (Sucursal serv : listaSucursales.getSucursales()) {
-			if (serv.getId() == id) {
-				listaSucursales.getSucursales().remove(serv);
-				break;
-				}
-		}
+		sucursalService.eliminar(sucursalService.getBy(id));
 		return "redirect:/sucursal/listado";
 	}
 }
