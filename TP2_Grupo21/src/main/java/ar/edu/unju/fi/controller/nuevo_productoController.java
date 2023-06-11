@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.listas.ListaNuevoProducto;
 import ar.edu.unju.fi.model.Producto;
+import ar.edu.unju.fi.service.IProductoService;
 import jakarta.validation.Valid;
 
 
@@ -21,10 +22,12 @@ import jakarta.validation.Valid;
 public class nuevo_productoController {
 	
 	@Autowired
+	private IProductoService productoService;
+	
+	@Autowired
 	private ListaNuevoProducto listaProducto;
 
-	@Autowired
-	private Producto producto;
+
 	
 	//Metodo para que la nueva lista obtenga productos existentes y nuevos, y mostrarlos en productos.html
 	@GetMapping("/listado")
@@ -36,7 +39,7 @@ public class nuevo_productoController {
 	//Metodo que crea un nuevo objeto y redirige al formulario para un nuevo producto
 	@GetMapping("/nuevo")
 	public String getNuevoProductoPage(Model model) {
-		model.addAttribute("producto", producto);
+		model.addAttribute("producto", productoService);
 		return "nuevo_producto";
 	}
 	
