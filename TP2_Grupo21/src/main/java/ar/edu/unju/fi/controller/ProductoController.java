@@ -21,7 +21,7 @@ import jakarta.validation.Valid;
 public class ProductoController {
 	
 	@Autowired
-	private IProductoService productoService; //reemplazar productoservice en todas?
+	private IProductoService productoService; 
 	
 	
 	//Metodo para que la nueva lista obtenga productos existentes y nuevos, y mostrarlos en productos.html
