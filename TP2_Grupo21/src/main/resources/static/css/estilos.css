@@ -146,87 +146,27 @@ footer {
 
 
 /*============================================= Estilos de la tabla de paseos =========================================================== */
-.container-table {
-   
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color:#affbff;
+.col-md-4 {
+	background-color: #d2fdfe;
 }
 
-.tabla-paseo {
-    background-color: #fe6960;
-    width: 90%;
-    height: 25vh;
-    border: 3px solid black;
-    border-collapse: collapse;
-    text-align: center;
-    margin: 5%;
+.table tbody tr td {
+	border-right:1px solid #febf97;
 }
 
-.tabla-paseo tr td {
-    border-right: 1px solid black;
+.table tbody {
+	border:2px solid #febf97;
+	
 }
-
-
-.tabla-paseo .titulo {
-    text-align: center;
-    border-bottom: 3px solid black;
-    font-weight: 500;
-}
-
-.tabla-paseo tr .columna-table {
-    border-right: 3px solid black;
-}
-
-
-.dia {
-    border-bottom: 1px solid black;
-}
-
-.horario, .paseador {
-    background-color: #d2fdfe;
-}
-
-.paseos {
-	margin-bottom:10rem;
-}
-
-
 /*================================================ Estilos de sucursales ====================================================================== */
 
-.container-sucursales {
-    display: flex;
-    flex-direction: column;
-    padding: 5% 0;
-    align-items: center;
-    justify-content: center;
+
+
+.sucursales {
+	background-color: #d2fdfe;
 }
 
 
-
-.container-direccion {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-
-.sucursal {
-    width: 40%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.sucursal p {
-    padding-bottom: 2%;
-}
-
-.descripcion-sucursal {
-    font-weight: 600;
-}
 
 /* Estilos de Contacto ========================================================================================= */
 

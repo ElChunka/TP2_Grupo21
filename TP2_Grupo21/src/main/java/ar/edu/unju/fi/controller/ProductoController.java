@@ -18,7 +18,7 @@ import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/producto")
-public class Nuevo_ProductoController {
+public class ProductoController {
 	
 	@Autowired
 	private IProductoService productoService; //reemplazar productoservice en todas?
