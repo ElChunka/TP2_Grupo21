@@ -29,7 +29,7 @@ public class SucursalController {
 	//Metodo para que la nueva lista obtenga sucursales existentes y nuevas
 	@GetMapping("/listado")
 	public String getListaSucursalesPage(Model model) {
-		model.addAttribute("sucursales", sucursalService.getSucursal());
+		model.addAttribute("sucursales", sucursalService.getSucursales());
 		return "sucursales";
 	}
 	
