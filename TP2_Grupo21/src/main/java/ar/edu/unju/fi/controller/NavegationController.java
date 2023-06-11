@@ -10,16 +10,5 @@ public class NavegationController {
 	public String getPageIndex() {
 	return "index";
 }
-	
-	
-	@GetMapping("/sucursales")
-	public String getPageSucursales() {
-	return "sucursales";
-}
-	
-	@GetMapping("/servicios")
-	public String getPageServicio() {
-	return "servicios";
-}
 
 }

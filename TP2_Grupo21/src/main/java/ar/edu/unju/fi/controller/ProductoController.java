@@ -11,32 +11,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.fi.listas.ListaNuevoProducto;
 import ar.edu.unju.fi.model.Producto;
+import ar.edu.unju.fi.service.IProductoService;
 import jakarta.validation.Valid;
 
 
 @Controller
 @RequestMapping("/producto")
-public class nuevo_productoController {
+public class ProductoController {
 	
 	@Autowired
-	private ListaNuevoProducto listaProducto;
-
-	@Autowired
-	private Producto producto;
+	private IProductoService productoService; 
+	
 	
 	//Metodo para que la nueva lista obtenga productos existentes y nuevos, y mostrarlos en productos.html
 	@GetMapping("/listado")
 	public String getPagina(Model model) {
-		model.addAttribute("productos", listaProducto.getProductos());
+		model.addAttribute("productos", productoService.getProductos() );
 		return "productos";
 	}
 	
 	//Metodo que crea un nuevo objeto y redirige al formulario para un nuevo producto
 	@GetMapping("/nuevo")
 	public String getNuevoProductoPage(Model model) {
-		model.addAttribute("producto", producto);
+		model.addAttribute("producto", productoService.getProducto());
 		return "nuevo_producto";
 	}
 	
@@ -50,9 +48,9 @@ public class nuevo_productoController {
 			modelView.addObject("producto",producto);
 			return modelView;
 		}
-		listaProducto.getProductos().add(producto);
-		modelView.addObject("producto", listaProducto.getProductos());
-		System.out.println(listaProducto);
+		productoService.guardar(producto);
+		modelView.addObject("producto", productoService.getProductos());
+		System.out.println(productoService);
 		return modelView;
 	}
 	
@@ -60,19 +58,14 @@ public class nuevo_productoController {
 	//Metodo para capturar el valor por parametro de la url y saber si existe en la lista o no, para su modificacion
 		@GetMapping("/modificar/{codigo}")
 		public String getModificarProductoPage(Model model, @PathVariable(value="codigo")int codigo) {
-			Producto productoEncontrado = new Producto();
+			Producto productoEncontrado = productoService.getBy(codigo);
 			boolean edicion = true;
-			for (Producto prod : listaProducto.getProductos()) {
-				if(prod.getCodigo()== codigo) {
-					productoEncontrado = prod;
-					break;
-				}
-			}
+			
 			model.addAttribute("producto", productoEncontrado);
 			model.addAttribute("edicion", edicion);
 			return "nuevo_producto";
 		}
-		
+		 
 		
 		//metodo que modifica uno o mas valores de los atributos del objeto que deseamos 
 		@PostMapping("/modificar")
@@ -82,28 +75,14 @@ public class nuevo_productoController {
 		        model.addAttribute("edicion", true);
 		        return "nuevo_producto";
 		    }
-		    for (Producto prod : listaProducto.getProductos()) {
-		        if (prod.getCodigo() == productoModificado.getCodigo()) {
-		            prod.setNombre(productoModificado.getNombre());
-		            prod.setCodigo(productoModificado.getCodigo());
-		            prod.setCategoria(productoModificado.getCategoria());
-		            prod.setPrecio(productoModificado.getPrecio());
-		            prod.setDescuento(productoModificado.getDescuento());
-		            break;
-		        }
-		    }
+		    productoService.modificar(productoModificado);
 		    return "redirect:/producto/listado";
 		}
 		
 		//metodo que captura el valor por parametro del objeto que vamos a eliminar
 		@GetMapping("/eliminar/{codigo}")
 		public String eliminarConsejo(@PathVariable(value="codigo")int codigo) {
-			for (Producto prod : listaProducto.getProductos()) {
-				if(prod.getCodigo()== codigo) {
-					listaProducto.getProductos().remove(prod);
-					break;
-				}
-			}
+			productoService.eliminar(productoService.getBy(codigo));
 			return "redirect:/producto/listado";
 		}
 }

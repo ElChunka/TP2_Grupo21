@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}" />
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+		<link rel="icon" type="image/png" th:href="@{/img/R.png}">
+		<title>Sucursales</title>
+	</head>
+	<body>
+		<div class="container-fluid mb-3">
+		<!-- Layout del titulo y carrusel de imagenes -->
+			<div th:replace="~{/layouts/header :: header}"></div>
+        
+
+
+		<!-- Layout del menu -->
+		  <div th:replace="~{/layouts/navegation :: navegation}">
+            
+      	  </div>
+      	  
+      	 		<section class="container">
+  					<div class="row justify-content-center">
+    					<div class="col-md-6">
+      						<h2>Nueva Sucursal</h2>
+      						<form th:object="${sucursal}" th:action="${edicion}?@{/sucursal/modificar}:@{/sucursal/guardar}" method="post" class="needs-validation" novalidate>
+        						<div class="form-group">
+          							<label for="nombre">Nombre:</label>
+          							<input type="text" id="nombre" class="form-control" th:field="*{nombre}">
+          							<span class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+        						</div>
+        						<div class="form-group">
+          							<label for="direccion">Dirección:</label>
+          							<input type="text" id="direccion" class="form-control" th:field="*{direccion}">
+          							<span class="text-danger" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></span>
+        						</div>
+        						<div class="form-group">
+          							<label for="descripcion">Descripción:</label>
+          							<textarea id="descripcion" class="form-control" th:field="*{descripcion}"></textarea>
+          							<span class="text-danger" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></span>
+        						</div>
+        						<div class="form-group">
+          							<label for="horaAbrir">Hora de Apertura:</label>
+          							<input type="time" id="horaAbrir" class="form-control" th:field="*{horaAbrir}">
+          							<span class="text-danger" th:if="${#fields.hasErrors('horaAbrir')}" th:errors="*{horaAbrir}"></span>
+        						</div>
+        						<div class="form-group">
+          							<label for="horaCerrar">Hora de Cierre:</label>
+          							<input type="time" id="horaCerrar" class="form-control" th:field="*{horaCerrar}">
+          							<span class="text-danger" th:if="${#fields.hasErrors('horaCerrar')}" th:errors="*{horaCerrar}"></span>
+        						</div>
+        						<div class="form-group">
+          							<label for="telefono">Teléfono:</label>
+          							<input type="text" id="telefono" class="form-control" th:field="*{telefono}">
+          							<span class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></span>
+        						</div>
+        						<div class="form-group">
+          							<label for="email">Email:</label>
+          							<input type="email" id="email" class="form-control" th:field="*{email}">
+          							<span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        						</div>
+        						<div class="form-group">
+          							<label for="id">ID:</label>
+          							<input type="number" id="id" class="form-control" th:field="*{id}" th:readonly="${edicion}">
+          							<span class="text-danger" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+        						</div>
+        						<button type="submit" th:text="${edicion}?'Editar':'Guardar'" class="btn btn-primary"></button>
+      						</form>
+    					</div>
+  					</div>
+				</section>
+      	  
+      	  
+      	 </div>
+		
+		<footer th:replace="~{/layouts/footer :: footer}"></footer>
+		
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
