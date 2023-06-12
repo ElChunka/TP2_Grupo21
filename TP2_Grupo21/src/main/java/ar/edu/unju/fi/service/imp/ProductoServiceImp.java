@@ -28,7 +28,7 @@ public class ProductoServiceImp implements IProductoService {
 	}
 
 	@Override
-	public void guardar(Producto Producto) {
+	public void guardar(Producto producto) {
 	listaProducto.getProductos().add(producto);
 	}
 
