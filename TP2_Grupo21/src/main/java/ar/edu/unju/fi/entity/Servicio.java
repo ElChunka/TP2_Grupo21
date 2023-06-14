@@ -1,4 +1,4 @@
-package ar.edu.unju.fi.model;
+package ar.edu.unju.fi.entity;
 import java.time.LocalTime;
 import org.springframework.stereotype.Component;
 import jakarta.validation.constraints.NotBlank;
