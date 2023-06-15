@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.fi.listas.ListaSucursal;
 import ar.edu.unju.fi.model.Sucursal;
 import ar.edu.unju.fi.service.ISucursalService;
 import jakarta.validation.Valid;
@@ -23,8 +22,6 @@ public class SucursalController {
 	@Autowired
 	private ISucursalService sucursalService;
 	
-	@Autowired
-	private Sucursal sucursal;
 	
 	//Metodo para que la nueva lista obtenga sucursales existentes y nuevas
 	@GetMapping("/listado")

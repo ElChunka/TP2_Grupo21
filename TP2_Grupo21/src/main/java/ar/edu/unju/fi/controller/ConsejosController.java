@@ -11,26 +11,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.fi.listas.ListaConsejo;
 import ar.edu.unju.fi.model.Consejo;
+import ar.edu.unju.fi.service.IConsejoService;
 import jakarta.validation.Valid;
-
 
 @Controller
 @RequestMapping("/consejo")
 public class ConsejosController {
 		
-	//Se crea una nueva lista para los posteos de consejos
+	//Agregar comentario de serive e interfaces sobre consejo, declaraciones
 	@Autowired
-	private ListaConsejo listaConsejos;
-	
-	@Autowired
-	private Consejo consejo;
+	private IConsejoService consejoService;
 	
 	//Metodo para que la nueva lista obtenga consejos existentes y nuevos
 	@GetMapping("/listado")
 	public String getListaConsejosPage(Model model) {
-		model.addAttribute("consejos",listaConsejos.getConsejos());
+		model.addAttribute("consejos", consejoService.getConsejos()); //comentar
 		return "consejos";
 	}
 	
@@ -38,7 +34,7 @@ public class ConsejosController {
 	@GetMapping("/nuevo")
 	public String getNuevoConsejoPage(Model model) {
 		boolean edicion = false;
-		model.addAttribute("consejo", consejo);
+		model.addAttribute("consejo", consejoService.getConsejo()); //comentar
 		model.addAttribute("edicion",edicion);
 		return "nuevo_consejo";
 	}
@@ -52,23 +48,16 @@ public class ConsejosController {
 			modelView.addObject("consejo", consejo); // devuelve el objeto consejo
 			return modelView;
 		}
-		listaConsejos.getConsejos().add(consejo);
-		modelView.addObject("consejos", listaConsejos.getConsejos());
+		consejoService.guardar(consejo); // Guardar el nuevo consejo utilizando el servicio
+		modelView.addObject("consejos", consejoService.getConsejos());
 		return modelView;
 	}
 	
 	//Metodo para capturar el valor por parametro de la url y saber si existe en la lista o no, para su modificacion
 	@GetMapping("/modificar/{titulo}")
 	public String getModificarConsejoPage(Model model, @PathVariable(value="titulo")String titulo) {
-		Consejo consejoEncontrado = new Consejo();
 		boolean edicion = true;
-		for (Consejo consj : listaConsejos.getConsejos()) {
-			if(consj.getTitulo().equals(titulo)) {
-				consejoEncontrado = consj;
-				break;
-			}
-		}
-		model.addAttribute("consejo", consejoEncontrado);
+		model.addAttribute("consejo", consejoService.getBy(titulo)); // Obtener el consejo por título y agregarlo al modelo
 		model.addAttribute("edicion", edicion);
 		return "nuevo_consejo";
 	}
@@ -83,12 +72,7 @@ public class ConsejosController {
 			return "nuevo_consejo";
 		}
 		
-		for(Consejo consj : listaConsejos.getConsejos()) {
-			if (consj.getTitulo().equals(consejo.getTitulo())) {
-				consj.setPosts(consejo.getPosts());
-				consj.setAutor(consejo.getAutor());
-			}
-		}
+		consejoService.modificar(consejo); // Modificar el consejo utilizando el servicio
 	
 	return "redirect:/consejo/listado";
 	}
@@ -97,12 +81,7 @@ public class ConsejosController {
 	//metodo que captura el valor por parametro del objeto que vamos a eliminar
 	@GetMapping("/eliminar/{titulo}")
 	public String eliminarConsejo(@PathVariable(value="titulo")String titulo) {
-		for (Consejo consj : listaConsejos.getConsejos()) {
-			if(consj.getTitulo().equals(titulo)) {
-				listaConsejos.getConsejos().remove(consj);
-				break;
-			}
-		}
+		consejoService.eliminar(consejoService.getBy(titulo));
 		return "redirect:/consejo/listado";
 	}
 	

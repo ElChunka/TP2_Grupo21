@@ -34,19 +34,18 @@ public class SucursalServiceImp implements ISucursalService{
 
 	@Override
 	public void modificar(Sucursal sucursalMod) {
-		for (Sucursal serv : listaSucursal.getSucursales()) {
-			if (serv.getId() == sucursal.getId()) {
-				serv.setNombre(sucursal.getNombre());
-				serv.setDireccion(sucursal.getDireccion());
-				serv.setDescripcion(sucursal.getDescripcion());
-				serv.setHoraAbrir(sucursal.getHoraAbrir());
-				serv.setHoraCerrar(sucursal.getHoraCerrar());
-				serv.setTelefono(sucursal.getTelefono());
-				serv.setEmail(sucursal.getEmail());
-				break;
-			}
-		}
-		
+	    for (Sucursal serv : listaSucursal.getSucursales()) {
+	        if (serv.getId() == sucursalMod.getId()) {
+	            serv.setNombre(sucursalMod.getNombre());
+	            serv.setDireccion(sucursalMod.getDireccion());
+	            serv.setDescripcion(sucursalMod.getDescripcion());
+	            serv.setHoraAbrir(sucursalMod.getHoraAbrir());
+	            serv.setHoraCerrar(sucursalMod.getHoraCerrar());
+	            serv.setTelefono(sucursalMod.getTelefono());
+	            serv.setEmail(sucursalMod.getEmail());
+	            break;
+	        }
+	    }
 	}
 
 	@Override
