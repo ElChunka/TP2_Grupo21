@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import ar.edu.unju.fi.model.Mensaje;
+import ar.edu.unju.fi.entity.Mensaje;
 @Component
 public class ListaMensajes {
 	
