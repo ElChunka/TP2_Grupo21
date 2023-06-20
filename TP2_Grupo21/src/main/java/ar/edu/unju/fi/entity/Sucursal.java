@@ -4,12 +4,14 @@ import java.time.LocalTime;
 
 import org.springframework.stereotype.Component;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
@@ -19,6 +21,7 @@ import jakarta.validation.constraints.Pattern;
 
 
 @Component
+
 @Entity
 @Table(name="sucursales")
 public class Sucursal {
@@ -44,15 +47,19 @@ public class Sucursal {
     private LocalTime horaCerrar;
     
     @Column(name="sucu_telefono")
+
     @NotBlank(message = "El teléfono es obligatorio")
     @Pattern(regexp = "\\d{10}", message = "El teléfono debe tener 10 dígitos")
     private String telefono;
     
+
     @Column(name="sucu_email")
+
     @NotBlank(message = "El email es obligatorio")
     @Email(message = "El email debe ser válido")
     private String email;
     
+
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="sucu_id")
@@ -63,12 +70,15 @@ public class Sucursal {
     
     @Column(name="sucu_estado")
     private boolean estado;
+
     
     public Sucursal() {
         // Constructor por defecto
     }
     
+
     public Sucursal(String nombre, String direccion,  String descripcion, LocalTime horaAbrir, LocalTime horaCerrar,String telefono, String email, Long id, boolean estado) {
+
     	this.nombre = nombre;
         this.direccion = direccion;
         this.descripcion = descripcion;
@@ -78,6 +88,8 @@ public class Sucursal {
         this.email = email;
         this.id = id;
         this.estado = estado;
+
+
     }
     
     public String getNombre() {
@@ -137,6 +149,7 @@ public class Sucursal {
     }
     
     
+
     public Long getId() {
     	return id;
     }
@@ -152,5 +165,6 @@ public class Sucursal {
     public void setEstado() {
     	this.estado = estado;
     }
+
 }
 
