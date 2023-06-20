@@ -35,8 +35,8 @@
 				  		<p th:text="${consj.posts}" class="texto"></p>
 				  		<p th:text="${consj.autor}" class="texto autor"></p>
 				  		<div class="d-flex justify-content-end">
-							<a th:href="@{/consejo/modificar/}+${consj.titulo}" class="btn btn-primary mr-2">Editar</a>
-							<a th:href="@{/consejo/eliminar/}+${consj.titulo}" class="btn btn-danger ">Eliminar</a>
+							<a th:href="@{/consejo/modificar/}+${consj.id}" class="btn btn-primary mr-2">Editar</a>
+							<a th:href="@{/consejo/eliminar/}+${consj.id}" class="btn btn-danger ">Eliminar</a>
 						</div>
 					</div>
 			  </div>
