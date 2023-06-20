@@ -10,7 +10,7 @@ public interface ISucursalService {
 	Sucursal getSucursal();
 	void guardar(Sucursal sucursalGuardar);
 	void modificar(Sucursal sucursalMod);
-	Sucursal getBy(int id);
+	Sucursal getBy(Long id);
 	void eliminar(Sucursal sucursalEliminar);
 
 }

@@ -59,11 +59,11 @@
           							<input type="email" id="email" class="form-control" th:field="*{email}">
           							<span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
         						</div>
-        						<div class="form-group">
+        						<!--<div class="form-group">
           							<label for="id">ID:</label>
           							<input type="number" id="id" class="form-control" th:field="*{id}" th:readonly="${edicion}">
           							<span class="text-danger" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
-        						</div>
+        						</div> -->
         						<button type="submit" th:text="${edicion}?'Editar':'Guardar'" class="btn btn-primary"></button>
       						</form>
     					</div>
