@@ -1,8 +1,10 @@
 package ar.edu.unju.fi.listas;
 import java.util.List;
 import org.springframework.stereotype.Component;
+
+import ar.edu.unju.fi.entity.Consejo;
+
 import java.util.ArrayList;
-import ar.edu.unju.fi.model.Consejo;
 
 
 @Component

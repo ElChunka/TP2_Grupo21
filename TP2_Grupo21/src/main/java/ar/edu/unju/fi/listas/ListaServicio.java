@@ -1,8 +1,10 @@
 package ar.edu.unju.fi.listas;
 import java.util.List;
 import org.springframework.stereotype.Component;
+
+import ar.edu.unju.fi.entity.Servicio;
+
 import java.util.ArrayList;
-import ar.edu.unju.fi.model.Servicio;
 import java.time.LocalTime;
 
 
