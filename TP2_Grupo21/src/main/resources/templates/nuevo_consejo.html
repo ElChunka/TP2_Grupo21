@@ -27,7 +27,7 @@
                           method="post">
                         <div class="form-group">
                             <label for="titulo">Titulo</label>
-                            <input type="text" id="titulo" name="titulo" th:field="*{titulo}" class="form-control" th:readonly="${edicion}">
+                            <input type="text" id="titulo" name="titulo" th:field="*{titulo}" class="form-control">
                             <p th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"
                                class="text-danger"></p>
                         </div>
