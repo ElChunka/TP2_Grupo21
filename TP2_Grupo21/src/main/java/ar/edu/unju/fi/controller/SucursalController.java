@@ -21,7 +21,7 @@ import jakarta.validation.Valid;
 public class SucursalController {
 	
 	@Autowired
-	@Qualifier("sucursalServiceImp")
+	@Qualifier("sucursalServiceMysql")
 	private ISucursalService sucursalService;
 	
 	
@@ -79,7 +79,7 @@ public class SucursalController {
 	
 	//metodo que captura el valor por parametro del objeto que vamos a eliminar
 	@GetMapping("/eliminar/{id}")
-	public String eliminarSucursal(@PathVariable(value = "id") int id) {
+	public String eliminarSucursal(@PathVariable(value = "id") Long id) {
 		sucursalService.eliminar(sucursalService.getBy(id));
 		return "redirect:/sucursal/listado";
 	}

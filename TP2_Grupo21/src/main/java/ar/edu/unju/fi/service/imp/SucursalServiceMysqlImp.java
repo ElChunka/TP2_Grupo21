@@ -30,6 +30,7 @@ public class SucursalServiceMysqlImp implements ISucursalService {
 
 	@Override
 	public void guardar(Sucursal sucursalGuardar) {
+		sucursalGuardar.setEstado(true);
 		sucursalRepository.save(sucursalGuardar);
 	}
 
@@ -41,7 +42,8 @@ public class SucursalServiceMysqlImp implements ISucursalService {
 
 	@Override
 	public Sucursal getBy(Long id) {
-		return sucursalRepository.findById(id).get();
+		sucursal = sucursalRepository.findById(id).get();
+		return sucursal;
 	}
 
 	@Override
