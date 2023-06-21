@@ -26,15 +26,15 @@ import jakarta.validation.constraints.Pattern;
 @Table(name="sucursales")
 public class Sucursal {
     
-	@Column(name="sucu_nombre", length = 20, nullable = false)
+	@Column(name="sucu_nombre")
 	@NotBlank(message = "El nombre es obligatorio")
     private String nombre;
     
-	@Column(name="sucu_direccion", length = 20, nullable = false)
+	@Column(name="sucu_direccion")
     @NotBlank(message = "La dirección es obligatoria")
     private String direccion;
     
-    @Column(name="sucu_descripcion", length = 150, nullable = false)
+    @Column(name="sucu_descripcion")
     @NotBlank(message = "La descripción es obligatoria")
     private String descripcion;
     
@@ -47,14 +47,12 @@ public class Sucursal {
     private LocalTime horaCerrar;
     
     @Column(name="sucu_telefono")
-
     @NotBlank(message = "El teléfono es obligatorio")
     @Pattern(regexp = "\\d{10}", message = "El teléfono debe tener 10 dígitos")
     private String telefono;
     
 
     @Column(name="sucu_email")
-
     @NotBlank(message = "El email es obligatorio")
     @Email(message = "El email debe ser válido")
     private String email;
@@ -63,9 +61,6 @@ public class Sucursal {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="sucu_id")
-    @NotNull(message = "El id no puede ser nula")
-	@Digits(integer = 3, message = "El valor del id debe ser un número entero de un dígito", fraction = 0)
-	@Min(value = 1, message = "El valor del id debe ser mayor o igual a 1")
     private Long id;
     
     @Column(name="sucu_estado")
@@ -158,11 +153,11 @@ public class Sucursal {
     	this.id = id;
     }
     
-    public boolean getEstado(boolean estado) {
+    public boolean getEstado() {
     	return estado;
     }
     
-    public void setEstado() {
+    public void setEstado(boolean estado) {
     	this.estado = estado;
     }
 
