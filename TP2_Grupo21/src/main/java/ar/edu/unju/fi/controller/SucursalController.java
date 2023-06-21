@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +21,7 @@ import jakarta.validation.Valid;
 public class SucursalController {
 	
 	@Autowired
+	@Qualifier("sucursalServiceMysql")
 	private ISucursalService sucursalService;
 	
 	
@@ -55,7 +57,7 @@ public class SucursalController {
 	
 	//Metodo para capturar el valor por parametro de la url y saber si existe en la lista o no, para su modificacion
 	@GetMapping("/modificar/{id}")
-	public String getModificarSucursalPage(Model model, @PathVariable(value = "id") int id) {
+	public String getModificarSucursalPage(Model model, @PathVariable(value = "id") Long id) {
 		Sucursal sucursalEncontrada = sucursalService.getBy(id);
 		boolean edicion = true;
 		model.addAttribute("sucursal", sucursalEncontrada);
@@ -77,7 +79,7 @@ public class SucursalController {
 	
 	//metodo que captura el valor por parametro del objeto que vamos a eliminar
 	@GetMapping("/eliminar/{id}")
-	public String eliminarSucursal(@PathVariable(value = "id") int id) {
+	public String eliminarSucursal(@PathVariable(value = "id") Long id) {
 		sucursalService.eliminar(sucursalService.getBy(id));
 		return "redirect:/sucursal/listado";
 	}

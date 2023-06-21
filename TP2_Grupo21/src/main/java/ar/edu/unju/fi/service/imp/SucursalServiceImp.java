@@ -9,7 +9,7 @@ import ar.edu.unju.fi.entity.Sucursal;
 import ar.edu.unju.fi.listas.ListaSucursal;
 import ar.edu.unju.fi.service.ISucursalService;
 
-@Service
+@Service("sucursalServiceImp")
 public class SucursalServiceImp implements ISucursalService{
 	
 	@Autowired
@@ -55,7 +55,7 @@ public class SucursalServiceImp implements ISucursalService{
 	}
 
 	@Override
-	public Sucursal getBy(int id) {
+	public Sucursal getBy(Long id) {
 		Sucursal sucursalBuscada = new Sucursal(); 
 		for (Sucursal sucu : listaSucursal.getSucursales()) {
 			if (sucu.getId() == id) {

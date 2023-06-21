@@ -60,10 +60,16 @@
           							<span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
         						</div>
         						<div class="form-group">
+        							<input type="hidden" name="id" class="form-control" th:value="*{id}">
+        						</div>
+        						<div class="form-group">
+        							<input type="hidden" name="estado" class="form-control" th:value="*{estado}">
+        						</div>
+        						<!--<div class="form-group">
           							<label for="id">ID:</label>
           							<input type="number" id="id" class="form-control" th:field="*{id}" th:readonly="${edicion}">
           							<span class="text-danger" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
-        						</div>
+        						</div> -->
         						<button type="submit" th:text="${edicion}?'Editar':'Guardar'" class="btn btn-primary"></button>
       						</form>
     					</div>
