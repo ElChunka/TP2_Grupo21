@@ -26,7 +26,7 @@ public class Producto {
 	@Size(min=5,max=30,message="El nombre del Producto debe tener entre 5 y 30 caracteres")
 	private String nombre;
 	
-	@Column(name = "categoria")
+	@Column(name = "producto_categoria")
 	@Size(min=4,max=30,message="La categoria del nuevo producto debe tener entre 4 y 3o caracteres")
 	@NotBlank(message="No puede estar vacio")
 	private String categoria;
@@ -36,19 +36,28 @@ public class Producto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "nombre_codigo")
+	@Column(name = "producto_codigo")
 	@Min(value=1, message="Debe Definir un codigo para el producto")
 	@NotNull(message="Ingrese el codigo")
 	private int codigo;
 	
-	@Column(name = "descuento")
+	@Column(name = "producto_descuento")
 	@PositiveOrZero(message="Solo puede ingresar numeros")
 	private int descuento;
 	
-	@Column(name = "precio")
+	@Column(name = "producto_precio")
 	@PositiveOrZero(message="Solo puede ingresar numeros")
 	private double precio; 
 	
+	@Column(name = "producto_estado")
+	private boolean estado;
+	
+	public boolean isEstado() {
+		return estado;
+	}
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
 	public String getImg() {
 		return img;
 	}
