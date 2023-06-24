@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,6 +22,7 @@ import jakarta.validation.Valid;
 @RequestMapping("/servicios")
 public class ServicioController {
 	@Autowired
+	@Qualifier("servicioServiceMysqlImp")
 	private IServicioService servicioService;
     
     @ModelAttribute("diasSemana")
@@ -52,6 +54,7 @@ public class ServicioController {
 			modelView.addObject("servicio", servicio); // devuelve el objeto consejo
 			return modelView;
 		}
+		servicio.setEstado(true);
 		servicioService.guardar(servicio);
 		servicioService.listar();
 		modelView.setViewName("redirect:/servicios/listado");
@@ -61,7 +64,7 @@ public class ServicioController {
 
  // Mostrar formulario para modificar servicio
     @GetMapping("/modificar/{id}")
-    public String getModificarServicioPage(Model model, @PathVariable(value = "id") int id) {
+    public String getModificarServicioPage(Model model, @PathVariable(value = "id") Long id) {
         boolean edicion = true;
         if(servicioService.buscar(id)) {
         	model.addAttribute("servicio", servicioService.recuperar(id));
@@ -91,7 +94,7 @@ public class ServicioController {
 
  // Eliminar servicio
     @GetMapping("/eliminar/{id}")
-    public String eliminarServicio(@PathVariable(value = "id") int id) {
+    public String eliminarServicio(@PathVariable(value = "id") Long id) {
         servicioService.eliminar(servicioService.recuperar(id));
         return "redirect:/servicios/listado";
     }
