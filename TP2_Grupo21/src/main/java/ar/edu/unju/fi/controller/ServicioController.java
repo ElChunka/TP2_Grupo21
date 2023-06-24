@@ -80,6 +80,7 @@ public class ServicioController {
     @PostMapping("/guardar_empleado")
 	public ModelAndView getGuardarNuevoServicioPage(@ModelAttribute("empleado") Empleado empleado) {
 		ModelAndView modelView = new ModelAndView("nuevo_empleado");
+		empleado.setEstado(true);
 		empleadoService.guardar(empleado);
 		modelView.setViewName("redirect:/servicios/nuevo");
 		modelView.addObject("empleados", empleadoService.getEmpleados());
@@ -92,6 +93,7 @@ public class ServicioController {
         boolean edicion = true;
         if(servicioService.buscar(id)) {
         	model.addAttribute("servicio", servicioService.recuperar(id));
+        	model.addAttribute("empleados", empleadoService.getEmpleados());
         	model.addAttribute("edicion", edicion);
         	return "nuevo_servicio";
         }

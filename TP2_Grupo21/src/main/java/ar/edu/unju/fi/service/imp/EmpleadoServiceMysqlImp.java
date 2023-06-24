@@ -20,7 +20,7 @@ public class EmpleadoServiceMysqlImp implements IEmpleadoService {
 
 	@Override
 	public List<Empleado> getEmpleados() {
-		return empleadoRepository.findByEstado("activo");
+		return empleadoRepository.findByEstado(true);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class EmpleadoServiceMysqlImp implements IEmpleadoService {
 
 	@Override
 	public void eliminar(Empleado empleado) {
-		empleado.setEstado("deBaja");
+		empleado.setEstado(false);
 		empleadoRepository.save(empleado);
 	}
 

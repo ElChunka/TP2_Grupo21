@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import ar.edu.unju.fi.entity.Empleado;
 
 public interface IEmpleadoRepository extends CrudRepository<Empleado, Long>{
-	public List<Empleado> findByEstado(String estado);
+	public List<Empleado> findByEstado(boolean estado);
 }

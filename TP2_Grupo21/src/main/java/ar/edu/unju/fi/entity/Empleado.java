@@ -25,14 +25,14 @@ public class Empleado {
 	private Long dni;
 	
 	@Column(name="emp_estado")
-	private String estado; // Va a haber 3 estados posibles: activo, ocupado, deBaja
+	private boolean estado; // Va a haber 3 estados posibles: activo, ocupado, deBaja
 
 	
-	public String getEstado() {
+	public boolean getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
 
