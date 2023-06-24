@@ -24,11 +24,22 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-8 col-sm-10">
                 <form th:action="${edicion}?@{/servicios/modificar}:@{/servicios/guardar}" th:object="${servicio}" method="post">
-                    <div class="form-group">
+                <!-- 
+                <div class="form-group">
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" th:field="*{nombre}" class="form-control" >
                         <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-danger"></span>
-                    </div>
+                </div>
+                 -->
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <select class="form-control" th:field="*{empleado}">
+                        	<option th:each="empleado : ${empleados}" th:text="${empleado.nombre}" th:value="${empleado.id}"></option>
+                        </select>
+                        <a th:href="@{/servicios/nuevo_empleado}" class="btn btn-primary btn-sm m-1">Agregar empleado</a>
+              	 	 </div>
+                    
+                    
                     <div class="form-group" th:if="${edicion}">
                         <label for="cupos">Id:</label>
                         <input type="number" id="id" th:field="*{id}" class="form-control" th:readonly="${edicion}" disabled="disabled">

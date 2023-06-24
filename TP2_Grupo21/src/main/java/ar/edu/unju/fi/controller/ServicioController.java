@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Servicio;
+import ar.edu.unju.fi.service.IEmpleadoService;
 import ar.edu.unju.fi.service.IServicioService;
 import jakarta.validation.Valid;
 
@@ -24,6 +25,9 @@ public class ServicioController {
 	@Autowired
 	@Qualifier("servicioServiceMysqlImp")
 	private IServicioService servicioService;
+	
+	@Autowired
+	private IEmpleadoService empleadoService;
     
     @ModelAttribute("diasSemana")
     public List<String> getDiasSemana() {
@@ -41,6 +45,7 @@ public class ServicioController {
     public String getNuevoServicioPage(Model model) {
         boolean edicion = false;
         model.addAttribute("servicio", servicioService.getServicio());
+        model.addAttribute("empleados", empleadoService.getEmpleados());
         model.addAttribute("edicion", edicion);
         return "nuevo_servicio";
     }
