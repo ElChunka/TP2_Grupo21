@@ -12,6 +12,6 @@ public interface IServicioService {
 	void listar();
 	void modificar(Servicio servicio);
 	void eliminar(Servicio servicio);
-	boolean buscar(int id);
-	Servicio recuperar(int id);
+	boolean buscar(Long id);
+	Servicio recuperar(Long id);
 }

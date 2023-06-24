@@ -9,7 +9,7 @@ import ar.edu.unju.fi.entity.Servicio;
 import ar.edu.unju.fi.listas.ListaServicio;
 import ar.edu.unju.fi.service.IServicioService;
 
-@Service
+@Service("servicioServiceImp")
 public class ServicioServiceImp implements IServicioService{
 	
 	@Autowired
@@ -55,7 +55,7 @@ public class ServicioServiceImp implements IServicioService{
 		getServicios().remove(servicio); //elimina el objeto pasado por parametro
 	}
 	@Override
-	public boolean buscar(int id){
+	public boolean buscar(Long id){
 		boolean encontrado=false; //variable de retorno
 		for (Servicio s : getServicios()) { //recorre la lista
             if (s.getId() == id) { //busca coincidencia
@@ -66,7 +66,7 @@ public class ServicioServiceImp implements IServicioService{
 		return encontrado;
 	}
 	@Override
-	public Servicio recuperar(int id) { //devuelve el objeto segun su id
+	public Servicio recuperar(Long id) { //devuelve el objeto segun su id
 		Servicio serv=new Servicio(); 
 		for (Servicio s : getServicios()) { 
             if (s.getId() == id) { 
