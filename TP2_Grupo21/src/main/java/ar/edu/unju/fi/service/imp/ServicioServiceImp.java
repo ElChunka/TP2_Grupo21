@@ -42,7 +42,7 @@ public class ServicioServiceImp implements IServicioService{
 		for (Servicio s : getServicios()) { //recorre la lista
             if (s.getId() == servicio.getId()) { //busca una coincidencia con el id
             	//setea todos los campos en caso de encocntrar coincidencia
-                s.setNombre(servicio.getNombre());
+                s.getEmpleado().setNombre(servicio.getEmpleado().getNombre());
                 s.setHoraInicio(servicio.getHoraInicio());
                 s.setHoraFin(servicio.getHoraFin());
                 s.setDia(servicio.getDia());

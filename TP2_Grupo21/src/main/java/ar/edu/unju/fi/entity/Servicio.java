@@ -2,13 +2,15 @@ package ar.edu.unju.fi.entity;
 import java.time.LocalTime;
 import org.springframework.stereotype.Component;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+//import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 //import jakarta.validation.constraints.Digits;
 //import jakarta.validation.constraints.Min;
@@ -17,10 +19,13 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="servicios")
 public class Servicio {
-	@Column(name="serv_nombre")
-	@NotBlank(message="No puede estar vacio")
-	@Size(min=5,max=20,message="El nombre debe tener entre 5 y 20 caracteres")
-    private String nombre;
+	
+	//@NotBlank(message="No puede estar vacio")
+	//@Size(min=5,max=20,message="El nombre debe tener entre 5 y 20 caracteres")
+	@OneToOne
+	@PrimaryKeyJoinColumn(name="emp_id")
+	@Column(name="serv_empleado")
+    private Empleado empleado;
 	
 	
 	//@NotNull(message = "El id no puede ser nula")
@@ -30,7 +35,6 @@ public class Servicio {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="serv_id")
     private Long id;
-	
 	
 	@Column(name="serv_hora_inicio")
 	@NotNull(message = "La hora de inicio no puede ser nula")
@@ -51,8 +55,7 @@ public class Servicio {
     public Servicio() {
     }
 
-    public Servicio(String nombre,  LocalTime horaInicio, LocalTime horaFin, String dia) {
-        this.nombre = nombre;
+    public Servicio(LocalTime horaInicio, LocalTime horaFin, String dia) {
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.dia = dia;
@@ -65,16 +68,16 @@ public class Servicio {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-
-	public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
     
-    public Long getId() {
+    public Empleado getEmpleado() {
+		return empleado;
+	}
+
+	public void setEmpleado(Empleado empleado) {
+		this.empleado = empleado;
+	}
+
+	public Long getId() {
     	return id;
     }
     
@@ -108,7 +111,7 @@ public class Servicio {
 
 	@Override
 	public String toString() {
-		return "Servicio [nombre=" + nombre + ", id=" + id + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin
+		return "Servicio [nombre=" + empleado.getNombre() + ", id=" + id + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin
 				+ ", dia=" + dia + "]";
 	}
     
