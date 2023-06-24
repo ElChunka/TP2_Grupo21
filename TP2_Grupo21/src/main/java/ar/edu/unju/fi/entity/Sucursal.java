@@ -4,12 +4,16 @@ import java.time.LocalTime;
 
 import org.springframework.stereotype.Component;
 
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 import jakarta.validation.constraints.Digits;
@@ -63,16 +67,19 @@ public class Sucursal {
     @Column(name="sucu_id")
     private Long id;
     
-    @Column(name="sucu_estado")
-    private boolean estado;
-
     
+    private boolean estado;
+    
+    @OneToOne( cascade = {CascadeType.ALL})
+	@JoinColumn(name = "prov_id")
+	private Provincia provincia;
+
     public Sucursal() {
         // Constructor por defecto
     }
     
 
-    public Sucursal(String nombre, String direccion,  String descripcion, LocalTime horaAbrir, LocalTime horaCerrar,String telefono, String email, Long id, boolean estado) {
+    public Sucursal(String nombre, String direccion,  String descripcion, LocalTime horaAbrir, LocalTime horaCerrar,String telefono, String email, Long id, boolean estado, Provincia provincia) {
 
     	this.nombre = nombre;
         this.direccion = direccion;
@@ -83,6 +90,7 @@ public class Sucursal {
         this.email = email;
         this.id = id;
         this.estado = estado;
+        this.provincia = provincia;
 
 
     }
@@ -160,6 +168,9 @@ public class Sucursal {
     public void setEstado(boolean estado) {
     	this.estado = estado;
     }
+	
+	 
+
 
 }
 

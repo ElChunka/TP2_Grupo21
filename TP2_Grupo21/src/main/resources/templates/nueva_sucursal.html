@@ -70,6 +70,14 @@
           							<input type="number" id="id" class="form-control" th:field="*{id}" th:readonly="${edicion}">
           							<span class="text-danger" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
         						</div> -->
+        						
+        						<div class="form-group">
+        							<label for="provincia">Provincias</label>
+        							<select class="form-control" th:field="*{provincia}">
+        								<option th:each="provincia : ${provincias}" th:text="${provincia.nombre}" th:value="${provincia.id}"></option>
+        							</select>
+        						</div>
+        						
         						<button type="submit" th:text="${edicion}?'Editar':'Guardar'" class="btn btn-primary"></button>
       						</form>
     					</div>
