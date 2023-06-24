@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unju.fi.entity.Empleado;
 import ar.edu.unju.fi.entity.Servicio;
 import ar.edu.unju.fi.service.IEmpleadoService;
 import ar.edu.unju.fi.service.IServicioService;
@@ -27,7 +28,9 @@ public class ServicioController {
 	private IServicioService servicioService;
 	
 	@Autowired
+	@Qualifier("empleadoServiceMysqlImp")
 	private IEmpleadoService empleadoService;
+	
     
     @ModelAttribute("diasSemana")
     public List<String> getDiasSemana() {
@@ -49,6 +52,13 @@ public class ServicioController {
         model.addAttribute("edicion", edicion);
         return "nuevo_servicio";
     }
+    
+    @GetMapping("/nuevo_empleado")
+    public String getNuevoEmpleadoPage(Model model) {
+        model.addAttribute("empleado", empleadoService.getEmpleado());
+        return "nuevo_empleado";
+    }
+    
 
  // Guardar nuevo servicio
     @PostMapping("/guardar")
@@ -64,6 +74,15 @@ public class ServicioController {
 		servicioService.listar();
 		modelView.setViewName("redirect:/servicios/listado");
 		modelView.addObject("servicios", servicioService.getServicios());
+		return modelView;
+	}
+    
+    @PostMapping("/guardar_empleado")
+	public ModelAndView getGuardarNuevoServicioPage(@ModelAttribute("empleado") Empleado empleado) {
+		ModelAndView modelView = new ModelAndView("nuevo_empleado");
+		empleadoService.guardar(empleado);
+		modelView.setViewName("redirect:/servicios/nuevo");
+		modelView.addObject("empleados", empleadoService.getEmpleados());
 		return modelView;
 	}
 

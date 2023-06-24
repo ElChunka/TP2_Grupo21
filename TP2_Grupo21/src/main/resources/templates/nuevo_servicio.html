@@ -34,6 +34,7 @@
                     <div class="form-group">
                         <label for="nombre">Nombre:</label>
                         <select class="form-control" th:field="*{empleado}">
+                        	<option selected value="">Seleccione un empelado</option>
                         	<option th:each="empleado : ${empleados}" th:text="${empleado.nombre}" th:value="${empleado.id}"></option>
                         </select>
                         <a th:href="@{/servicios/nuevo_empleado}" class="btn btn-primary btn-sm m-1">Agregar empleado</a>

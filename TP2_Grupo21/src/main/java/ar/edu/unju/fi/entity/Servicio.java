@@ -24,7 +24,6 @@ public class Servicio {
 	//@Size(min=5,max=20,message="El nombre debe tener entre 5 y 20 caracteres")
 	@OneToOne
 	@PrimaryKeyJoinColumn(name="emp_id")
-	@Column(name="serv_empleado")
     private Empleado empleado;
 	
 	
