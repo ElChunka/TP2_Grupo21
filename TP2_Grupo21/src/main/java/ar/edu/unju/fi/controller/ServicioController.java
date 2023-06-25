@@ -35,13 +35,20 @@ public class ServicioController {
     
     @ModelAttribute("diasSemana")
     public List<String> getDiasSemana() {
-        return Arrays.asList("Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sebado");
+        return Arrays.asList("Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado");
     }
     
  // Mostrar la lista de servicios
+    @GetMapping("/listado/{dia}")
+    public String getListaServiciosPage(Model model, @PathVariable(value = "dia") String dia) {
+        model.addAttribute("servicios", servicioService.getServiciosByDay(dia));
+        model.addAttribute("dia", dia);
+        return "servicios";
+    }
     @GetMapping("/listado")
     public String getListaServiciosPage(Model model) {
-        model.addAttribute("servicios", servicioService.getServicios());
+        model.addAttribute("servicios", servicioService.getServiciosByDay("Lunes"));
+        model.addAttribute("dia", "Lunes");
         return "servicios";
     }
  // Mostrar formulario para nuevo servicio
@@ -70,7 +77,6 @@ public class ServicioController {
 			modelView.addObject("servicio", servicio); // devuelve el objeto consejo
 			return modelView;
 		}
-		servicio.setEstado(true);
 		servicioService.guardar(servicio);
 		servicioService.listar();
 		modelView.setViewName("redirect:/servicios/listado");

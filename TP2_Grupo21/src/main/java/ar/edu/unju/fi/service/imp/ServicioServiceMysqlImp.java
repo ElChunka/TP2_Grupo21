@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.service.imp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,8 @@ public class ServicioServiceMysqlImp implements IServicioService {
 
 	@Override
 	public void guardar(Servicio servicio) {
+		servicio.setEstado(true);
+		servicio.getEmpleado().setEstado(false);
 		servicioRepository.save(servicio);
 	}
 
@@ -56,6 +59,19 @@ public class ServicioServiceMysqlImp implements IServicioService {
 	@Override
 	public Servicio recuperar(Long id) {
 		return servicioRepository.findById(id).get();
+	}
+
+	@Override
+	public List<Servicio> getServiciosByDay(String dia) {
+		List<Servicio> servicios = new ArrayList<>();
+		for(Servicio s:getServicios()) {
+			if(s.getDia().equals(dia))
+				servicios.add(s);
+		};
+		if(servicios.size()==0) {
+			return null;
+		}
+		return servicios;
 	}
 
 }

@@ -75,4 +75,9 @@ public class ServicioServiceImp implements IServicioService{
         }
 		return serv;
 	}
+	@Override
+	public List<Servicio> getServiciosByDay(String dia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
