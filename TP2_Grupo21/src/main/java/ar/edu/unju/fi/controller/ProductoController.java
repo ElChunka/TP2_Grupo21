@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,8 +21,13 @@ import jakarta.validation.Valid;
 @RequestMapping("/producto")
 public class ProductoController {
 	
+	//falta agregar otra inyeccion de dependencia
+	
 	@Autowired
+	@Qualifier("productoServiceMysql")
 	private IProductoService productoService; 
+	
+
 	
 	
 	//Metodo para que la nueva lista obtenga productos existentes y nuevos, y mostrarlos en productos.html
@@ -57,7 +63,7 @@ public class ProductoController {
 	
 	//Metodo para capturar el valor por parametro de la url y saber si existe en la lista o no, para su modificacion
 		@GetMapping("/modificar/{codigo}")
-		public String getModificarProductoPage(Model model, @PathVariable(value="codigo")int codigo) {
+		public String getModificarProductoPage(Model model, @PathVariable(value="codigo")Long codigo) {
 			Producto productoEncontrado = productoService.getBy(codigo);
 			boolean edicion = true;
 			
@@ -77,11 +83,11 @@ public class ProductoController {
 		    }
 		    productoService.modificar(productoModificado);
 		    return "redirect:/producto/listado";
-		}
+		} 
 		
 		//metodo que captura el valor por parametro del objeto que vamos a eliminar
 		@GetMapping("/eliminar/{codigo}")
-		public String eliminarConsejo(@PathVariable(value="codigo")int codigo) {
+		public String eliminarConsejo(@PathVariable(value="codigo")Long codigo) {
 			productoService.eliminar(productoService.getBy(codigo));
 			return "redirect:/producto/listado";
 		}
