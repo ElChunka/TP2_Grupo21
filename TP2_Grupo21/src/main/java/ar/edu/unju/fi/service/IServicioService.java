@@ -7,6 +7,7 @@ import ar.edu.unju.fi.entity.Servicio;
 public interface IServicioService {
 	
 	List<Servicio> getServicios();
+	List<Servicio> getServiciosByDay(String dia);
 	Servicio getServicio();
 	void guardar(Servicio servicio);
 	void listar();
