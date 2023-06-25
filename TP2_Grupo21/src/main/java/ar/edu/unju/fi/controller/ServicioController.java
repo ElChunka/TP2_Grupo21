@@ -38,9 +38,16 @@ public class ServicioController {
     }
     
  // Mostrar la lista de servicios
+    @GetMapping("/listado/{dia}")
+    public String getListaServiciosPage(Model model, @PathVariable(value = "dia") String dia) {
+        model.addAttribute("servicios", servicioService.getServiciosByDay(dia));
+        model.addAttribute("dia", dia);
+        return "servicios";
+    }
     @GetMapping("/listado")
     public String getListaServiciosPage(Model model) {
-        model.addAttribute("servicios", servicioService.getServicios());
+        model.addAttribute("servicios", servicioService.getServiciosByDay("Lunes"));
+        model.addAttribute("dia", "Lunes");
         return "servicios";
     }
  // Mostrar formulario para nuevo servicio
