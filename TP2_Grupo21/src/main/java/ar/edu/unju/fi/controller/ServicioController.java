@@ -76,7 +76,6 @@ public class ServicioController {
 			modelView.addObject("servicio", servicio); // devuelve el objeto consejo
 			return modelView;
 		}
-		servicio.setEstado(true);
 		servicioService.guardar(servicio);
 		servicioService.listar();
 		modelView.setViewName("redirect:/servicios/listado");
