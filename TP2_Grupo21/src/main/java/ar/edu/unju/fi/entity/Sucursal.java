@@ -4,6 +4,7 @@ import java.time.LocalTime;
 
 import org.springframework.stereotype.Component;
 
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,6 +16,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+
 
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Email;
@@ -56,11 +58,14 @@ public class Sucursal {
     private String telefono;
     
 
+
     @Column(name="sucu_email")
+
     @NotBlank(message = "El email es obligatorio")
     @Email(message = "El email debe ser válido")
     private String email;
     
+
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -74,12 +79,15 @@ public class Sucursal {
 	@JoinColumn(name = "prov_id")
 	private Provincia provincia;
 
+
     public Sucursal() {
         // Constructor por defecto
     }
     
 
+
     public Sucursal(String nombre, String direccion,  String descripcion, LocalTime horaAbrir, LocalTime horaCerrar,String telefono, String email, Long id, boolean estado, Provincia provincia) {
+
 
     	this.nombre = nombre;
         this.direccion = direccion;
@@ -91,6 +99,7 @@ public class Sucursal {
         this.id = id;
         this.estado = estado;
         this.provincia = provincia;
+
 
 
     }
@@ -152,6 +161,7 @@ public class Sucursal {
     }
     
     
+
 
     public Long getId() {
     	return id;

@@ -12,9 +12,9 @@ public interface IProductoService {
 	// Permite guardar los productos 
 	void guardar(Producto Producto);
 	//Permite realizar la busqueda mediante el codigo
-	Producto getBy(int codigo);
+	Producto getBy(Long codigo);
 	// Permite modificar los productos
 	void modificar (Producto productoModificado);
 	// Permite eliminar los productos 
 	void eliminar (Producto productoEliminar);
-}
+} 

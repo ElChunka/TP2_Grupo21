@@ -72,7 +72,7 @@ public class Consejo {
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
-	
+
 	public boolean getEstado() {
 		return estado;
 	}
