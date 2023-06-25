@@ -67,6 +67,7 @@ public class SucursalController {
 		Sucursal sucursalEncontrada = sucursalService.getBy(id);
 		boolean edicion = true;
 		model.addAttribute("sucursal", sucursalEncontrada);
+		model.addAttribute("provincias", provinciaService.getProvincias());
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";
 	}

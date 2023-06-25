@@ -29,6 +29,7 @@ public class ServicioServiceMysqlImp implements IServicioService {
 
 	@Override
 	public void guardar(Servicio servicio) {
+		servicio.setEstado(true);
 		servicioRepository.save(servicio);
 	}
 

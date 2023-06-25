@@ -75,7 +75,7 @@ public class Sucursal {
     
     private boolean estado;
     
-    @OneToOne( cascade = {CascadeType.ALL})
+    @OneToOne
 	@JoinColumn(name = "prov_id")
 	private Provincia provincia;
 

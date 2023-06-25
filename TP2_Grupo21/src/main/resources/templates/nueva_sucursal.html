@@ -73,8 +73,8 @@
         						
         						<div class="form-group">
         							<label for="provincia">Provincias</label>
-        							<select class="form-control" th:field="*{provincia}">
-        								<option th:each="provincia : ${provincias}" th:text="${provincia.nombre}" th:value="${provincia.id}"></option>
+        							<select class="form-control">
+        								<option th:each="provincia : ${provincias}" th:value="${provincia.id}" th:text="${provincia.nombre}" ></option>
         							</select>
         						</div>
         						
