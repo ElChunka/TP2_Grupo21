@@ -17,4 +17,4 @@ public interface IProductoService {
 	void modificar (Producto productoModificado);
 	// Permite eliminar los productos 
 	void eliminar (Producto productoEliminar);
-}
+} 

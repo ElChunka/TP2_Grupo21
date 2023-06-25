@@ -21,4 +21,4 @@ public class ListaNuevoProducto {
 	public void setproducto(List<Producto> producto) {
 		this.Productos = producto;
 	}
-}
+} 

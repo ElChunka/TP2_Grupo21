@@ -83,7 +83,7 @@ public class ProductoController {
 		    }
 		    productoService.modificar(productoModificado);
 		    return "redirect:/producto/listado";
-		}
+		} 
 		
 		//metodo que captura el valor por parametro del objeto que vamos a eliminar
 		@GetMapping("/eliminar/{codigo}")

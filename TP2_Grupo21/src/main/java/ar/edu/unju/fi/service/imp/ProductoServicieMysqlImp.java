@@ -42,7 +42,7 @@ public class ProductoServicieMysqlImp implements IProductoService {
 	@Override
 	public void modificar(Producto productoModificado) {
 		productoRepository.save(productoModificado);
-	}
+	} 
 
 	@Override
 	public void eliminar(Producto productoEliminar) {
