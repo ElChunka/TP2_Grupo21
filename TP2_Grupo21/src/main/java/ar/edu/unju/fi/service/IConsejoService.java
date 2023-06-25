@@ -18,8 +18,8 @@ public interface IConsejoService {
 	// Modifica un consejo existente
 	void modificar(Consejo consejoMod);
 	
-	// Retorna un consejo que coincide con un título específico
-	Consejo getBy(String titulo);
+	// Retorna un consejo que coincide con un Id
+	Consejo getBy(Long id);
 	
 	// Elimina un consejo existente
 	void eliminar(Consejo consejoEliminar);

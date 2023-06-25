@@ -27,7 +27,7 @@
                           method="post">
                         <div class="form-group">
                             <label for="titulo">Titulo</label>
-                            <input type="text" id="titulo" name="titulo" th:field="*{titulo}" class="form-control" th:readonly="${edicion}">
+                            <input type="text" id="titulo" name="titulo" th:field="*{titulo}" class="form-control">
                             <p th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"
                                class="text-danger"></p>
                         </div>
@@ -47,6 +47,12 @@
                         <div class="form-group">
                             <button type="submit" th:text="${edicion}?'Editar':'Postear'" class="btn btn-primary"></button>
                         </div>
+                        <div class="form-group">
+        					<input type="hidden" name="id" class="form-control" th:value="*{id}">
+        				</div>
+        				<div class="form-group">
+        					<input type="hidden" name="estado" class="form-control" th:value="*{estado}">
+        				</div>
                     </form>
                 </div>
             </div>

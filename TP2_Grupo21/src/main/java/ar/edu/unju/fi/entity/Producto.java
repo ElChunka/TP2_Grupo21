@@ -2,6 +2,7 @@ package ar.edu.unju.fi.entity;
 
 import org.springframework.stereotype.Component;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,11 +11,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 
 @Component
+
 @Entity
 @Table(name="productos")
 public class Producto {
@@ -24,6 +32,7 @@ public class Producto {
 	@Pattern(regexp="[a-zA-Z]+", message="El nombre solo admite una palabra")
 	@Size(min=5,max=30,message="El nombre del Producto debe tener entre 5 y 30 caracteres")
 	private String nombre;
+
 	
 			@Column(name = "producto_categoria")
 			@Size(min=4,max=30,message="La categoria del nuevo producto debe tener entre 4 y 3o caracteres")
@@ -56,6 +65,7 @@ public class Producto {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
+
 	public String getImg() {
 		return img;
 	}
@@ -68,17 +78,19 @@ public class Producto {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
+
 	public int getDescuento() {
 		return descuento;
 	}
 	public void setDescuento(int descuento) {
 		this.descuento = descuento;
 	}
+
 	public Long getCodigo() {
 		return codigo;
 	}
 	public void setCodigo(Long codigo) {
+
 		this.codigo = codigo;
 	}
 	public double getPrecio() {
@@ -90,7 +102,9 @@ public class Producto {
 	public Producto() {
 	}
 	
+
 	public Producto(String nombre,String categoria, int descuento, Long codigo, double precio, String img) {
+
 		super();
 		this.nombre = nombre;
 		this.categoria = categoria;
@@ -105,6 +119,7 @@ public class Producto {
 		
 		double resta = (double) descuento/100*precio;
 		double precioFinal = precio - resta;
+
 		 
 		return Math.round(precioFinal);
 	}
@@ -118,4 +133,5 @@ public class Producto {
 		this.categoria = categoria;
 	}
 	 
+
 }
