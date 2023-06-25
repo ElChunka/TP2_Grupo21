@@ -34,7 +34,7 @@ public class ServicioController {
     
     @ModelAttribute("diasSemana")
     public List<String> getDiasSemana() {
-        return Arrays.asList("Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sebado");
+        return Arrays.asList("Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado");
     }
     
  // Mostrar la lista de servicios
