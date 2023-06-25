@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Sucursal;
+import ar.edu.unju.fi.service.IProvinciaService;
 import ar.edu.unju.fi.service.ISucursalService;
 import jakarta.validation.Valid;
 
@@ -23,6 +24,10 @@ public class SucursalController {
 	@Autowired
 	@Qualifier("sucursalServiceMysql")
 	private ISucursalService sucursalService;
+	
+	@Autowired
+	@Qualifier("provinciaServiceMysql")
+	private IProvinciaService provinciaService;
 	
 	
 	//Metodo para que la nueva lista obtenga sucursales existentes y nuevas
@@ -37,6 +42,7 @@ public class SucursalController {
 	public String getNuevaSucursalPage(Model model) {
 		boolean edicion = false;
 		model.addAttribute("sucursal", sucursalService.getSucursal());
+		model.addAttribute("provincias", provinciaService.getProvincias());
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";
 	}

@@ -10,11 +10,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-
-import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -66,13 +65,15 @@ public class Sucursal {
     @Column(name="sucu_estado")
     private boolean estado;
 
+    @OneToOne
+    @JoinColumn(name = "prov_id")
+    private Provincia provincia;
     
     public Sucursal() {
         // Constructor por defecto
     }
     
-
-    public Sucursal(String nombre, String direccion,  String descripcion, LocalTime horaAbrir, LocalTime horaCerrar,String telefono, String email, Long id, boolean estado) {
+    public Sucursal(String nombre, String direccion,  String descripcion, LocalTime horaAbrir, LocalTime horaCerrar,String telefono, String email, Long id, boolean estado, Provincia provincia) {
 
     	this.nombre = nombre;
         this.direccion = direccion;
@@ -83,7 +84,7 @@ public class Sucursal {
         this.email = email;
         this.id = id;
         this.estado = estado;
-
+        this.provincia = provincia;
 
     }
     
@@ -143,8 +144,6 @@ public class Sucursal {
         this.email = email;
     }
     
-    
-
     public Long getId() {
     	return id;
     }
@@ -161,5 +160,14 @@ public class Sucursal {
     	this.estado = estado;
     }
 
+	public Provincia getProvincia() {
+		return provincia;
+	}
+
+
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
+	}
+    
 }
 

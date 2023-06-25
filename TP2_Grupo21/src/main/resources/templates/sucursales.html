@@ -42,6 +42,7 @@
 								<li class="list-group-item" th:text="'Teléfono: ' + ${sucursal.telefono}"></li>
 								<li class="list-group-item" th:text="'Email: ' + ${sucursal.email}"></li>
 								<li class="list-group-item" th:text="'Sucursal N°: ' + ${sucursal.id}"></li>
+								<li class="list-group-item" th:text="'Provincia: ' + ${sucursal.provincia}"></li>
 							</ul>
 							<div class="d-flex justify-content-end">
 								<a th:href="@{/sucursal/modificar/}+${sucursal.id}" class="btn btn-primary">Editar</a>
