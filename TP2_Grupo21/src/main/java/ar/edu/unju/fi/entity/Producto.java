@@ -8,10 +8,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
@@ -20,16 +18,17 @@ import jakarta.validation.constraints.Size;
 @Entity
 @Table(name="productos")
 public class Producto {
+	
 	@Column(name = "nombre_producto")
 	@NotBlank(message="No puede estar vacio")
 	@Pattern(regexp="[a-zA-Z]+", message="El nombre solo admite una palabra")
 	@Size(min=5,max=30,message="El nombre del Producto debe tener entre 5 y 30 caracteres")
 	private String nombre;
 	
-	@Column(name = "producto_categoria")
-	@Size(min=4,max=30,message="La categoria del nuevo producto debe tener entre 4 y 3o caracteres")
-	@NotBlank(message="No puede estar vacio")
-	private String categoria;
+			@Column(name = "producto_categoria")
+			@Size(min=4,max=30,message="La categoria del nuevo producto debe tener entre 4 y 3o caracteres")
+			@NotBlank(message="No puede estar vacio")
+			private String categoria;
 	
 	@NotEmpty(message="No puede estar vacio")
 	private String img="R.png";
@@ -37,9 +36,7 @@ public class Producto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "producto_codigo")
-	@Min(value=1, message="Debe Definir un codigo para el producto")
-	@NotNull(message="Ingrese el codigo")
-	private int codigo;
+	private Long codigo;
 	
 	@Column(name = "producto_descuento")
 	@PositiveOrZero(message="Solo puede ingresar numeros")
@@ -51,6 +48,7 @@ public class Producto {
 	
 	@Column(name = "producto_estado")
 	private boolean estado;
+	
 	
 	public boolean isEstado() {
 		return estado;
@@ -70,22 +68,17 @@ public class Producto {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getCategoria() {
-		return categoria;
-	}
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
+	
 	public int getDescuento() {
 		return descuento;
 	}
 	public void setDescuento(int descuento) {
 		this.descuento = descuento;
 	}
-	public long getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 	public double getPrecio() {
@@ -97,7 +90,7 @@ public class Producto {
 	public Producto() {
 	}
 	
-	public Producto(String nombre, String categoria, int descuento, int codigo, double precio, String img) {
+	public Producto(String nombre,String categoria, int descuento, Long codigo, double precio, String img) {
 		super();
 		this.nombre = nombre;
 		this.categoria = categoria;
@@ -112,7 +105,17 @@ public class Producto {
 		
 		double resta = (double) descuento/100*precio;
 		double precioFinal = precio - resta;
-		
+		 
 		return Math.round(precioFinal);
 	}
+	
+	/*@OneToOne
+	@JoinColumn(name= "id codigo")*/
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+	
 }

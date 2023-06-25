@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ar.edu.unju.fi.entity.Producto;
 import ar.edu.unju.fi.listas.ListaNuevoProducto;
-import ar.edu.unju.fi.model.Producto;
 import ar.edu.unju.fi.service.IProductoService;
 
-@Service
+@Service("productoServiceImp")
 public class ProductoServiceImp implements IProductoService {
 	@Autowired
 	private Producto producto;
@@ -33,12 +33,12 @@ public class ProductoServiceImp implements IProductoService {
 	}
 
 	@Override
-	public Producto getBy(int codigo) {
+	public Producto getBy(Long codigo) {
 		Producto productoEncontrado = new Producto();
 		for (Producto prod : listaProducto.getProductos()) {
 			if(prod.getCodigo()== codigo) {
 				productoEncontrado = prod;
-				break;
+				break; 
 			}
 		}
 		return productoEncontrado;
