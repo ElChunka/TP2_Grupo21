@@ -20,7 +20,7 @@ public class ProvinciaServiceMysqlImp implements IProvinciaService {
 	@Override
 	public List<Provincia> getProvincias() {
 		
-		return (List<Provincia>) provinciaRepository.findAll();
+		return provinciaRepository.findAll();
 	}
 
 }

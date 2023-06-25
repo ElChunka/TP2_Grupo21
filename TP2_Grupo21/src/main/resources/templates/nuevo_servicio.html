@@ -69,6 +69,14 @@
     						</select>
                         <span th:if="${#fields.hasErrors('dia')}" th:errors="*{dia}" class="text-danger"></span>
                     </div>
+                    
+                    <div class="form-group">
+        				<input type="hidden" name="id" class="form-control" th:value="*{id}">
+        			</div>
+        			<div class="form-group">
+        				<input type="hidden" name="estado" class="form-control" th:value="*{estado}">
+        			</div>
+                    
                     <button type="submit" th:text="${edicion}?'Editar':'Postear'" class="btn btn-primary"></button>
                 </form>
             </div>

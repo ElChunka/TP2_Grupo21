@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 //import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
 
@@ -27,18 +28,18 @@ public class Provincia {
 	
 	@Column(name = "prov_nombre")
 	private String nombre;
-	
-	/*@OneToOne( cascade = {CascadeType.ALL})
-	@JoinColumn(name = "sucu_id")
-	private Sucursal sucursal;*/
+
+	@OneToOne(mappedBy="provincia")
+	@PrimaryKeyJoinColumn
+	private Sucursal sucursal;
 
 	public Provincia() {
-		
 	}
 
-	public Provincia(Long id, String nombre) {
+	public Provincia(Long id, String nombre, Sucursal sucursal) {
 		this.id = id;
 		this.nombre = nombre;
+		this.sucursal = sucursal;
 	}
 
 	public Long getId() {
@@ -57,18 +58,12 @@ public class Provincia {
 		this.nombre = nombre;
 	}
 
-	/*public Sucursal getSucursal() {
+	public Sucursal getSucursal() {
 		return sucursal;
 	}
 
 	public void setSucursal(Sucursal sucursal) {
 		this.sucursal = sucursal;
-	}*/
-
-	@Override
-	public String toString() {
-		return "Provincia [id=" + id + ", nombre=" + nombre + ",]";
 	}
-		
 	
 }
