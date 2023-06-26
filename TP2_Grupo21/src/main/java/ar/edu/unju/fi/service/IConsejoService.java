@@ -2,7 +2,7 @@ package ar.edu.unju.fi.service;
 
 import java.util.List;
 
-import ar.edu.unju.fi.model.Consejo;
+import ar.edu.unju.fi.entity.Consejo;
 
 public interface IConsejoService {
 	
@@ -18,8 +18,8 @@ public interface IConsejoService {
 	// Modifica un consejo existente
 	void modificar(Consejo consejoMod);
 	
-	// Retorna un consejo que coincide con un título específico
-	Consejo getBy(String titulo);
+	// Retorna un consejo que coincide con un Id
+	Consejo getBy(Long id);
 	
 	// Elimina un consejo existente
 	void eliminar(Consejo consejoEliminar);

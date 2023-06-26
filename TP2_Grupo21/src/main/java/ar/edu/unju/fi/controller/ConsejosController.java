@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.fi.model.Consejo;
+import ar.edu.unju.fi.entity.Consejo;
 import ar.edu.unju.fi.service.IConsejoService;
 import jakarta.validation.Valid;
 
@@ -21,12 +22,13 @@ public class ConsejosController {
 		
 	//Agregar comentario de serive e interfaces sobre consejo, declaraciones
 	@Autowired
+	@Qualifier("consejoServiceMysql")
 	private IConsejoService consejoService;
 	
 	//Metodo para que la nueva lista obtenga consejos existentes y nuevos
 	@GetMapping("/listado")
 	public String getListaConsejosPage(Model model) {
-		model.addAttribute("consejos", consejoService.getConsejos()); //comentar
+		model.addAttribute("consejos", consejoService.getConsejos());
 		return "consejos";
 	}
 	
@@ -34,7 +36,7 @@ public class ConsejosController {
 	@GetMapping("/nuevo")
 	public String getNuevoConsejoPage(Model model) {
 		boolean edicion = false;
-		model.addAttribute("consejo", consejoService.getConsejo()); //comentar
+		model.addAttribute("consejo", consejoService.getConsejo());
 		model.addAttribute("edicion",edicion);
 		return "nuevo_consejo";
 	}
@@ -54,10 +56,10 @@ public class ConsejosController {
 	}
 	
 	//Metodo para capturar el valor por parametro de la url y saber si existe en la lista o no, para su modificacion
-	@GetMapping("/modificar/{titulo}")
-	public String getModificarConsejoPage(Model model, @PathVariable(value="titulo")String titulo) {
+	@GetMapping("/modificar/{id}")
+	public String getModificarConsejoPage(Model model, @PathVariable(value="id")Long id) {
 		boolean edicion = true;
-		model.addAttribute("consejo", consejoService.getBy(titulo)); // Obtener el consejo por título y agregarlo al modelo
+		model.addAttribute("consejo", consejoService.getBy(id)); // Obtener el consejo por título y agregarlo al modelo
 		model.addAttribute("edicion", edicion);
 		return "nuevo_consejo";
 	}
@@ -79,9 +81,9 @@ public class ConsejosController {
 	
 	
 	//metodo que captura el valor por parametro del objeto que vamos a eliminar
-	@GetMapping("/eliminar/{titulo}")
-	public String eliminarConsejo(@PathVariable(value="titulo")String titulo) {
-		consejoService.eliminar(consejoService.getBy(titulo));
+	@GetMapping("/eliminar/{id}")
+	public String eliminarConsejo(@PathVariable(value="id")Long id) {
+		consejoService.eliminar(consejoService.getBy(id));
 		return "redirect:/consejo/listado";
 	}
 	

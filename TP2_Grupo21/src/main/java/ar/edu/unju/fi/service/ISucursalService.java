@@ -2,7 +2,7 @@ package ar.edu.unju.fi.service;
 
 import java.util.List;
 
-import ar.edu.unju.fi.model.Sucursal;
+import ar.edu.unju.fi.entity.Sucursal;
 
 public interface ISucursalService {
 	
@@ -10,7 +10,7 @@ public interface ISucursalService {
 	Sucursal getSucursal();
 	void guardar(Sucursal sucursalGuardar);
 	void modificar(Sucursal sucursalMod);
-	Sucursal getBy(int id);
+	Sucursal getBy(Long id);
 	void eliminar(Sucursal sucursalEliminar);
 
 }

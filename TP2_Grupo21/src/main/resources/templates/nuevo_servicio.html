@@ -24,15 +24,28 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-8 col-sm-10">
                 <form th:action="${edicion}?@{/servicios/modificar}:@{/servicios/guardar}" th:object="${servicio}" method="post">
-                    <div class="form-group">
+                <!-- 
+                <div class="form-group">
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" th:field="*{nombre}" class="form-control" >
                         <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-danger"></span>
-                    </div>
+                </div>
+                 -->
                     <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <select class="form-control" th:field="*{empleado}">
+                        	<option selected value="">Seleccione un empelado</option>
+                        	<option th:each="empleado : ${empleados}" th:text="${empleado.nombre}" th:value="${empleado.id}"></option>
+                        </select>
+                        <a th:href="@{/servicios/nuevo_empleado}" class="btn btn-primary btn-sm m-1">Agregar empleado</a>
+              	 	 </div>
+                    
+                    
+                    <div class="form-group" th:if="${edicion}">
                         <label for="cupos">Id:</label>
-                        <input type="number" id="id" th:field="*{id}" class="form-control" th:readonly="${edicion}">
-                        <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="text-danger"></span>
+                        <input type="number" id="id" th:field="*{id}" class="form-control" th:readonly="${edicion}" disabled="disabled">
+                        
+                        <!-- <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="text-danger"></span> -->
                     </div>
                     <div class="form-group">
                         <label for="horaInicio">Hora de inicio:</label>
@@ -56,6 +69,14 @@
     						</select>
                         <span th:if="${#fields.hasErrors('dia')}" th:errors="*{dia}" class="text-danger"></span>
                     </div>
+                    
+                    <div class="form-group">
+        				<input type="hidden" name="id" class="form-control" th:value="*{id}">
+        			</div>
+        			<div class="form-group">
+        				<input type="hidden" name="estado" class="form-control" th:value="*{estado}">
+        			</div>
+                    
                     <button type="submit" th:text="${edicion}?'Editar':'Postear'" class="btn btn-primary"></button>
                 </form>
             </div>

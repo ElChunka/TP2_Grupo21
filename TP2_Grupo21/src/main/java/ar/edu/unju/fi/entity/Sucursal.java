@@ -1,8 +1,22 @@
-package ar.edu.unju.fi.model;
+package ar.edu.unju.fi.entity;
 
 import java.time.LocalTime;
 
 import org.springframework.stereotype.Component;
+
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
 
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Email;
@@ -13,40 +27,68 @@ import jakarta.validation.constraints.Pattern;
 
 
 @Component
+
+@Entity
+@Table(name="sucursales")
 public class Sucursal {
-    @NotBlank(message = "El nombre es obligatorio")
+    
+	@Column(name="sucu_nombre")
+	@NotBlank(message = "El nombre es obligatorio")
     private String nombre;
     
+	@Column(name="sucu_direccion")
     @NotBlank(message = "La dirección es obligatoria")
     private String direccion;
     
+    @Column(name="sucu_descripcion")
     @NotBlank(message = "La descripción es obligatoria")
     private String descripcion;
     
+    @Column(name="sucu_horaAbrir")
     @NotNull(message = "La hora de apertura es obligatoria")
     private LocalTime horaAbrir;
     
+    @Column(name="sucu_horaCerrar")
     @NotNull(message = "La hora de cierre es obligatoria")
     private LocalTime horaCerrar;
     
+    @Column(name="sucu_telefono")
     @NotBlank(message = "El teléfono es obligatorio")
     @Pattern(regexp = "\\d{10}", message = "El teléfono debe tener 10 dígitos")
     private String telefono;
     
+
+
+    @Column(name="sucu_email")
+
     @NotBlank(message = "El email es obligatorio")
     @Email(message = "El email debe ser válido")
     private String email;
     
-    @NotNull(message = "El id no puede ser nula")
-	@Digits(integer = 3, message = "El valor del id debe ser un número entero de un dígito", fraction = 0)
-	@Min(value = 1, message = "El valor del id debe ser mayor o igual a 1")
-    private int id;
+
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="sucu_id")
+    private Long id;
     
+    
+    private boolean estado;
+    
+    @OneToOne
+	@JoinColumn(name = "prov_id")
+	private Provincia provincia;
+
+
     public Sucursal() {
         // Constructor por defecto
     }
     
-    public Sucursal(String nombre, String direccion,  String descripcion, LocalTime horaAbrir, LocalTime horaCerrar,String telefono, String email, int id) {
+
+
+    public Sucursal(String nombre, String direccion,  String descripcion, LocalTime horaAbrir, LocalTime horaCerrar,String telefono, String email, Long id, boolean estado, Provincia provincia) {
+
+
     	this.nombre = nombre;
         this.direccion = direccion;
         this.descripcion = descripcion;
@@ -55,6 +97,11 @@ public class Sucursal {
         this.telefono = telefono;
         this.email = email;
         this.id = id;
+        this.estado = estado;
+        this.provincia = provincia;
+
+
+
     }
     
     public String getNombre() {
@@ -114,12 +161,26 @@ public class Sucursal {
     }
     
     
-    public int getId() {
+
+
+    public Long getId() {
     	return id;
     }
     
-    public void setId(int id) {
+    public void setId(Long id) {
     	this.id = id;
     }
+    
+    public boolean getEstado() {
+    	return estado;
+    }
+    
+    public void setEstado(boolean estado) {
+    	this.estado = estado;
+    }
+	
+	 
+
+
 }
 

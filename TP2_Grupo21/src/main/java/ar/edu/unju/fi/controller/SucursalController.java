@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,7 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.fi.model.Sucursal;
+import ar.edu.unju.fi.entity.Sucursal;
+import ar.edu.unju.fi.service.IProvinciaService;
 import ar.edu.unju.fi.service.ISucursalService;
 import jakarta.validation.Valid;
 
@@ -20,7 +22,12 @@ import jakarta.validation.Valid;
 public class SucursalController {
 	
 	@Autowired
+	@Qualifier("sucursalServiceMysql")
 	private ISucursalService sucursalService;
+	
+	@Autowired
+	@Qualifier("provinciaServiceMysql")
+	private IProvinciaService provinciaService;
 	
 	
 	//Metodo para que la nueva lista obtenga sucursales existentes y nuevas
@@ -35,6 +42,7 @@ public class SucursalController {
 	public String getNuevaSucursalPage(Model model) {
 		boolean edicion = false;
 		model.addAttribute("sucursal", sucursalService.getSucursal());
+		model.addAttribute("provincias", provinciaService.getProvincias());
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";
 	}
@@ -55,10 +63,11 @@ public class SucursalController {
 	
 	//Metodo para capturar el valor por parametro de la url y saber si existe en la lista o no, para su modificacion
 	@GetMapping("/modificar/{id}")
-	public String getModificarSucursalPage(Model model, @PathVariable(value = "id") int id) {
+	public String getModificarSucursalPage(Model model, @PathVariable(value = "id") Long id) {
 		Sucursal sucursalEncontrada = sucursalService.getBy(id);
 		boolean edicion = true;
 		model.addAttribute("sucursal", sucursalEncontrada);
+		model.addAttribute("provincias", provinciaService.getProvincias());
 		model.addAttribute("edicion", edicion);
 		return "nueva_sucursal";
 	}
@@ -77,7 +86,7 @@ public class SucursalController {
 	
 	//metodo que captura el valor por parametro del objeto que vamos a eliminar
 	@GetMapping("/eliminar/{id}")
-	public String eliminarSucursal(@PathVariable(value = "id") int id) {
+	public String eliminarSucursal(@PathVariable(value = "id") Long id) {
 		sucursalService.eliminar(sucursalService.getBy(id));
 		return "redirect:/sucursal/listado";
 	}

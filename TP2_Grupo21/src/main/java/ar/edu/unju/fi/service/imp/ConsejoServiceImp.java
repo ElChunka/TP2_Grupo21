@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ar.edu.unju.fi.entity.Consejo;
 import ar.edu.unju.fi.listas.ListaConsejo;
-import ar.edu.unju.fi.model.Consejo;
 import ar.edu.unju.fi.service.IConsejoService;
 
-@Service
+@Service("consejoServiceImp")
 public class ConsejoServiceImp implements IConsejoService{
 	@Autowired
 	private ListaConsejo listaConsejo; // Lista que almacena los consejos
@@ -49,10 +49,10 @@ public class ConsejoServiceImp implements IConsejoService{
 	}
 
 	@Override
-	public Consejo getBy(String titulo) {
+	public Consejo getBy(Long id) {
 		Consejo consejoBuscado = new Consejo(); // Consejo que se buscará
 		for (Consejo consj : listaConsejo.getConsejos()) {
-			if(consj.getTitulo().equals(titulo)) {
+			if(consj.getTitulo().equals(id)) {
 				consejoBuscado = consj; // Si se encuentra el consejo con el título especificado, se asigna a la variable consejoBuscado
 				break;
 			}
